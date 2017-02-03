@@ -8,11 +8,6 @@ use App\Http\Requests;
 
 class MainController extends Controller
 {
-    public function __construct()
-    {
-        // $this->middleware('ajax', ['only' => ['captcha']]);
-    }
-
     public function getContact()
     {
     	return view('main.contactus');
@@ -32,7 +27,7 @@ class MainController extends Controller
             'skype' => 'sometimes',
             'captcha_code' => 'required',
             ), $messages = [
-        		'theme.required' => '**The theme field is required.'
+        		'theme.required' => '**The theme field is required.',
                 'message.required' => '**The message field is required.',
                 'name.required' => '**The user name field is required.',
                 'status.required' => '**The status field is required.',
@@ -48,7 +43,8 @@ class MainController extends Controller
             $validator->getMessageBag()->add('captcha_code', 'Please renter the captcha !!');
         }
 
-        if ($validator->fails()) {        
+        if ($validator->fails()) 
+        {        
             return redirect('register')
                         ->withErrors($validator)
                         ->withInput();
@@ -57,6 +53,4 @@ class MainController extends Controller
 
 
     }
-
-
 }
