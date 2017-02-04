@@ -29,16 +29,22 @@
 		<div class="container-fluid" style="padding: 0;">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<ul class="list-inline">
+					<ul class="list-inline newnav">
 
 						<li>
-							<img src="http://placehold.it/61x40">
+							<img width="61" height="40" src="{{asset('icons/mmm.png')}}">
 						</li>
-						<li>
-							<a style="color: black;" href="{{url('/dashboard')}}"><button class="btn bttn"><img width="16" height="16" src="{{asset('icons/desktop.png')}}"> DASHBOARD</button></a>
+						<li class="{{Request::is('dashboard')? 'active' : ''}}">
+							<a style="color: black;" href="{{url('/dashboard')}}">
+								<button class="btn bttn">
+									<img width="16" height="16" src="{{asset('icons/desktop.png')}}"> 
+									DASHBOARD
+								</button>
+							</a>
 						</li>
 
-						<li>
+						<li class="{{Request::is('trustee') || 
+									  Request::is('referals') ? 'active' : ''}}">
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown">
 									<img width="16" height="16" src="{{asset('icons/groupicon.png')}}"> PARTICIPANTS
@@ -46,12 +52,12 @@
 								</button>
 								<ul class="dropdown-menu">
 									<li>
-										<a id="trustee" href="" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees "> 
+										<a id="trustee" href="{{url('/trustee')}}" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees "> 
 											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">TRUSTEE
 										</a>
 									</li>
 									<li>
-										<a id="referals" href="" title="You receive Referral Bonus for your referrals.">
+										<a id="referals" href="{{url('/referals')}}" title="You receive Referral Bonus for your referrals.">
 											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">REFERALS
 										</a>
 									</li>
@@ -59,7 +65,10 @@
 							</div>
 						</li>
 
-						<li>
+						<li class="{{Request::is('profile') || 
+									  Request::is('letter-of-happiness') ? 'active' : ''}}
+
+									">
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown"> 
 									<img width="16" height="16" src="{{asset('icons/user.png')}}"> 
@@ -82,7 +91,7 @@
 							</div>
 						</li>
 
-						<li>
+						<li class="{{Request::is('promo-tasks')? 'active' : ''}}">
 							<a href="{{ url('/promo-tasks') }}">
 								<button class="btn bttn"> 
 									<img width="16" height="16" src="{{asset('icons/promo.png')}}"> PROMO TASKS
@@ -90,11 +99,11 @@
 							</a>
 						</li>
 
-						<li>
+						<li class="{{Request::is('mavro')? 'active' : ''}}">
 							<button class="btn bttn"> MAVRO</button>
 						</li>
 
-						<li>
+						<li class="{{Request::is('accounts')? 'active' : ''}}">
 							<a href="{{ url('/accounts') }}">
 								<button class="btn bttn"> <img width="16" height="16" src="{{asset('icons/account.png')}}"> ACCOUNTS
 								</button>
@@ -111,7 +120,7 @@
 						</a>
 						</li>
 
-						<li class="pull-right">
+						<li class="pull-right {{Request::is('support')? 'active' : ''}}">
 							<a href="{{ url('/support') }}">
 								<button class="btn bttn"><img width="16" height="16" src="{{asset('icons/support.png')}}"> 
 									SUPPORT
@@ -119,7 +128,13 @@
 							</a>
 						</li>
 
-						<li class="pull-right">
+						<li class="pull-right
+									{{Request::is('news') || 
+									  Request::is('faq') || 
+									  Request::is('promotion-materials') || 
+									  Request::is('webnairs') ? 'active' : ''}}
+
+									">
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown"> 
 									<img width="16" height="16" src="{{asset('icons/information.png')}}"> Information
@@ -137,7 +152,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="{{url('/promotion')}}">
+											<a href="{{url('/promotion-materials')}}">
 												<img width="16" height="16" src="{{asset('icons/promotion.png')}}"> Promotion 
 											</a>
 										</li>
@@ -150,7 +165,7 @@
 							</div>
 						</li>
 
-						<li class="pull-right">
+						<li class="pull-right {{Request::is('notices')? 'active' : ''}}">
 							<a href="{{url('/notices')}}">
 								<button class="btn bttn">
 									<img width="16" height="16" src="{{asset('icons/inbox.png')}}">

@@ -39,3 +39,26 @@
 
 /* User Routes */
 	Route::get('dashboard', 'UserController@getDashboard');
+	Route::get('trustee', 'UserController@getTrustee');
+	Route::get('referals', 'UserController@getReferals');
+	Route::get('profile', 'UserController@getProfile');
+	Route::get('letter-of-happiness', 'UserController@getHappiness');
+	Route::get('promo-tasks', 'UserController@getPromo');
+	Route::get('accounts', 'UserController@getAccounts');
+	Route::get('provide-help', 'UserController@getProvideHelp');
+	Route::get('get-help', 'UserController@getGetHelp');
+	Route::get('notices', 'UserController@getNotices');
+	Route::get('news', 'UserController@getNews');
+	Route::get('faq', 'UserController@getFaq');
+	Route::get('promotion-materials', 'UserController@getPromotionMaterials');
+	Route::get('webnairs', 'UserController@getWebnair');
+	Route::get('support', 'UserController@getSupport');
+	Route::get('web-task-archive', 'UserController@getWebTask');
+	Route::get('instructions', 'UserController@getInstructions');
+
+
+
+
+
+	
+
