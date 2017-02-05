@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Account;
 
 class AccountController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,8 @@ class AccountController extends Controller
      */
     public function index()
     {
-        //
+        $accounts = Account::where('user_id', Auth::user()->id)->get();
+        return view('users.account.index')->withAccounts($accounts);
     }
 
     /**
@@ -26,7 +38,7 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.account.create');
     }
 
     /**
@@ -37,7 +49,25 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Account details
+        $this->validate($request,array(
+            'account_name' => 'required',
+            'account_currency' => 'required',
+            'account_number' => 'required',
+            'beneficiary_name' => 'required',
+        ));
+
+        $account = new Account;
+        $account->account_name = $request->account_name;
+        $account->account_currency = $request->account_currency;
+        $account->account_number = $request->account_number;
+        $account->beneficiary_name = $request->beneficiary_name;
+        $account->bank_name = 'Bitcoin';
+        $account->user_id = Auth::user()->id;
+        $account->save();
+
+        Session::flash('success', 'Account was successfully added');
+        return redirect()->route('users.account.show', $account->id);
     }
 
     /**
@@ -48,7 +78,8 @@ class AccountController extends Controller
      */
     public function show($id)
     {
-        //
+        $account = Account::find($id);
+        return view('users.account.show')->withAccount($account);
     }
 
     /**
@@ -59,7 +90,8 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $account = Account::find($id);
+        return view('users.account.edit')->withAccount($account);
     }
 
     /**
@@ -71,7 +103,27 @@ class AccountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $account = Account::find($id);
+
+        $this->validate($request,array(
+            'account_name' => 'required',
+            'account_currency' => 'required',
+            'account_number' => 'required',
+            'beneficiary_name' => 'required',
+            'account_number' => 'required',
+        ));
+
+        $account->account_id = 'A'.$id;
+        $account->account_name = $request->account_name;
+        $account->account_currency = $request->account_currency;
+        $account->account_number = $request->account_number;
+        $account->beneficiary_name = $request->beneficiary_name;
+        $account->bank_name = 'Bitcoin';
+        $account->user_id = Auth::user()->id;
+        $account->save();
+
+        Session::flash('success', 'Account updated successfully.');
+        return redirect()->route('users.account.show', $account->id);
     }
 
     /**
@@ -82,6 +134,9 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $account = Account::find($id);
+        $account->delete();
+        Session::flash('Success', 'Account deleted Successfully');
+        return redirect()->route('users.account.index');
     }
 }

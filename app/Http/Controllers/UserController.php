@@ -24,109 +24,109 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        return view('users.main.index');
     }
 
     // Route : dashboard
     public function getDashboard()
     {
-    	return view('users.dashboard');
+    	return view('users.main.dashboard');
     }
 
     // Route : trustee
     public function getTrustee()
     {
-    	return view('users.trustee');
+    	return view('users.main.trustee');
     }
 
     // Route : referals
     public function getReferals()
     {
-    	return view('users.referals');
+    	return view('users.main.referals');
     }
 
     // Route : profile
     public function getProfile()
     {
-    	return view('users.profile');
+    	return view('users.main.profile');
     }
 
     // Route : letter-of-happiness
     public function getHappiness()
     {
-    	return view('users.happiness');
+    	return view('users.main.happiness');
     }
 
     // Route : promo-tasks
     public function getPromo()
     {
-        return view('users.promo');
+        return view('users.main.promo');
     }
 
      // Route : accounts
     public function getAccounts()
     {
-        return view('users.accounts');
+        return view('users.main.accounts');
     }
 
      // Route : provide-help
     public function getProvideHelp()
     {
-        return view('users.providehelp');
+        return view('users.main.providehelp');
     }
 
     // Route : get-help
     public function getGetHelp()
     {
-        return view('users.gethelp');
+        return view('users.main.gethelp');
     }
 
      // Route : notices
     public function getNotices()
     {
-        return view('users.notices');
+        return view('users.main.notices');
     }
 
      // Route : news
     public function getNews()
     {
-        return view('users.news');
+        return view('users.main.news');
     }
 
      // Route : faq
     public function getFaq()
     {
-        return view('users.faq');
+        return view('users.main.faq');
     }
 
      // Route : promotion-materials
     public function getPromotionMaterials()
     {
-        return view('users.promotionmaterials');
+        return view('users.main.promotionmaterials');
     }
 
      // Route : webnair
     public function getWebnair()
     {
-        return view('users.webnair');
+        return view('users.main.webnair');
     }
 
      // Route : support
     public function getSupport()
     {
-        return view('users.support');
+        return view('users.main.support');
     }
 
      // Route : web-task-archive
     public function getWebTask()
     {
-        return view('users.webtask');
+        return view('users.main.webtask');
     }
 
      // Route : instructions
     public function getInstructions()
     {
-        return view('users.instructions');
+        return view('users.main.instructions');
     }
 
 

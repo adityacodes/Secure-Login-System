@@ -57,6 +57,9 @@
 	Route::get('instructions', 'UserController@getInstructions');
 
 
+	Route::resource('users.account', 'User\AccountController');
+
+
 
 
 
