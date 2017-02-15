@@ -18,6 +18,7 @@ class CreateAssignmentsTable extends Migration
             $table->boolean('as_status');
             $table->string('as_amount');
             $table->integer('user_id'); // Refreneces user ID
+            $table->string('as_message');
             $table->string('setting_selected');
             $table->timestamps();
         });
