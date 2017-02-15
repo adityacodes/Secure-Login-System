@@ -18,7 +18,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments = Assignment::orderBy('id', 'desc')->paginate(5);
+        $assignments = Assignment::orderBy('id', 'desc')->paginate(20);
         return view('users.assignment.index')->withAssignments($assignments);
     }
 
@@ -46,7 +46,7 @@ class AssignmentController extends Controller
             ));
 
        $assignment = new Assignment;
-       $assignment->as_id = strtotime('today');
+       $assignment->as_id = strtotime('now');
        $assignment->as_status = 1;
        $assignment->as_amount = $request->amount;
        $assignment->user_id = Auth::user()->id;
