@@ -19,8 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile');
             $table->string('helpsprovided')->default(0);
             $table->string('helpsaccepted')->default(0);
-            $table->string('referfriend')->unique();
-            $table->string('referalid')->nullable();
+            $table->integer('re_id');
             $table->string('password');
             $table->boolean('admin')->default(0);
             $table->rememberToken();

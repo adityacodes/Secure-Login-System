@@ -1,5 +1,5 @@
 <?php
-
+ 
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'ADITYA PADHI',
             'mobile' => '7381110897',
-            'referfriend' => 'aditya7381',
+            're_id' => 1,
             'email' => 'adityapadhi1996@gmail.com',
             'password' => bcrypt('Aditya'),
             'admin' => '1',

@@ -1,11 +1,12 @@
 @extends('layouts.user')
 
+@section('title', 'CREATE ACCOUNT')
 
 @section('content')
-
+<div class="panel-body">
 
 	<div class="container">
-		<form action="{{ route('users.account.store') }}" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('users.account.store') }}" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 				{{ csrf_field() }}
 
                 <div class="form-group{{ $errors->has('account_name') ? ' has-error' : '' }}">
@@ -14,9 +15,9 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-info fa-fw"></i>
+                                <i class="fa fa-user fa-fw"></i>
                             </span>
-                                <input id="account_name" type="text" class="form-control" name="account_name" value="{{ old('account_name') }}">
+                                <input id="account_name" title="Name this account as you like." type="text" class="form-control" name="account_name" value="{{ old('account_name') }}">
                         </div>
 
                         @if ($errors->has('account_name'))
@@ -33,9 +34,11 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="fa fa-info fa-fw"></i>
+                                <i class="fa fa-money fa-fw"></i>
                             </span>
-                                <input id="account_currency" type="text" class="form-control" name="name" value="{{ old('account_currency') }}">
+                            	<select id="account_currency" type="text" class="form-control" name="account_currency" >
+                            		<option value="BTC">BTC</option>
+                            	</select>
                         </div>
 
                         @if ($errors->has('account_currency'))
@@ -85,14 +88,14 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('bank_name') ? ' has-error' : '' }}">
-                    <label for="bank_name" class="col-md-4 control-label">Beneficiary Name</label>
+                    <label for="bank_name" class="col-md-4 control-label">Bank Name</label>
 
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="fa fa-info fa-fw"></i>
                             </span>
-                                <input id="bank_name" type="text" class="form-control" name="bank_name" value="{{ old('bank_name') }}">
+                                <input id="bank_name" type="text" class="form-control" disabled="true" name="bank_name" value="Bitcoin">
                         </div>
 
                         @if ($errors->has('bank_name'))
@@ -102,10 +105,26 @@
                         @endif
                     </div>
                 </div>
+
+                <h4 class="text-center bold">
+			ATTENTION! You are only allowed to add the details of your own bank account or your own bitcoin wallet. Otherwise you will be penalized. Multiple accounts with the same bank account are strictly prohibited. Please read the RECOMMENDATIONS for more information.
+		</h4>
+
+                <div class="form-group">
+                    	<button type="button" class="btn btttn">
+                            <i class="fa fa-btn fa-times"></i> CANCEL
+                        </button>
+                        <button type="submit" class="btn btttn">
+                            <img width="16" height="16" src="{{asset('icons/tick.png')}}">  SAVE
+                        </button>
+                </div>
 		</form>
+
+
+		
 
 
 	</div>
 
-
+</div>
 @endsection

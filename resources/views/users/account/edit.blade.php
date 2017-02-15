@@ -1,9 +1,10 @@
 @extends('layouts.user')
 
+@section('title', 'EDIT ACCOUNT')
 
 @section('content')
 
-
+<div class="panel-body">
 	<div class="container">
 		<form action="{{ route('users.account.store') }}" class="form-horizontal" autocomplete="off" enctype="multipart/form-data">
 				{{ csrf_field() }}
@@ -102,10 +103,19 @@
                         @endif
                     </div>
                 </div>
+
+                <div class="form-group">
+                        <a href="{{route('users.account.index')}}"><button type="button" class="btn btttn">
+                            <i class="fa fa-btn fa-times"></i> CANCEL
+                        </button></a>
+                        <button type="submit" class="btn btttn">
+                            <img width="16" height="16" src="{{asset('icons/tick.png')}}">  SAVE
+                        </button>
+                </div>
 		</form>
 
 
 	</div>
 
-
+</div>
 @endsection

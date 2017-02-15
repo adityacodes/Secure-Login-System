@@ -14,15 +14,15 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('account_id')->nullable();
-            $table->string('account_name');
-            $table->string('account_currency');
+            $table->string('ac_id')->nullable()->unique();
+            $table->string('ac_name');
+            $table->string('ac_currency');
             $table->string('bank_name'); // Automatic Bitcoin
-            $table->string('account_type'); //Bitcoin or something else (if any)
-            $table->string('account_number');
-            $table->string('account_holder')->nullable();
+            $table->string('ac_type'); //Bitcoin or something else (if any)
+            $table->string('ac_number');
+            $table->string('ac_holder')->nullable();
             $table->string('beneficiary_name');
-            $table->integer('user_id');
+            $table->integer('user_id'); //References User table
             $table->timestamps();
         });
     }

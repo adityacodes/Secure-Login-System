@@ -1,1 +1,1 @@
-@extends('layouts.user')
+hello this is a provide help page.

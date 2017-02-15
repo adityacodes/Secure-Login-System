@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Account;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class AccountController extends Controller
 {
@@ -67,7 +69,7 @@ class AccountController extends Controller
         $account->save();
 
         Session::flash('success', 'Account was successfully added');
-        return redirect()->route('users.account.show', $account->id);
+        return redirect()->route('users.account.index');
     }
 
     /**

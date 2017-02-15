@@ -45,8 +45,10 @@
 	Route::get('letter-of-happiness', 'UserController@getHappiness');
 	Route::get('promo-tasks', 'UserController@getPromo');
 	Route::get('accounts', 'UserController@getAccounts');
-	Route::get('provide-help', 'UserController@getProvideHelp');
-	Route::get('get-help', 'UserController@getGetHelp');
+
+	Route::get('user/provide-help', 'UserController@getProvideHelp');
+	Route::get('user/get-help', 'UserController@getGetHelp');
+
 	Route::get('notices', 'UserController@getNotices');
 	Route::get('news', 'UserController@getNews');
 	Route::get('faq', 'UserController@getFaq');
@@ -57,7 +59,8 @@
 	Route::get('instructions', 'UserController@getInstructions');
 
 
-	Route::resource('users.account', 'User\AccountController');
+	Route::resource('users/account', 'User\AccountController');
+	Route::resource('users/assignment', 'User\AssignmentController');
 
 
 
