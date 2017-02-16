@@ -43,7 +43,9 @@
 		'uses' => 'UserController@getDashboard'));
 	Route::get('trustee', 'UserController@getTrustee');
 	Route::get('referals', 'UserController@getReferals');
+
 	Route::get('profile', 'UserController@getProfile');
+	
 	Route::get('letter-of-happiness', 'UserController@getHappiness');
 	Route::get('promo-tasks', 'UserController@getPromo');
 	Route::get('accounts', 'UserController@getAccounts');

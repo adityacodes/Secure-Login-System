@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Reference;
+use Auth, Session;
 
 class UserController extends Controller
 {
@@ -30,6 +32,8 @@ class UserController extends Controller
     // Route : dashboard
     public function getDashboard()
     {
+        $references = Reference::where('ref_id', Auth::user()->re_id)->pluck('user_id');
+
     	return view('users.main.dashboard');
     }
 

@@ -2,7 +2,7 @@
 
 	<div class="col-md-8">
 	  
-	   <div class="navbar">
+	   <div class="navbar hidden">
 	      <div class="navbar-inner">
 	            <ul class="nav nav-pills">
 	               <li class="active"><a href="#step1" data-toggle="tab" data-step="1">Step 1</a></li>

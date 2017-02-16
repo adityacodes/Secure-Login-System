@@ -21,6 +21,8 @@ class CreateOrdersTable extends Migration
             $table->string('or_screenshot_admin');
             $table->string('or_screenshot_request');
             $table->integer('or_status'); //References status
+            $table->integer('or_to');
+            $table->integer('or_for');
             $table->timestamps();
         });
     }
