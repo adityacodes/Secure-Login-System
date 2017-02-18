@@ -12,6 +12,69 @@
 		text-decoration: none;
 	}
 	.modal-dialog{overflow:visible;min-height:100%!important;}
+	input[type=checkbox]
+	{
+		height: 20px;
+	}
+
+	.panel-new{
+		font-weight: bold;
+		font-size: 14px;
+		border-radius: 8px;
+		border: 1px solid black;
+	    background: rgb(251,202,67);
+	    background: -moz-linear-gradient(top,
+	    	rgba(252,234,187,1) 0%,
+	    	rgba(252,205,77,1) 46%,
+	    	rgba(248,181,0,1) 50%
+	    );
+	    background: -webkit-gradient(linear,left top,left bottom,
+	    	color-stop(0%,rgba(252,234,187,1)),
+	    	color-stop(46%,rgba(252,205,77,1)),
+	    	color-stop(50%,rgba(248,181,0,1))
+	    );
+	    background: -webkit-linear-gradient(top,
+	    	rgba(252,234,187,1) 0%,
+	    	rgba(252,205,77,1) 46%,
+	    	rgba(248,181,0,1) 50%);
+	    background: -o-linear-gradient(top,
+	    	rgba(252,234,187,1) 0%,
+	    	rgba(252,205,77,1) 46%,
+	    	rgba(248,181,0,1) 50%);
+	    background: -ms-linear-gradient(top,
+	    	rgba(252,234,187,1) 0%,
+	    	rgba(252,205,77,1) 46%,
+	    	rgba(248,181,0,1) 50%);
+	    background: linear-gradient(to bottom,
+	    	rgba(252,234,187,1) 0%,
+	    	rgba(252,205,77,1) 46%,
+	    	rgba(248,181,0,1) 50%);
+	}
+	h5, h6{
+		font-weight: bold;
+	}
+
+	.arrg_out, .arrg_rout {
+		overflow: hidden;
+        border-radius: 16px;
+        -moz-border-radius: 16px;
+        -webkit-border-radius: 16px;
+        border: 1px solid #949494;
+        -moz-box-shadow: 0px 1px 3px rgba(153,070,153,0.5),inset 0px 0px 2px rgba(255,255,255,1);
+        -webkit-box-shadow: 0px 1px 3px rgba(153,070,153,0.5),inset 0px 0px 2px rgba(255,255,255,1);
+        text-shadow: 0px -1px 0px rgba(000,000,000,0.2),0px 1px 0px rgba(255,255,255,1);
+
+        background: #f9f1db;
+        background: -moz-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
+        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f9f1db),color-stop(100%,#f9ca52));
+        background: -webkit-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
+        background: -o-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
+        background: -ms-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
+        background: linear-gradient(to bottom,#f9f1db 0%,#f9ca52 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f1db',endColorstr='#f9ca52',GradientType=0);
+    }
+
+	
 	</style>
 
 
@@ -71,7 +134,48 @@
 
 		<div class="row">
 			<div class="col-md-8">
-				ORDERS WILL BE PULLED HERE
+
+
+					<div class="blog-main ">
+			            <div class="panel-default"	>
+			                <div class="panel-body arrg_out">
+			                    <div class="row">
+			                        <div class="col-sm-1">
+
+			                        </div>
+			                        <div class="col-sm-9">
+			                            <h5>You confirmed funds reception (Request for help Z1487236390)</h5>
+			                        </div>
+			                        <div class="col-sm-2">
+			                            <p><a class="btn btn-default btn-xs" href="#" role="button">Messages:0/0</a></p>
+			                        </div>
+			                    </div>
+			                    <div class="row">
+			                        <div class="col-sm-2"><i style="font-size: 50px; color:forestgreen" class="fa fa-check-circle" aria-hidden="true"></i></div>
+			                        <div class="col-sm-2"><h5>Date of creation:<br>2016-12-13</h5>
+			                        </div>
+			                        <div class="col-sm-2"><h5>Great Tobin ><br>Bitcoin</h5>
+			                        </div>
+			                        <div class="col-sm-2"><h5><span style="color: blue;">20 USD</span></h5>
+			                        </div>
+			                        <div class="col-sm-3"><h5>> {{Auth::user()->name }}<br>Bitcoin</h5>
+			                        </div>
+			                        <div class="col-sm-1"><i class="fa fa-print" style="font-size: 50px; color:blue;" aria-hidden="true"></i></div>
+			                    </div>
+			                    <div class="row">
+			                        <div class="col-sm-10">
+			                            <h5>Number:<br><strong>R798559583</strong></h5>
+			                        </div>
+			                        <div class="col-sm-2">
+			                        	<br>
+			                        	<p><a class="btn btn-default btn-xs" href="#" role="button">Details>></a></p>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+
+
 			</div>
 			<div class="col-md-4" id="assignments">
 				
@@ -126,72 +230,23 @@
 	    });
 
 	    $("#get_help").click(function(){
-			$.ajax({
-				url: '{{ url('users/assignment/create') }}',
-				type: 'GET',
-				success: function(result){
-						$('.fa-spin').remove();
-						$(".modal-body  p").empty().append(result + "<div class='çlearfix'></div>");
-    					$("#myModal").modal();
-    				}
-			});
+				$('.fa-spin').remove();
+				$("#myModal").modal('show', {backdrop: 'static'});
+				$("#myModal .modal-body p").load('{{ url('users/assignment/create') }}');
 	        
 	    });
 
-	    var current = 1;
-	
-		widget      = $(".step");
-		btnnext     = $(".next");
-		btnback     = $(".back"); 
-		btnsubmit   = $(".submit");
-	 
-		// Init buttons and UI
-		widget.not(':eq(0)').hide();
-		hideButtons(current);
-		setProgress(current);
-	 
-		// Next button click action
-		btnnext.click(function(){
-			if(current < widget.length){ 			
-	                   widget.show(); 			
-	                   widget.not(':eq('+(current++)+')').hide();
-	  		   setProgress(current); 
-		       } 		
-	               hideButtons(current); 	
-	       }); 	
-	       // Back button click action 	
-	       btnback.click(function(){ 		
-	                if(current > 1){
-					current = current - 2;
-					btnnext.trigger('click');
-				}
-				hideButtons(current);
-			});
-
-	    
+	    var tooltips = $( "[title]" ).tooltip({
+	      position: {
+	        my: "left top",
+	        at: "right+5 top-5",
+	        collision: "none"
+	      }
+	    });
 	});
 	$("#assignments").load('{{ url('users/assignment') }}');
 
-		
-	 
-	// Change progress bar action
-	setProgress = function(currstep){
-		var percent = parseFloat(100 / widget.length) * currstep;
-		percent = percent.toFixed();
-		$(".progress-bar")
-	        .css("width",percent+"%")
-	        .html(percent+"%");		
-	}
-	 
-	// Hide buttons according to the current step
-	hideButtons = function(current){
-		var limit = parseInt(widget.length); 
-	 
-		$(".action").hide();
-	 
-		if(current < limit) btnnext.show(); 	if(current > 1) btnback.show();
-		if (current == limit) { btnnext.hide(); btnsubmit.show(); }
-	}
+
 </script>
 
 
