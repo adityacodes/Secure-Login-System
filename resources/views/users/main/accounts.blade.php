@@ -17,7 +17,7 @@
         <a href="#" class="btn btn-danger opener" id="opener"><i class="glyphicon glyphicon-align-justify"></i></a>
         <div id="panels" class="panel panel-default panel2">
             <div class="ph panel-body ">
-                <h5>Account <a href="javascript:void(0);" class="slider-arrow hide"><i class="fa fa-angle-double-right fa-lg raquo" aria-hidden="true"></i></a></h5>
+                <h5>Account </h5>
 
             </div>
             <div class="panel-body">
@@ -77,8 +77,7 @@
 
 
 
-
-</div>
+    </div>
 
 @endsection
 
