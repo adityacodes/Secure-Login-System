@@ -113,10 +113,12 @@
 <script type="text/javascript">
 
 
-    $(window).load(function() {
+    /*$(window).load(function() {
         $(".loader").delay( 2000 ).fadeOut("slow");
         $(":input").delay( 2000 ).prop( "disabled", false );
-    });
+    });*/
+
+    $('.loader').fadeOut('slow');
     
     $('#app-layout').css("background-color", "#F2E5D2"); 
 
