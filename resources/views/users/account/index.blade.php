@@ -1,86 +1,106 @@
 @extends('layouts.user')
 
-@section('title', 'Personal accounts')
+
+@section('title', 'My Profile')
 
 @section('stylesheets')
-<style type="text/css">
-	.black-header{
-		background-color: #9A9484;
-		color: white;
-		font-weight: bold;
-		margin: 0;
-		padding: 10px;
-	}
-	.lightgrey-header{
-		padding: 2px;
-		background-color: #EFEFEF;
-	}
 
-</style>
+
 
 
 
 @endsection
 
+
 @section('content')
-<div class="panel-body" style="padding: 0;">
-	<div class="black-header">Personal Accounts</div>
-	<div class="lightgrey-header"> 
-			<a href="{{ route('users.account.create')}}">
-                <button class="btn btn-md btttn">
-                    <h5><i class="fa fa-plus" aria-hidden="true"></i>
-                    Add</h5>
-                </button>
-            </a>
+    <div id="slide-panel">
+        <a href="#" class="btn btn-danger opener" id="opener"><i class="glyphicon glyphicon-align-justify"></i></a>
+        <div id="panels" class="panel panel-default panel2">
+            <div class="ph panel-body ">
+                <h5>Account <a href="javascript:void(0);" class="slider-arrow hide"><i class="fa fa-angle-double-right fa-lg raquo" aria-hidden="true"></i></a></h5>
 
-	</div>
-	<table class="table table-hover">
-	    <thead>
-	      <tr>
-	        <th>ACCOUNT ID</th>
-	        <th>ACCOUNT NAME</th>
-	        <th>CURRENCY CODE</th>
-	        <th>BANK</th>
-	        <th>ACCOUNT NUMBER</th>
-	        <th>ACCOUNT HOLDER</th>
-	        <th>DETAILS</th>
-	        <th>ACTIONS</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	    	@foreach($accounts as $account)
-		      <tr>
-		        <td>{{$account->account_id}}</td>
-		        <td>{{$account->account_name}}</td>
-		        <td>{{$account->account_currency}}</td>
-		        <td>{{$account->bank_name}}</td>
-		        <td>{{$account->account_number}}</td>
-		        <td>{{$account->account_holder}}</td>
-		        <td>{{$account->beneficiary_name}}</td>
-		        <td class="actions">
-		                    
-		        	<form class="form-inline" method="DELETE" action="{{route('users.account.destroy', $account->id)}}"  >
-		                    <a href="{{ route('users.account.edit', $account->id) }}">
-		                        <button type="button" class="btn btttn">
-		                            <i class="fa fa-pencil" aria-hidden="true"></i>
-		                            Edit
-		                        </button>
-		                    </a>
-                    		{{ csrf_field() }}
-                    		<button class="btn btttn">
-	                            <i class="fa fa-times" aria-hidden="true"></i>
-	                            Delete
-	                        </button>
-                    </form>
-		        </td>
-		      </tr>
-		    @endforeach
+            </div>
+            <div class="panel-body">
+                <p>Enter your Bitcoin address</p>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="Input">Bitcoin Address:</label>
+                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Bitcoin Address">
+                    </div>
+                </form><br>
+                <button type="button" class="btn btn-warning" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-check fa-lg" aria-hidden="true"></i> Save</button>
+                <button type="button" class="btn btn-warning" aria-haspopup="true" aria-expanded="false"><i style="color:red" class="fa fa-times fa-lg" aria-hidden="true"></i> Cancel</button>
 
-	    </tbody>
-  	</table>
-	
+            </div>
+        </div>
+    </div>
+    <article id="content">
+        <div class="panel panel-default panel1">
+            <div class="panel-body ph">
+                <h5>Accounts</h5>
+            </div>
+            <div class="panel-footer">
+                <button type="button" id="add" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-plus fa-lg" aria-hidden="true"></i> Add</button>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="warning">  </td>
+                        <td class="warning">ID</td>
+                        <td class="warning">First Name</td>
+                        <td class="warning">Currency Code</td>
+                        <td class="warning">Bank</td>
+                        <td class="warning">Card/Account Number </td>
+                        <td class="warning">Details</td>
+                        <td class="warning">Action</td>
+
+                    </tr>
+                    <tr>
+                        <td class="warning">1</td>
+                        <td class="warning">121920</td>
+                        <td class="warning">Cummins</td>
+                        <td class="warning">Mavro-USD</td>
+                        <td class="warning">Bitcoin</td>
+                        <td class="warning">1FDUS7Kexwpj2QVCd1ibyUQ3HsZWy</td>
+                        <td class="warning">BTC</td>
+                        <td class="warning">
+                            <button type="button" id="edit" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-pencil fa-lg" aria-hidden="true"></i> Edit</button>
+                            <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</button></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </article>
+
+
+
+
+
 
 
 </div>
+
+@endsection
+
+
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $('#opener,#add,#edit').click(function() {
+            var panel = $('#slide-panel');
+            if (panel.hasClass("visible")) {
+                panel.removeClass('visible').animate({'margin-left':'-500px'});
+                $('#content').css({'margin-right':'0px'});
+            } else {panel.addClass('visible').animate({'margin-left':'0px'});
+                $('#content').css({'margin-right':'-500px'});
+            }
+            return false;
+        });
+    });
+</script>
+
+
+
 
 @endsection
