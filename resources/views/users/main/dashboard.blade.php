@@ -235,14 +235,6 @@
 				$("#myModal .modal-body p").load('{{ url('users/assignment/create') }}');
 	        
 	    });
-
-	    var tooltips = $( "[title]" ).tooltip({
-	      position: {
-	        my: "left top",
-	        at: "right+5 top-5",
-	        collision: "none"
-	      }
-	    });
 	});
 	$("#assignments").load('{{ url('users/assignment') }}');
 
