@@ -6,9 +6,8 @@ use Input, Validator, Redirect, Session;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests, Response;
+use App\Http\Requests, Response, Mail;
 
-use App\Classes\phptextClass;
 
 class RegistrationController extends Controller
 {
@@ -26,7 +25,7 @@ class RegistrationController extends Controller
             'mobile' => 'bail|required',
             'password' => 'required|confirmed|min:6',
             'referal' => 'sometimes|integer',
-            'captcha_code' => 'required',
+            'captcha_code' => 'required|valid_captcha',
             'toa' => 'required',
             ), $messages = [
                 'name.required' => '**The user name field is required.',
@@ -35,16 +34,9 @@ class RegistrationController extends Controller
                 'unique' => '*Your email id already exists. Please login to continue.',
                 'mobile.required' => '**The mobile number field is required.',
                 'captcha_code.required' => '**The Captcha field is required.',
+                'captcha_code.valid_captcha' => '**Wrong Captcha! Please reenter the captcha!.',
                 'toa.required' => '**You must agree to the terms of service before use..',
         ]);
-
-        if(captcha_validate($request->captcha_code))
-        {
-            $validator->getMessageBag()->add('captcha_code', 'Please renter the captcha !!');
-            return redirect('register')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
 
         if ($validator->fails()) {
             
@@ -66,6 +58,7 @@ class RegistrationController extends Controller
         ]);
         
         Mail::send('email.verify', [
+            'name' => $request->name,
             'confirmation_code' => $confirmation_code
         ], function($message) use ($request) {
             $message->from('admin@mmm-union.org', 'MMM UNION');
@@ -73,15 +66,7 @@ class RegistrationController extends Controller
         });
         Session::flash('success', 'A verification link has been sent to your email. Please verify to login.');
         
-        return redirect()->to('login');   
-    }
-
-    public function captcha()
-    {
-        // Response::header('Content-type', '');
-        $phptextObj = new phptextClass();
-        echo response('<img width="120" id="captchaimg" height="40" src="data:image/png;base64,'.base64_encode($phptextObj->phpcaptcha("#162453","#fff",120,40,10,25)).'" />', 200)->header('Content-Type', 'image/jpeg');
-
+        return redirect('/');   
     }
 
     public function confirm($confirmation_code)
@@ -104,7 +89,7 @@ class RegistrationController extends Controller
 
         Session::flash('success', 'You have been successfully verified! Please login to continue');
 
-        return Redirect::to('login');
+        return Redirect::to('/');
     }
 
 }

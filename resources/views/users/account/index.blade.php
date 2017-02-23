@@ -55,16 +55,24 @@
 
                     </tr>
                     <tr>
-                        <td class="warning">1</td>
-                        <td class="warning">121920</td>
-                        <td class="warning">Cummins</td>
+                    {{--*/ $i=1 /*--}}
+                    @foreach($accounts as $account)
+                        <td class="warning">{{$i}}</td>
+                        <td class="warning">{{ $account->ac_id }}</td>
+                        <td class="warning">{{ Auth::user()->id }}</td>
                         <td class="warning">Mavro-USD</td>
                         <td class="warning">Bitcoin</td>
-                        <td class="warning">1FDUS7Kexwpj2QVCd1ibyUQ3HsZWy</td>
+                        {{-- ac_currency
+                                bank_name
+                                ac_number --}}
+                        <td class="warning"></td>
                         <td class="warning">BTC</td>
                         <td class="warning">
                             <button type="button" id="edit" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-pencil fa-lg" aria-hidden="true"></i> Edit</button>
-                            <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</button></td>
+                            <button type="button" class="btn btn-default" aria-haspopup="true" aria-expanded="false"><i style="color:green" class="fa fa-trash-o fa-lg" aria-hidden="true"></i> Delete</button>
+                        </td>
+                        {{$i++}}{{--*/ $i++ /*--}}
+                    @endforeach
                     </tr>
                 </table>
             </div>
