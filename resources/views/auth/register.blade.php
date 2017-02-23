@@ -195,7 +195,7 @@
                         // var obj = window.JSON.stringify(result)
                         // $("#captchaimg").attr('src', '' + obj.imgsrc);
 
-                        $("#captchaimg").html(result.slice(67));
+                        $("#captchaimg").html(result.substr(result.indexOf('<img'), 20000000));
                         console.log(result);
                     }
             });
