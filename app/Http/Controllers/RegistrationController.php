@@ -25,7 +25,7 @@ class RegistrationController extends Controller
             'email' => 'bail|required|email|max:255|unique:users',
             'mobile' => 'bail|required',
             'password' => 'required|confirmed|min:6',
-            'referal' => 'sometimes|exists:users,referfriend',
+            'referal' => 'sometimes|integer',
             'captcha_code' => 'required',
             'toa' => 'required',
             ), $messages = [
@@ -54,17 +54,26 @@ class RegistrationController extends Controller
         }
         
         //Referal-id of the person referred to is a string and not a number
+        $confirmation_code = substr(md5(($request->name).'aditya') , 0, 10);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
-            'referalid' => $request->referal,
+            're_id' => $request->referal,
+            'confirmation_code' => $confirmation_code,
             'password' => bcrypt($request->password),
         ]);
         
+        Mail::send('email.verify', [
+            'confirmation_code' => $confirmation_code
+        ], function($message) use ($request) {
+            $message->from('admin@mmm-union.org', 'MMM UNION');
+            $message->to($request->email, $request->name)->subject('Verification Link');
+        });
+        Session::flash('success', 'A verification link has been sent to your email. Please verify to login.');
         
-        
-        return redirect()->to('register');   
+        return redirect()->to('login');   
     }
 
     public function captcha()
@@ -73,6 +82,29 @@ class RegistrationController extends Controller
         $phptextObj = new phptextClass();
         echo response('<img width="120" id="captchaimg" height="40" src="data:image/png;base64,'.base64_encode($phptextObj->phpcaptcha("#162453","#fff",120,40,10,25)).'" />', 200)->header('Content-Type', 'image/jpeg');
 
+    }
+
+    public function confirm($confirmation_code)
+    {
+        if(!$confirmation_code)
+        {
+            return redirect()->route('user.dashboard');
+        }
+
+        $user = User::where('confirmation_code', $confirmation_code)->first();
+
+        if (!$user)
+        {
+            Session::flash('warning', 'Confirmation token seems to be invalid. Please check the !');
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+
+        Session::flash('success', 'You have been successfully verified! Please login to continue');
+
+        return Redirect::to('login');
     }
 
 }

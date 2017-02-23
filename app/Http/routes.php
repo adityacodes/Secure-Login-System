@@ -24,6 +24,7 @@
 	// Registration routes...
 	Route::get('register', 'Auth\AuthController@showRegistrationForm');
 	Route::post('register', 'RegistrationController@postRegister');
+	Route::get('register/verify/{confirmationCode}', 'RegistrationController@confirm');
 
 	Route::put('captcha','RegistrationController@captcha');
 

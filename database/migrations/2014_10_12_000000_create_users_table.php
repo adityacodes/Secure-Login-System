@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('helpsaccepted')->default(0);
             $table->integer('re_id');
             $table->string('password');
+            $table->boolean('confirmed')->default(0);
+            $table->string('confirmation_code')->nullable();
             $table->boolean('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
