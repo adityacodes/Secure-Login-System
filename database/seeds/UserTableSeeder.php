@@ -18,6 +18,7 @@ class UserTableSeeder extends Seeder
             'email' => 'adityapadhi1996@gmail.com',
             'password' => bcrypt('Aditya'),
             'admin' => '1',
+            'confirmed' => '1'
         ]);
         DB::table('users')->insert([
             'name' => 'SID',
@@ -25,7 +26,8 @@ class UserTableSeeder extends Seeder
             're_id' => 2,
             'email' => 'siddharthdas8@gmail.com',
             'password' => bcrypt('siddas'),
-            'admin' => '2',
+            'admin' => '1',
+            'confirmed' => '1'
         ]);
     }
 }
