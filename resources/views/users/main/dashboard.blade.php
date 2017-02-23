@@ -73,7 +73,25 @@
         background: linear-gradient(to bottom,#f9f1db 0%,#f9ca52 100%);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f1db',endColorstr='#f9ca52',GradientType=0);
     }
-
+	.modal-header{
+		background-color: #A19988 ;
+		color: white;
+		font-size: medium;
+		font-style: inherit;
+	}
+	.modal-footer{
+		background-color: #EFEFEF ;
+	}
+	.modal-body{
+		background-color: #FEEEBD ;
+	}
+	.modal-header .close{
+		background-color: #FFFF00;
+		border-radius: 10px;
+	}
+		.modal-content{
+			border: 8px solid #A19988;
+		}
 	
 	</style>
 
@@ -193,7 +211,8 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal"><i style="color:black" class="fa fa-times " aria-hidden="true"></i>
+		  </button>
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
@@ -201,7 +220,8 @@
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" style="background-color:#FFDD57" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times fa-lg" style="color:red" aria-hidden="true"></i>
+			  Close</button>
         </div>
       </div>
     </div>
