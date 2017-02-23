@@ -129,7 +129,7 @@
                                 </small>
                             </label>
                             <div class="col-md-4">
-                                <img width="120" height="40" src="" id='captchaimg'>
+                                <img width="120" id="captchaimg" height="40" src="">
                             </div>
 
                             <div class="col-md-6">
@@ -190,8 +190,8 @@
                 type: 'PUT',
                 data: "_token=" + token,
                 success: function(result){
-                        $("#captchaimg").attr('src', "data:image/gif;base64," + result);
-                        // console.log(result);
+                        $("#captchaimg").attr('src', 'data:image/jpeg;base64,' +result);
+                        console.log(result);
                     }
             });
         }

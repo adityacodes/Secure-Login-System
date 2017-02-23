@@ -71,9 +71,9 @@ class RegistrationController extends Controller
     public function captcha()
     {
         $phptextObj = new phptextClass();
-        $imgsrc = base64_encode($phptextObj->phpcaptcha('#162453','#fff',120,40,10,25));
+        header( "Content-type: image/jpeg" );
+        echo base64_encode($phptextObj->phpcaptcha("#162453","#fff",120,40,10,25));
 
-        echo $imgsrc;
     }
 
 }
