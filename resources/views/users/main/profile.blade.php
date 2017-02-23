@@ -4,6 +4,18 @@
 
 @section('stylesheets')
 
+<style>
+    .ph1{
+        -webkit-transition: ease-in-out; /* Safari */
+        /* Safari*/
+        transition: ease-in-out;
+     }
+    .border{
+        border-width: 2px;
+        border-color: #2b2b2b;
+    }
+
+</style>
 
 
 
@@ -14,16 +26,16 @@
     <div id="slide-panel">
         <a href="#" class="btn btn-danger opener" id="opener"><i class="glyphicon glyphicon-align-justify"></i></a>
         <div id="panels" class="panel panel-default panel2">
-            <div class="ph panel-body ">
+            <div class="ph border panel-body ">
                 <h5>Personal settings </h5>
 
             </div>
             <div class="panel-body">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Setting
+                <div class="panel panel-default " >
+                    <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demo">
+                        Settings
                     </div>
-                    <div class="panel-body">
+                    <div id="demo" class="panel-footer">
                         <table class="table table-hover table-bordered">
                             <tr>
                                 <td>
@@ -96,14 +108,14 @@
                         </table>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
+                <div class="panel panel-default" >
+                    <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demor">
                         Referrer
                     </div>
-                    <div class="panel-body">
+                    <div id="demor" class="panel-footer">
 
                         <p>My saved referal
-                            koyamatakahiro@yahoo.com</p>
+                            koyamatakahiro@yahoo.com</p><br><br><br>
 
                         <a href="#">Show my referral link</a>
 
@@ -131,7 +143,7 @@
                                                 First Name
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name">superuser</a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -139,7 +151,7 @@
                                                 Last Name
                                             </td>
                                             <td>
-                                                FirstName
+                                                superuser</a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -179,7 +191,7 @@
                                                 Registration Details
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" id="dt" data-type="datetimepicker" data-pk="1" data-url="/post" data-title="Enter username"></a>
                                             </td>
                                         </tr>
                                       
@@ -237,7 +249,7 @@
                                                 Skype
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -245,7 +257,7 @@
                                                 Twitter
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -253,7 +265,7 @@
                                                 Website
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" id="username" data-type="text" data-pk="1" data-url="/post" data-title="Enter username">
                                             </td>
                                         </tr>
                                         <tr>
@@ -415,6 +427,8 @@
 
 
 @section('scripts')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/js/jqueryui-editable.min.js"></script>
+
     <script>
         $(document).ready(function(){
             $('#opener,#add,#edit').click(function() {
@@ -441,9 +455,19 @@
                 }
                 e.stopPropagation();
             });
-        });
-    </script>
 
+        });
+        $.fn.editable.defaults.mode = 'inline';
+        $('.name').editable({
+            type: 'text',
+            pk: 1,
+            url: '/post',
+            title: 'Enter username'
+
+        });
+        $('#dt').editable();
+
+    </script>
 
 
 
