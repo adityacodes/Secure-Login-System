@@ -57,7 +57,7 @@
 								<ul class="dropdown-menu">
 									<li>
 										<a id="participants" href="{{url('/participants')}}" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees ">
-											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">Participants
+											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">PARTICIPANTS
 										</a>
 									</li>
 									<li>
