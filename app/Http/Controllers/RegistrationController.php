@@ -39,7 +39,7 @@ class RegistrationController extends Controller
                 'toa.required' => '**You must agree to the terms of service before use..',
         ]);
 
-        if($request->captcha_code != $captcha)
+        if(captcha_validate($request->captcha_code))
         {
             $validator->getMessageBag()->add('captcha_code', 'Please renter the captcha !!');
             return redirect('register')

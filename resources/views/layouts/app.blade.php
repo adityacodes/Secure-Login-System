@@ -14,6 +14,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
+    
     @yield('stylesheets')
     <style>
         body {

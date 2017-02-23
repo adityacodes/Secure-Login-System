@@ -130,20 +130,18 @@
                             </label>
                             <div class="col-md-4" id="captchaimg">
 
+                                    {!! captcha_image_html('RegisterCaptcha') !!}
 
 
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-offset-4 col-md-4">
                                 <input class="form-control" id="captcha_code" name="captcha_code" type="text">
                                 @if ($errors->has('captcha_code'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('captcha_code') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-sm btn-default" type="button" id="reloadcaptcha"><i class="fa fa-btn fa-refresh"></i>RELOAD</button>
                             </div>
                         </div>
 
@@ -179,38 +177,9 @@
 
 
 @section('scripts')
-<script type="text/javascript">  
-            
-    
-
-    $(document).ready(function(){
-        function  captchaload()
-        {   
-            var token = $('input[name="_token"]').val();
-            $.ajax({
-                url: '{{ url('/captcha') }}',
-                type: 'PUT',
-                data: "_token=" + token,
-                success: function(result){
-                        // var obj = window.JSON.stringify(result)
-                        // $("#captchaimg").attr('src', '' + obj.imgsrc);
-
-                        $("#captchaimg").html(result.substr(result.indexOf('<img'), 20000000));
-                        console.log(result);
-                    }
-            });
-        }
-
-        captchaload();
-
-        $('#reloadcaptcha').click(function(){
-            captchaload();
-        });
-    });
-
-
+<script type="text/javascript">
+    $("a[title~=BotDetect], .BDC_SoundIcon").remove();
 </script>
-
 
 @endsection
 
