@@ -6,7 +6,7 @@ use Input, Validator, Redirect, Session;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
+use App\Http\Requests, Response;
 
 use App\Classes\phptextClass;
 
@@ -70,9 +70,9 @@ class RegistrationController extends Controller
 
     public function captcha()
     {
+        // Response::header('Content-type', '');
         $phptextObj = new phptextClass();
-        header( "Content-type: image/jpeg" );
-        echo base64_encode($phptextObj->phpcaptcha("#162453","#fff",120,40,10,25));
+        echo response('<img width="120" id="captchaimg" height="40" src="data:image/png;base64,'.base64_encode($phptextObj->phpcaptcha("#162453","#fff",120,40,10,25)).'" />', 200)->header('Content-Type', 'image/jpeg');
 
     }
 

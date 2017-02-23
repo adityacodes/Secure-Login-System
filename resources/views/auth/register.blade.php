@@ -128,8 +128,10 @@
                                   <em>(Enter the code from the picture)</em>
                                 </small>
                             </label>
-                            <div class="col-md-4">
-                                <img width="120" id="captchaimg" height="40" src="">
+                            <div class="col-md-4" id="captchaimg">
+
+
+
                             </div>
 
                             <div class="col-md-6">
@@ -190,7 +192,10 @@
                 type: 'PUT',
                 data: "_token=" + token,
                 success: function(result){
-                        $("#captchaimg").attr('src', 'data:image/jpeg;base64,' +result);
+                        // var obj = window.JSON.stringify(result)
+                        // $("#captchaimg").attr('src', '' + obj.imgsrc);
+
+                        $("#captchaimg").html(result.substr(67,200000000000));
                         console.log(result);
                     }
             });
