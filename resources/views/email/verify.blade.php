@@ -124,7 +124,7 @@
 
         <!-- Visually Hidden Preheader Text : BEGIN -->
         <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
-            Welcome to Training &amp; Placement Cell, CET, BBSR.
+            Welcome to MMM-UNION.ORG
         </div>
         <!-- Visually Hidden Preheader Text : END -->
 
@@ -163,7 +163,7 @@
             <!-- Hero Image, Flush : BEGIN -->
             <tr>
                 <td bgcolor="#ffffff">
-                    <img src="{{URL::to('users/img/verify.jpg')}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
+                    <img src="{{URL::to('image/mmmglobal.jpg')}}" width="600" height="" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px;">
                 </td>
             </tr>
             <!-- Hero Image, Flush : END -->
@@ -196,7 +196,7 @@
                 <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;">
                     <webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">View as a Web Page</webversion>
                     <br><br>
-                    CET , Bhubaneswar<br><span class="mobile-link--footer">Ghatikia, Bhubaneswar</span><br><span class="mobile-link--footer">+917381110897</span>
+                    MMM-UNION.ORG<br><span class="mobile-link--footer">, Bhubaneswar</span><br><span class="mobile-link--footer">+91xxxxxxxx</span>
                     <br><br> 
                     <unsubscribe style="color:#888888; text-decoration:underline;">unsubscribe</unsubscribe>
                 </td>

@@ -54,7 +54,6 @@
 	Route::get('accounts', 'User\AccountController@index');
 
 	Route::get('user/provide-help', 'UserController@getProvideHelp');
-	Route::get('user/get-help', 'UserController@getGetHelp');
 
 	Route::get('notices', 'UserController@getNotices');
 	Route::get('news', 'UserController@getNews');
