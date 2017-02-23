@@ -73,6 +73,7 @@ class RegistrationController extends Controller
         $phptextObj = new phptextClass();
         $imgsrc = base64_encode($phptextObj->phpcaptcha('#162453','#fff',120,40,10,25));
         $imgarray = array('imgsrc' => 'data:image/jpeg;base64,'.$imgsrc);
+        header('Content-type: application/json');
         echo json_encode($imgarray);
     }
 

@@ -188,7 +188,8 @@
             $.ajax({
                 url: '{{ url('/captcha') }}',
                 type: 'PUT',
-                data: "_token=" + token, 
+                data: "_token=" + token,
+                dataType: "JSON", 
                 success: function(result){
                         var obj = $.parseJSON(result);
                         $("#captchaimg").attr('src', obj.imgsrc);
