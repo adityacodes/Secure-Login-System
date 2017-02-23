@@ -42,7 +42,7 @@
 							<a style="color: black;" href="{{url('/dashboard')}}">
 								<button class="btn bttn">
 									<img width="16" height="16" src="{{asset('icons/desktop.png')}}"> 
-									DASHBOARD
+									Dashboard
 								</button>
 							</a>
 						</li>
@@ -51,18 +51,18 @@
 									  Request::is('referals') ? 'active' : ''}}">
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown">
-									<img width="16" height="16" src="{{asset('icons/groupicon.png')}}"> PARTICIPANTS
+									<img width="16" height="16" src="{{asset('icons/groupicon.png')}}"> Participants
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li>
 										<a id="participants" href="{{url('/participants')}}" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees ">
-											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">PARTICIPANTS
+											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">Participants
 										</a>
 									</li>
 									<li>
 										<a id="referals" href="{{url('/referals')}}" title="You receive Referral Bonus for your referrals.">
-											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">REFERALS
+											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">Referals
 										</a>
 									</li>
 								</ul>
@@ -76,19 +76,19 @@
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown"> 
 									<img width="16" height="16" src="{{asset('icons/user.png')}}"> 
-									MY PAGE
+									My Page
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li>
 										<a href="{{ url('/profile') }}" title="Information you submitted during registration"> <img width="16" height="16" src="{{asset('icons/user.png')}}"> 
-											PROFILE
+											Profile
 										</a>
 									</li>
 									<li>
 										<a href="{{ url('/letter-of-happiness') }}"> 
 											<img width="16" height="16" src="{{asset('icons/letter.png')}}"> 
-											MY LETTER OF HAPPINESS
+											My Letter Of Happiness
 										</a>
 									</li>
 								</ul>
@@ -98,18 +98,18 @@
 						<li class="{{Request::is('promo-tasks')? 'active' : ''}}">
 							<a href="{{ url('/promo-tasks') }}">
 								<button class="btn bttn"> 
-									<img width="16" height="16" src="{{asset('icons/promo.png')}}"> PROMO TASKS
+									<img width="16" height="16" src="{{asset('icons/promo.png')}}"> Promo Tasks
 								</button> 
 							</a>
 						</li>
 
 						<li class="{{Request::is('mavro')? 'active' : ''}}">
-							<button class="btn bttn"> MAVRO</button>
+							<button class="btn bttn"> Mavro</button>
 						</li>
 
 						<li class="{{Request::is('accounts')? 'active' : ''}}">
 							<a href="{{ url('/accounts') }}">
-								<button class="btn bttn"> <img width="16" height="16" src="{{asset('icons/account.png')}}"> ACCOUNTS
+								<button class="btn bttn"> <img width="16" height="16" src="{{asset('icons/account.png')}}"> Accounts
 								</button>
 							</a>
 						</li>
@@ -119,7 +119,7 @@
 						<li class="pull-right">
 						<a href="{{url('logout')}}">
 							<button class="btn bttn"><img width="16" height="16" src="{{asset('icons/logout.png')}}"> 
-								LOGOUT
+								Logout
 							</button>
 						</a>
 						</li>
@@ -127,7 +127,7 @@
 						<li class="pull-right {{Request::is('support')? 'active' : ''}}">
 							<a href="{{ url('/support') }}">
 								<button class="btn bttn"><img width="16" height="16" src="{{asset('icons/support.png')}}"> 
-									SUPPORT
+									Support
 								</button>
 							</a>
 						</li>
@@ -147,7 +147,7 @@
 									<ul class="dropdown-menu">
 										<li>
 											<a href="{{url('/news')}}"> 
-												<img width="16" height="16" src="{{asset('icons/news.png')}}"> NEWS
+												<img width="16" height="16" src="{{asset('icons/news.png')}}"> News
 											</a>
 										</li>
 										<li>

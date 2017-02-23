@@ -14,8 +14,20 @@
         border-width: 2px;
         border-color: #2b2b2b;
     }
-
+    .editable-click, 
+    a.editable-click, 
+    a.editable-click:hover {
+        text-decoration: none;
+        border-bottom: none !important;
+    }
+    ul, li{
+        list-style-type: none;
+    }
+    ..table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+        border:2px solid #ddd !important; 
+    }
 </style>
+    <link href="{{asset('css/bootstrap-editable.css')}}" rel="stylesheet">
 
 
 
@@ -24,7 +36,9 @@
 
 @section('content')
     <div id="slide-panel">
-        <a href="#" class="btn btn-danger opener" id="opener"><i class="glyphicon glyphicon-align-justify"></i></a>
+        <a href="#" class="btn btn-danger opener" id="opener">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </a>
         <div id="panels" class="panel panel-default panel2">
             <div class="ph border panel-body ">
                 <h5>Personal settings </h5>
@@ -129,71 +143,68 @@
             <div class="panel-body ph">
                 <h5>Personal information</h5>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer col-md-8">
                 <div class="tree">
                     <ul>
                         <li>
                             <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>
- General Information(double mouse click on the name, then enter the data and then 'Save' in the left side)</span>
+                                General Information(double mouse click on the name, then enter the data and then 'Save' in the left side)
+                            </span>
                             <ul>
                                 <li>
                                     <table class="table table-hover table-bordered">
                                         <tr>
-                                            <td>
-                                                First Name
-                                            </td>
-                                            <td>
-                                                <a href="#" class="name">superuser</a>
-                                            </td>
+                                            <td class="col-xs-3">First Name</td>
+                                            <td><a href="#" class="name">{{ explode(' ', Auth::user()->name)[0] }}</a></td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Last Name
                                             </td>
                                             <td>
-                                                superuser</a>
+                                                {{ explode(' ', Auth::user()->name)[1] }}</a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Status
                                             </td>
                                             <td>
-                                                FirstName
+                                                ACTIVE
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Mobile
                                             </td>
                                             <td>
-                                                FirstName
+                                                {{Auth::user()->mobile}}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Email
                                             </td>
                                             <td>
-                                                FirstName
+                                                {{Auth::user()->email}}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 DOB
                                             </td>
                                             <td>
-                                                FirstName
+                                                {{Auth::user()->dob}}
                                             </td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>
                                                 Registration Details
                                             </td>
                                             <td>
                                                 <a href="#" id="dt" data-type="datetimepicker" data-pk="1" data-url="/post" data-title="Enter username"></a>
                                             </td>
-                                        </tr>
+                                        </tr> --}}
                                       
                                         
                                     </table>
@@ -208,28 +219,16 @@
                                 <li>
                                     <table class="table table-hover table-bordered">
                                         <tr>
-                                            <td>
-                                                Country
-                                            </td>
-                                            <td>
-                                                FirstName
-                                            </td>
+                                            <td class="col-xs-3">Country</td>
+                                            <td colspan="2"><a href="#" class="name">{{Auth::user()->country}}</a></td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                Region
-                                            </td>
-                                            <td>
-                                                FirstName
-                                            </td>
+                                            <td class="col-xs-3">Region</td>
+                                            <td colspan="2">{{Auth::user()->region}}</td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                City
-                                            </td>
-                                            <td>
-                                                FirstName
-                                            </td>
+                                            <td class="col-xs-3">City</td>
+                                            <td colspan="2">{{Auth::user()->city}}</td>
                                         </tr>
 
 
@@ -245,23 +244,23 @@
                                 <li>
                                     <table class="table table-hover table-bordered">
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Skype
                                             </td>
                                             <td>
-                                                <a href="#" class="name"></a>
+                                                <a href="#" class="name">{{Auth::user()->skype}}</a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Twitter
                                             </td>
                                             <td>
-                                                <a href="#" class="name"></a>
+                                                <a href="#" class="name">{{Auth::user()->twitter}}</a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Website
                                             </td>
                                             <td>
@@ -269,19 +268,19 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Facebook
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name">{{Auth::user()->facebook}}</a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Google
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name">{{Auth::user()->google}}</a>
                                             </td>
                                         </tr>
 
@@ -291,7 +290,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul>
+                    {{-- <ul>
                         <li>
                             <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>  Personal Information</span>
                             <ul>
@@ -319,7 +318,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> --}}
                     <ul>
                         <li>
                             <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>  Your Guider</span>
@@ -327,35 +326,35 @@
                                 <li>
                                     <table class="table table-hover table-bordered">
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Name
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Status
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Email
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Cell Number
                                             </td>
                                             <td>
-                                                FirstName
+                                                <a href="#" class="name"></a>
                                             </td>
                                         </tr>
 
@@ -372,7 +371,7 @@
                                 <li>
                                     <table class="table table-hover table-bordered">
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Name
                                             </td>
                                             <td>
@@ -380,7 +379,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Status
                                             </td>
                                             <td>
@@ -388,7 +387,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Email
                                             </td>
                                             <td>
@@ -396,7 +395,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
+                                            <td class="col-xs-3">
                                                 Cell Number
                                             </td>
                                             <td>
@@ -427,10 +426,18 @@
 
 
 @section('scripts')
-    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/js/jqueryui-editable.min.js"></script>
+    <script src="{{asset('js/bootstrap-editable.min.js')}}"></script>
 
     <script>
+        
+        $(document).ready(function() {
+                var panel = $('#slide-panel');
+                panel.addClass('visible').animate({'margin-left':'0px'});
+                $('#content').css({'margin-right':'-500px'});
+                
+            });
         $(document).ready(function(){
+            
             $('#opener,#add,#edit').click(function() {
                 var panel = $('#slide-panel');
                 if (panel.hasClass("visible")) {
@@ -443,15 +450,15 @@
             });
         });
         $(function () {
-            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+            $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse');
             $('.tree li.parent_li > span').on('click', function (e) {
                 var children = $(this).parent('li.parent_li').find(' > ul > li');
                 if (children.is(":visible")) {
                     children.hide('fast');
-                    $(this).attr('title', 'Expand this branch').find(' > i').addClass('fa-plus').removeClass('fa-minus');
+                    $(this).attr('title', 'Expand').find(' > i').addClass('fa-plus').removeClass('fa-minus');
                 } else {
                     children.show('fast');
-                    $(this).attr('title', 'Collapse this branch').find(' > i').addClass('fa-minus').removeClass('fa-plus');
+                    $(this).attr('title', 'Collapse').find(' > i').addClass('fa-minus').removeClass('fa-plus');
                 }
                 e.stopPropagation();
             });
@@ -468,7 +475,5 @@
         $('#dt').editable();
 
     </script>
-
-
 
 @endsection
