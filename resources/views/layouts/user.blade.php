@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery-ui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}">
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/css/jqueryui-editable.css" rel="stylesheet"/>
+    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 	@yield('stylesheets')
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
