@@ -19,7 +19,6 @@ class RegistrationController extends Controller
 
     public function postRegister(Request $request)
     {
-        $captcha = Session::get('captcha_code');
 
         $validator = Validator::make($request->all(), array(
             'name' => 'bail|required',

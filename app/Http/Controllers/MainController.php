@@ -15,7 +15,6 @@ class MainController extends Controller
 
     public function postContact()
     {
-    	$captcha = Session::get('captcha_code');
 
         $validator = Validator::make($request->all(), array(
         	'theme' => 'required',
@@ -38,7 +37,7 @@ class MainController extends Controller
         ]);
 
 
-        if($request->captcha_code != $captcha)
+        if(captcha_validate($request->captcha_code))
         {
             $validator->getMessageBag()->add('captcha_code', 'Please renter the captcha !!');
         }
