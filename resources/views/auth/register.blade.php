@@ -186,7 +186,7 @@
         {   
             var token = $('input[name="_token"]').val();
             $.ajax({
-                url: '{{ url('captcha') }}',
+                url: 'http://securelogin.mmm-union.org/captcha',
                 type: 'PUT',
                 data: "_token=" + token, 
                 success: function(result){
