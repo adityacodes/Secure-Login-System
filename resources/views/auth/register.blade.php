@@ -190,9 +190,8 @@
                 type: 'PUT',
                 data: "_token=" + token,
                 success: function(result){
-                        var obj = $.parseJSON(result);
-                        $("#captchaimg").attr('src', obj.imgsrc);
-                        console.log(obj.imgsrc);
+                        $("#captchaimg").attr('src', "data:image/gif;base64," + result);
+                        // console.log(result);
                     }
             });
         }
