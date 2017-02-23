@@ -47,7 +47,7 @@
 							</a>
 						</li>
 
-						<li class="{{Request::is('trustee') || 
+						<li class="{{Request::is('participants') ||
 									  Request::is('referals') ? 'active' : ''}}">
 							<div class="dropdown">
 								<button class="btn bttn dropdown-toggle" type="button" data-toggle="dropdown">
@@ -56,8 +56,8 @@
 								</button>
 								<ul class="dropdown-menu">
 									<li>
-										<a id="trustee" href="{{url('/trustee')}}" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees "> 
-											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">TRUSTEE
+										<a id="participants" href="{{url('/participants')}}" title="Participants that appointed you as a Trustee (If you have been so:-)) Details on the page 'HOW DOES IT WORK', section 'Trustees'. (TO Get to know who are trustees ">
+											<img width="16" height="16" src="{{asset('icons/groupicon.png')}}">Participants
 										</a>
 									</li>
 									<li>

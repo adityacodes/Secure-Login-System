@@ -42,7 +42,7 @@
 	Route::get('dashboard', array(
 		'as' => 'dashboard',
 		'uses' => 'UserController@getDashboard'));
-	Route::get('trustee', 'UserController@getTrustee');
+	Route::get('participants', 'UserController@getParticipants');
 	Route::get('referals', 'UserController@getReferals');
 
 	Route::get('profile', 'UserController@getProfile');

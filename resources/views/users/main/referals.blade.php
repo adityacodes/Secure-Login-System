@@ -16,9 +16,12 @@
             padding: 6px;
         }
         .panel-footer{
-            
             font-size: 12px;
             background-color: #FEF8E4;
+        }
+        .footer{
+            bottom: 0px;
+            padding: 0px;
         }
     </style>
 @endsection
@@ -56,8 +59,11 @@
                 </tr>
             </table>
         </div>
-        <div class="panel-footer">Panel footer</div>
     </div>
+
+
+
+
 @endsection
 
 @section('scripts')

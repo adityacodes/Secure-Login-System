@@ -37,10 +37,10 @@ class UserController extends Controller
     	return view('users.main.dashboard');
     }
 
-    // Route : trustee
-    public function getTrustee()
+    // Route : participants
+    public function getParticipants()
     {
-    	return view('users.main.trustee');
+    	return view('users.main.participants');
     }
 
     // Route : referals
