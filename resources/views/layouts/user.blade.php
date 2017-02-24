@@ -19,7 +19,7 @@
 
 </head>
 
-	<body class="easyui-layout" id="layoutcc">
+	<body class="easyui-layout bg" id="layoutcc">
 
 
 
@@ -217,6 +217,7 @@
 
                 </div>
             </div>
+
 
         </div>
         <hr>
