@@ -41,7 +41,12 @@
 /* User Routes */
 	Route::get('dashboard', array(
 		'as' => 'dashboard',
-		'uses' => 'UserController@getDashboard'));
+		'uses' => 'UserController@getDashboard'
+	));
+	Route::get('mavro', array(
+		'as' => 'mavro',
+		'uses' => 'UserController@getMavro'
+	));
 	Route::get('participants', 'UserController@getParticipants');
 	Route::get('referals', 'UserController@getReferals');
 

@@ -4,22 +4,22 @@
 	<title>@yield('title') | MMM UNION</title>
 
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-	<link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}">
+	{{-- <link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}"> --}}
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/default/easyui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 	{{-- <link rel="stylesheet" type="text/css" href="{{asset('easyui/demo/demo.css')}}"> --}}
-    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
+	<link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 	@yield('stylesheets')
 
 </head>
 
-	<body class="easyui-layout" id="layoutcc">
+<body class="easyui-layout" id="layoutcc">
 
 
 
@@ -139,7 +139,7 @@
 								</button>
 									<ul class="dropdown-menu">
 										<li>
-											<a href="{{url('/news')}}"> 
+											<a href=""> 
 												<img width="16" height="16" src="{{asset('icons/news.png')}}"> News
 											</a>
 										</li>
@@ -177,61 +177,59 @@
 			</div>
 		</div> 
 
-	--}}<div data-options="region:'north'" style="margin-top: -2px; height: 52px;">
-            <div style="border-bottom: solid 3px #8E846B;">
-                <div class="easyui-panel" style="background-color: #FEF8E4; color: #3F0D13; padding-top: 10px; border: 0px;">
+		--}}<div data-options="region:'north'" style="margin-top: -2px; height: 52px; overflow: hidden;">
+		<div style="border-bottom: solid 3px #8E846B;">
+			<div class="easyui-panel" style="background-color: #FEF8E4; color: #3F0D13; padding-top: 10px; border: 0px;">
 
-                    <div id="logo" style="float: left; display: inline-block">
-                        <a href="{{url('/dashboard')}}">
-                            <img src="{{asset('easyui/themes/icons/mmm.png')}}" height="35" />
-                        </a>
-                    </div>
+				<div id="logo" style="float: left; display: inline-block">
+					<a href="{{url('/dashboard')}}">
+						<img src="{{asset('easyui/themes/icons/mmm.png')}}" height="35" />
+					</a>
+				</div>
 
-                    <div style="float: left; display: inline-block">
+				<div style="float: left; display: inline-block">
+					<a href="{{url('/dashboard')}}"  class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-dashboard'">Dashboard</a>
+					<a class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-pp'">Participants</a>
+					<a class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-mypage'">My Page</a>
+					<a href="{{ url('/mavro') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-mavro'">Mavro</a>
+					<a href="{{ url('/accounts') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-account'">Account</a>
+				</div>
+					<a onclick="window.location.replace('{{url('logout')}}')" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
+					<a href="#" class="easyui-menubutton" style="float: right" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
+					<a href="{{ url('/support') }}" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-support'">Support</a>
+			</div>
+			<div id="mm1" style="width:200px;">
+				<div href="{{url('/participants')}}" data-options="iconCls:'icon-pp'">Participants</div>
+				<div id="referals" href="{{url('/referals')}}" data-options="iconCls:'icon-pp'">Referral</div>
+				<div class="menu-sep"></div>
+				<div data-options="iconCls:'icon-edit'">Add Participants</div>
+			</div>
+			<div id="mm2" style="width:200px;">
+				<div href="{{ url('/profile') }}" data-options="iconCls:'icon-mypage'">My Page</div>
+				<div data-options="iconCls:'icon-letter'">My letter of happiness</div>
 
+			</div>
+			<div id="mm3" style="width:200px;">
+				<div href="{{url('/news')}}" data-options="iconCls:'icon-tip'">System News</div>
+				<div data-options="iconCls:'icon-mypage'">Registration</div>
 
-                    <a href="{{url('/dashboard')}}"  class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-dashboard'">Dashboard</a>
-                    <a class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-pp'">Participants</a>
-                    <a class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-mypage'">My Page</a>
-                    <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-mavro'">Mavro</a>
-                    <a href="{{ url('/accounts') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-account'">Account</a>
-                    </div>
-                    <a href="{{url('logout')}}" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
-                    <a href="#" class="easyui-menubutton" style="float: right" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
-                    <a href="#" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-support'">Support</a>
-                </div>
-                <div id="mm1" style="width:200px;">
-                    <div href="{{url('/participants')}}" data-options="iconCls:'icon-pp'">Participants</div>
-                    <div id="referals" href="{{url('/referals')}}" data-options="iconCls:'icon-pp'">Referral</div>
-                    <div class="menu-sep"></div>
-                    <div data-options="iconCls:'icon-edit'">Add Participants</div>
-                </div>
-                <div id="mm2" style="width:200px;">
-                    <div href="{{ url('/profile') }}" data-options="iconCls:'icon-mypage'">My Page</div>
-                    <div data-options="iconCls:'icon-letter'">My letter of happiness</div>
+			</div>
+		</div>
 
-                </div>
-                <div id="mm3" style="width:200px;">
-                    <div data-options="iconCls:'icon-tip'">System News</div>
-                    <div data-options="iconCls:'icon-mypage'">Registration</div>
-
-                </div>
-            </div>
-
-        </div>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
+	</div>
+	<hr>
+	<hr>
+	<hr>
+	<hr>
 
 
-        @yield('content')
+	@yield('content')
 
 
-		<script type="text/javascript" src="{{ asset('easyui/jquery.min.js') }}"></script>
-		<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
-		@yield('scripts')
+	<script type="text/javascript" src="{{ asset('easyui/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
+	@yield('scripts')
 
 
-	</body>
+</body>
 </html>

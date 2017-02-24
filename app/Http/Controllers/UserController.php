@@ -43,6 +43,12 @@ class UserController extends Controller
     	return view('users.main.participants');
     }
 
+    // Route : mavro
+    public function getMavro()
+    {
+        return view('users.main.mavro');
+    }
+
     // Route : referals
     public function getReferals()
     {
