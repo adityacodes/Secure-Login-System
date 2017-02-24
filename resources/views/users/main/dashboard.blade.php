@@ -10,9 +10,7 @@
 @endsection
 
 @section('content')
-	<hr>
-	<hr>
-	<hr>
+
 
 
 	{{Form::token()}}
@@ -54,6 +52,15 @@
 		</tr>
 
 	</table>
+	<div style="display: none">
+		<div style="margin:20px 0;">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+		</div>
+		<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">
+			The dialog content.
+		</div>
+	</div>
 
 	<!----====================================================New Order Cancellation Start Here =============================== --->
 	<div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true" style="width: 650px; height: 280px;">

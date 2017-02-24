@@ -219,17 +219,14 @@
             </div>
 
         </div>
+        <hr>
+        <hr>
+        <hr>
+        <hr>
 
 
         @yield('content')
 
-        <div style="margin:20px 0;">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
-        </div>
-        <div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">
-            The dialog content.
-        </div>
 
 		<script type="text/javascript" src="{{ asset('easyui/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
