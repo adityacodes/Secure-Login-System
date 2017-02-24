@@ -17,7 +17,7 @@
 	@yield('stylesheets')
 
 </head>
-	<body class="body">
+	<body class="body" style="margin: 0;">
 
 		{{-- <div class="container-fluid" style="padding: 0;">
 			<div class="panel panel-default">
@@ -168,16 +168,47 @@
 						</li>
 					</ul>
 				</div>
-					@yield('content')
+
 				</div>
 			</div>
 		</div> 
 	--}}
 
+        <div class="easyui-panel" style="padding:5px;">
+
+            <a  class="easyui-linkbutton"><img width="61" height="40" src="{{asset('icons/mmm.png')}}"></a>
+            <a href="{{url('/dashboard')}}"  class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-dashboard'">Dashboard</a>
+            <a class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-pp'">Participants</a>
+            <a class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-mypage'">My Page</a>
+            <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-mavro'">Mavro</a>
+            <a href="{{ url('/accounts') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-account'">Account</a>
+
+            <a href="#" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-support'">Support</a>
+            <a href="#" class="easyui-menubutton" style="float: right" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
+            <a href="{{url('logout')}}" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
+        </div>
+        <div id="mm1" style="width:200px;">
+            <div href="{{url('/participants')}}" data-options="iconCls:'icon-pp'">Participants</div>
+            <div id="referals" href="{{url('/referals')}}" data-options="iconCls:'icon-pp'">Referral</div>
+            <div class="menu-sep"></div>
+            <div data-options="iconCls:'icon-edit'">Add Participants</div>
+        </div>
+        <div id="mm2" style="width:200px;">
+            <div href="{{ url('/profile') }}" data-options="iconCls:'icon-mypage'">My Page</div>
+            <div data-options="iconCls:'icon-letter'">My letter of happiness</div>
+
+        </div>
+        <div id="mm3" style="width:200px;">
+            <div data-options="iconCls:'icon-tip'">System News</div>
+            <div data-options="iconCls:'icon-mypage'">Registration</div>
+
+        </div>
+
+
+        @yield('content')
 
 
 
-		
 		<script type="text/javascript" src="{{ asset('easyui/jquery.min.js') }}"></script>
 		<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
 		@yield('scripts')

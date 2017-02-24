@@ -11,23 +11,33 @@
 
 
 @section('content')
-    <div style="margin:20px 0;"></div>
-    <div class="easyui-layout" style="width:700px;height:350px;">
-        <div data-options="region:'north'" style="height:50px"></div>
+
+    <div class="easyui-layout" style="height: 100%; width: 100%;">
+
         <div data-options="region:'south',split:true" style="height:50px;"></div>
-        <div data-options="region:'east',split:true" title="East" style="width:100px;"></div>
-        <div data-options="region:'west',split:true" title="West" style="width:100px;"></div>
-        <div data-options="region:'center',title:'Main Title',iconCls:'icon-ok'">
+        <div data-options="region:'west',split:true" title="My participants" style="width: 200px;">
+            <div class="easyui-panel" style="padding:5px">
+                <ul class="easyui-tree" data-options="">
+                    <li>kdfskjhk</li>
+                    <li>kdfskjhk</li>
+                </ul>
+            </div>
+        </div>
+        <div data-options="region:'center'" style="width: 1400px;">
             <table class="easyui-datagrid"
                    data-options="url:'datagrid_data1.json',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true">
                 <thead>
                 <tr>
-                    <th data-options="field:'itemid'" width="80">Item ID</th>
-                    <th data-options="field:'productid'" width="100">Product ID</th>
-                    <th data-options="field:'listprice',align:'right'" width="80">List Price</th>
-                    <th data-options="field:'unitcost',align:'right'" width="80">Unit Cost</th>
-                    <th data-options="field:'attr1'" width="150">Attribute</th>
+                    <th></th>
+                    <th data-options="field:'itemid'" width="80">Position</th>
+                    <th data-options="field:'productid'" width="100">First name</th>
+                    <th data-options="field:'listprice',align:'right'" width="80">Last Name</th>
+                    <th data-options="field:'unitcost',align:'right'" width="80">Email</th>
+                    <th data-options="field:'attr1'" width="150">Guider</th>
+                    <th data-options="field:'attr1'" width="150">City</th>
+                    <th data-options="field:'attr1'" width="150">Referrer</th>
                     <th data-options="field:'status',align:'center'" width="60">Status</th>
+                    <th data-options="field:'attr1'" width="150">Date of Creation</th>
                 </tr>
                 </thead>
             </table>

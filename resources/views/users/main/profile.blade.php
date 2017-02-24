@@ -4,30 +4,6 @@
 
 @section('stylesheets')
 
-<style>
-    .ph1{
-        -webkit-transition: ease-in-out; /* Safari */
-        /* Safari*/
-        transition: ease-in-out;
-     }
-    .border{
-        border-width: 2px;
-        border-color: #2b2b2b;
-    }
-    .editable-click, 
-    a.editable-click, 
-    a.editable-click:hover {
-        text-decoration: none;
-        border-bottom: none !important;
-    }
-    ul, li{
-        list-style-type: none;
-    }
-    ..table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
-        border:2px solid #ddd !important; 
-    }
-</style>
-    <link href="{{asset('css/bootstrap-editable.css')}}" rel="stylesheet">
 
 
 
@@ -35,176 +11,176 @@
 
 
 @section('content')
-    <div id="slide-panel">
-        <a href="#" class="btn btn-danger opener" id="opener">
-            <i class="glyphicon glyphicon-align-justify"></i>
-        </a>
-        <div id="panels" class="panel panel-default panel2">
-            <div class="ph border panel-body ">
-                <h5>Personal settings </h5>
+{{--    <div id="slide-panel">
+       <a href="#" class="btn btn-danger opener" id="opener">
+           <i class="glyphicon glyphicon-align-justify"></i>
+       </a>
+       <div id="panels" class="panel panel-default panel2">
+           <div class="ph border panel-body ">
+               <h5>Personal settings </h5>
 
-            </div>
-            <div class="panel-body">
-                <div class="panel panel-default " >
-                    <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demo">
-                        Settings
-                    </div>
-                    <div id="demo" class="panel-footer">
-                        <table class="table table-hover table-bordered">
-                            <tr>
-                                <td>
-                                    Time Zone
-                                </td>
-                                <td>
-                                    FirstName
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Language
-                                </td>
-                                <td>
-                                    FirstName
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Currency
-                                </td>
-                                <td>
-                                    FirstName
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" aria-label="...">
-                                </td>
-                                <td>
-                                    Recieve e-mails from the system
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" aria-label="...">
-                                </td>
-                                <td>
-                                    Send extended SMS messages
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" aria-label="...">
-                                </td>
-                                <td>
-                                    Show nickname instead of full name
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="checkbox" aria-label="...">
-                                </td>
-                                <td>
-                                    Show E-mail in public profile
-                                </td>
-                            </tr>
+           </div>
+           <div class="panel-body">
+               <div class="panel panel-default " >
+                   <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demo">
+                       Settings
+                   </div>
+                   <div id="demo" class="panel-footer">
+                       <table class="table table-hover table-bordered">
+                           <tr>
+                               <td>
+                                   Time Zone
+                               </td>
+                               <td>
+                                   FirstName
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   Language
+                               </td>
+                               <td>
+                                   FirstName
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   Currency
+                               </td>
+                               <td>
+                                   FirstName
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" aria-label="...">
+                               </td>
+                               <td>
+                                   Recieve e-mails from the system
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" aria-label="...">
+                               </td>
+                               <td>
+                                   Send extended SMS messages
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" aria-label="...">
+                               </td>
+                               <td>
+                                   Show nickname instead of full name
+                               </td>
+                           </tr>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" aria-label="...">
+                               </td>
+                               <td>
+                                   Show E-mail in public profile
+                               </td>
+                           </tr>
 
-                            <tr>
-                                <td>
+                           <tr>
+                               <td>
 
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-warning"><i class="fa fa-floppy-o" aria-hidden="true"></i>
-                                        Save</button>
-                                </td>
-                            </tr>
+                               </td>
+                               <td>
+                                   <button type="button" class="btn btn-warning"><i class="fa fa-floppy-o" aria-hidden="true"></i>
+                                       Save</button>
+                               </td>
+                           </tr>
 
 
-                        </table>
-                    </div>
-                </div>
-                <div class="panel panel-default" >
-                    <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demor">
-                        Referrer
-                    </div>
-                    <div id="demor" class="panel-footer">
+                       </table>
+                   </div>
+               </div>
+               <div class="panel panel-default" >
+                   <div class="border panel-heading ph1" data-toggle="collapse" data-target="#demor">
+                       Referrer
+                   </div>
+                   <div id="demor" class="panel-footer">
 
-                        <p>My saved referal
-                            koyamatakahiro@yahoo.com</p><br><br><br>
+                       <p>My saved referal
+                           koyamatakahiro@yahoo.com</p><br><br><br>
 
-                        <a href="#">Show my referral link</a>
+                       <a href="#">Show my referral link</a>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <article id="content">
-        <div class="panel panel-default panel1">
-            <div class="panel-body ph">
-                <h5>Personal information</h5>
-            </div>
-            <div class="panel-footer col-md-8">
-                <div class="tree">
-                    <ul>
-                        <li>
-                            <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>
-                                General Information(double mouse click on the name, then enter the data and then 'Save' in the left side)
-                            </span>
-                            <ul>
-                                <li>
-                                    <table class="table table-hover table-bordered">
-                                        <tr>
-                                            <td class="col-xs-3">First Name</td>
-                                            <td><a href="#" class="name">{{ explode(' ', Auth::user()->name)[0] }}</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-xs-3">
-                                                Last Name
-                                            </td>
-                                            <td>
-                                                {{ explode(' ', Auth::user()->name)[1] }}</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-xs-3">
-                                                Status
-                                            </td>
-                                            <td>
-                                                ACTIVE
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-xs-3">
-                                                Mobile
-                                            </td>
-                                            <td>
-                                                {{Auth::user()->mobile}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-xs-3">
-                                                Email
-                                            </td>
-                                            <td>
-                                                {{Auth::user()->email}}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-xs-3">
-                                                DOB
-                                            </td>
-                                            <td>
-                                                {{Auth::user()->dob}}
-                                            </td>
-                                        </tr>
-                                        {{-- <tr>
-                                            <td>
-                                                Registration Details
-                                            </td>
-                                            <td>
-                                                <a href="#" id="dt" data-type="datetimepicker" data-pk="1" data-url="/post" data-title="Enter username"></a>
-                                            </td>
-                                        </tr> --}}
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <article id="content">
+       <div class="panel panel-default panel1">
+           <div class="panel-body ph">
+               <h5>Personal information</h5>
+           </div>
+           <div class="panel-footer col-md-8">
+               <div class="tree">
+                   <ul>
+                       <li>
+                           <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>
+                               General Information(double mouse click on the name, then enter the data and then 'Save' in the left side)
+                           </span>
+                           <ul>
+                               <li>
+                                   <table class="table table-hover table-bordered">
+                                       <tr>
+                                           <td class="col-xs-3">First Name</td>
+                                           <td><a href="#" class="name">{{ explode(' ', Auth::user()->name)[0] }}</a></td>
+                                       </tr>
+                                       <tr>
+                                           <td class="col-xs-3">
+                                               Last Name
+                                           </td>
+                                           <td>
+                                               {{ explode(' ', Auth::user()->name)[1] }}</a>
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td class="col-xs-3">
+                                               Status
+                                           </td>
+                                           <td>
+                                               ACTIVE
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td class="col-xs-3">
+                                               Mobile
+                                           </td>
+                                           <td>
+                                               {{Auth::user()->mobile}}
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td class="col-xs-3">
+                                               Email
+                                           </td>
+                                           <td>
+                                               {{Auth::user()->email}}
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td class="col-xs-3">
+                                               DOB
+                                           </td>
+                                           <td>
+                                               {{Auth::user()->dob}}
+                                           </td>
+                                       </tr>
+                                       <tr>
+                                           <td>
+                                               Registration Details
+                                           </td>
+                                           <td>
+                                               <a href="#" id="dt" data-type="datetimepicker" data-pk="1" data-url="/post" data-title="Enter username"></a>
+                                           </td>
+                                       </tr>
                                       
                                         
                                     </table>
@@ -318,7 +294,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul> --}}
+                    </ul>
                     <ul>
                         <li>
                             <span class="badge"><i class="fa fa-minus" aria-hidden="true"></i>  Your Guider</span>
@@ -419,14 +395,111 @@
 
 
 
+    </div>--}}
+<div id="cc" class="easyui-layout" style="width:100%;min-height:600px;">
+
+    <div data-options="region:'south',split:true" style="height:50px;">
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'">Cancel</a>
     </div>
+    <div data-options="region:'east',split:true" title="Personal Settings" style="width: 600px; padding: 0px;">
+        <div class="easyui-accordion" style="width:580px;height:300px;">
+            <div title="Settings" data-options="iconCls:'icon-reload'" style="overflow:auto;padding:0px;">
+                <div style="padding-top: 20px; padding-bottom: 20px;" class="datagrid-body">
+                    <table class="datagrid-btable settabel" style="width: 390px;">
+                        <tbody>
+                        <tr class="datagrid-row">
+                            <td class="translate" align="right">Time Zone</td>
+                            <td align="left">
+                                <select class="easyui-combobox" style="width: 180px">
+                                    <option value="+5:30" selected="selected" title="GMT +5:30">GMT +5:30</option>
+                                </select>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">Language</td>
+                            <td align="left">
+                                <select class="easyui-combobox" style="width: 180px">
+                                    <option value="ENG" selected="selected" title="Language">English
+                                    </option>
+                                    <option value="RUS" title="Language">Russian
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">Currency</td>
+                            <td align="left">
+                                <select class="easyui-combobox" style="width: 180px">
+                                    <option value="USD" selected="selected" title="Language">USD</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">
+                                <input checked="checked" type="checkbox" />
+                            </td>
+                            <td align="left">Recieve e-mails from the system
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">
+                                <input checked="checked" type="checkbox" />
+                            </td>
+                            <td align="left">Send extended SMS messages
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">
+                                <input type="checkbox" />
+                            </td>
+                            <td align="left">Show nickname instead of full name
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="translate" align="right">
+                                <input checked="checked" type="checkbox" />
+                            </td>
+                            <td align="left">Show E-mail in public profile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: center">
+                                <a href="javascript:void(0)" iconcls="icon-save" class="easyui-linkbutton" onclick="submitForm()">Save</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div title="Referrer" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:0px;">
+                    <h3 style="color:#0099FF;">koyamatakahiro@yahoo.com</h3>
+                    <p>My saved referal</p>
+                    <a href="#">Show my referral link</a>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center',title:'Personal information'" style="width:100%; height: 100%;">
+
+        <table id="pg" class="easyui-propertygrid" style="width:100%" data-options="
+                url:'propertygrid_data1.json',
+                method:'get',
+                showGroup:true,
+                scrollbarSize:0
+            ">
+        </table>
+    </div>
+</div>
+
 
 @endsection
 
 
 
 @section('scripts')
-    <script src="{{asset('js/bootstrap-editable.min.js')}}"></script>
+ {{--   <script src="{{asset('js/bootstrap-editable.min.js')}}"></script>
 
     <script>
         
@@ -474,6 +547,6 @@
         });
         $('#dt').editable();
 
-    </script>
+    </script>--}}
 
 @endsection

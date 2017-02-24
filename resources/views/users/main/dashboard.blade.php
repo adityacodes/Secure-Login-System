@@ -4,101 +4,80 @@
 @section('title', 'Dashboard')
 
 @section('stylesheets')
-	<style type="text/css">
-	.span10{
-		margin-top: 20px;
-	}
-	a:hover{
-		text-decoration: none;
-	}
-	.modal-dialog{overflow:visible;min-height:100%!important;}
-	input[type=checkbox]
-	{
-		height: 20px;
-	}
-
-	.panel-new{
-		font-weight: bold;
-		font-size: 14px;
-		border-radius: 8px;
-		border: 1px solid black;
-	    background: rgb(251,202,67);
-	    background: -moz-linear-gradient(top,
-	    	rgba(252,234,187,1) 0%,
-	    	rgba(252,205,77,1) 46%,
-	    	rgba(248,181,0,1) 50%
-	    );
-	    background: -webkit-gradient(linear,left top,left bottom,
-	    	color-stop(0%,rgba(252,234,187,1)),
-	    	color-stop(46%,rgba(252,205,77,1)),
-	    	color-stop(50%,rgba(248,181,0,1))
-	    );
-	    background: -webkit-linear-gradient(top,
-	    	rgba(252,234,187,1) 0%,
-	    	rgba(252,205,77,1) 46%,
-	    	rgba(248,181,0,1) 50%);
-	    background: -o-linear-gradient(top,
-	    	rgba(252,234,187,1) 0%,
-	    	rgba(252,205,77,1) 46%,
-	    	rgba(248,181,0,1) 50%);
-	    background: -ms-linear-gradient(top,
-	    	rgba(252,234,187,1) 0%,
-	    	rgba(252,205,77,1) 46%,
-	    	rgba(248,181,0,1) 50%);
-	    background: linear-gradient(to bottom,
-	    	rgba(252,234,187,1) 0%,
-	    	rgba(252,205,77,1) 46%,
-	    	rgba(248,181,0,1) 50%);
-	}
-	h5, h6{
-		font-weight: bold;
-	}
-
-	.arrg_out, .arrg_rout {
-		overflow: hidden;
-        border-radius: 16px;
-        -moz-border-radius: 16px;
-        -webkit-border-radius: 16px;
-        border: 1px solid #949494;
-        -moz-box-shadow: 0px 1px 3px rgba(153,070,153,0.5),inset 0px 0px 2px rgba(255,255,255,1);
-        -webkit-box-shadow: 0px 1px 3px rgba(153,070,153,0.5),inset 0px 0px 2px rgba(255,255,255,1);
-        text-shadow: 0px -1px 0px rgba(000,000,000,0.2),0px 1px 0px rgba(255,255,255,1);
-
-        background: #f9f1db;
-        background: -moz-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
-        background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f9f1db),color-stop(100%,#f9ca52));
-        background: -webkit-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
-        background: -o-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
-        background: -ms-linear-gradient(top,#f9f1db 0%,#f9ca52 100%);
-        background: linear-gradient(to bottom,#f9f1db 0%,#f9ca52 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f1db',endColorstr='#f9ca52',GradientType=0);
-    }
-	.modal-header{
-		background-color: #A19988 ;
-		color: white;
-		font-size: medium;
-		font-style: inherit;
-	}
-	.modal-footer{
-		background-color: #EFEFEF ;
-	}
-	.modal-body{
-		background-color: #FEEEBD ;
-	}
-	.modal-header .close{
-		background-color: #FFFF00;
-		border-radius: 10px;
-	}
-		.modal-content{
-			border: 8px solid #A19988;
-		}
-	
-	</style>
+	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 
 
 @endsection
 
 @section('content')
+
+	{{Form::token()}}
+	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td width="50%">
+				<div id="put_help" class="ordin_button">
+					<div>
+						<span class="translate">I Want to Provide Help</span>
+						<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Acquire" Mavro (Make a Contribution)</i>
+					</div>
+				</div>
+			</td>
+			<td width="50%">
+				<div id="get_help" class="ordout_button">
+					<div>
+						<span class="translate">Get Help</span><br />
+						<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="70%">
+				ABCD IS A GOOD FRONTEND DEVELOPER
+				paginate below
+			</td>
+			<td width="30%">
+				paginate on top
+				ABCD IS ALSO A GOOD DEVELOPER
+			</td>
+		</tr>
+
+	</table>
+
+	<!----====================================================New Order Cancellation Start Here =============================== --->
+	<div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true" style="width: 650px; height: 280px;">
+		<div style="padding: 20px;">
+			<div id="refname"></div>
+			<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
+			<p>
+				<b>Reason for cancellation</b>
+			</p>
+			<p>
+				<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
+			</p>
+		</div>
+	</div>
+	<!----====================================================New Order Cancellation End Here =============================== --->
+	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'east'" style="width: 200px; padding: 10px">
+				<input type="file" name="msgFile" id="msgFile" />
+			</div>
+			<div data-options="region:'center'" style="overflow-y: scroll;">
+				<div id="loadmsgbox"></div>
+			</div>
+			<div data-options="region:'south'" title="Write your message here" style="height: 120px; padding: 10px">
+				<textarea name="messageInput" id="messageInput" style="height: 60px; width: 600px"></textarea>
+			</div>
+		</div>
+	</div>
+
+	{{--
 <div class="panel-body">
 	<div class="container">
 		<div class="row">
@@ -124,28 +103,7 @@
 		<hr>
 
 		<div class="row">
-			{{Form::token()}}
-			<table class="col-md-12" width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
-				<tr>
-	                <td class="col-md-6">
-	                    <div id="put_help" class="ordin_button">
-	                        <div>
-	                            <span class="translate">I Want to Provide Help</span>
-	                            <i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Acquire" Mavro (Make a Contribution)</i>
-	                        </div>
-	                    </div>
-	                </td>
-	                <td class="col-md-6">
-	                    <div id="get_help" class="ordout_button"> 
-	                        <div>
-	                            <span class="translate">Get Help</span><br />
-	                            <i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
-	                        </div>
-	                    </div>
-	                </td>
-	            </tr>
 
-			</table>
 			
 		</div>
 		<hr>
@@ -226,6 +184,7 @@
       </div>
     </div>
   </div>
+--}}
 
 
 @endsection
@@ -233,7 +192,7 @@
 
 @section('scripts')
 
-
+{{--
 <script>
 	$(document).ready(function(){
 	    $("#put_help").click(function(){
@@ -260,7 +219,7 @@
 
 
 </script>
-
+--}}
 
 
 @endsection
