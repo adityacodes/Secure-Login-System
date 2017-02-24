@@ -40,7 +40,7 @@
                     <div class="panel-body">
 
                         <h2 class="text-center">
-                            <img src="{{asset('icons/mmm.png')}}">Login to system
+                            <img src="{{asset('easyui/themes/icons/mmm.png')}}">Login to system
                         </h2>
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                             {{ csrf_field() }}

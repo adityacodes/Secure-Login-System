@@ -12,12 +12,16 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/default/easyui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 	{{-- <link rel="stylesheet" type="text/css" href="{{asset('easyui/demo/demo.css')}}"> --}}
     <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 	@yield('stylesheets')
 
 </head>
+
 	<body class="easyui-layout" id="layoutcc">
+
+
 
 		{{-- <div class="container-fluid" style="padding: 0;">
 			<div class="panel panel-default">
@@ -172,6 +176,7 @@
 				</div>
 			</div>
 		</div> 
+
 	--}}<div data-options="region:'north'" style="margin-top: -2px; height: 52px;">
             <div style="border-bottom: solid 3px #8E846B;">
                 <div class="easyui-panel" style="background-color: #FEF8E4; color: #3F0D13; padding-top: 10px; border: 0px;">
