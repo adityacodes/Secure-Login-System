@@ -20,11 +20,12 @@
             <p>Enter your Bitcoin address</p>
             <form id="ff" method="post">
                 <div style="margin-bottom:20px">
-                    <input class="easyui-textbox" name="name" style="width:300px" data-options="label:'Bitcoin Address',required:true">
+                    <input class="easyui-textbox" name="name" style="width:450px" data-options="label:'Bitcoin Address',required:true">
                 </div>
             </form>
-            <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
-            <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'">Cancel</a>
+            <a href="javascript:void(0)" iconcls="icon-ok" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Save</a>
+            <a href="javascript:void(0)" iconcls="icon-cancel" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Cancel</a>
+
         </div>
         <div data-options="region:'center',title:'Accounts'" >
             <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"

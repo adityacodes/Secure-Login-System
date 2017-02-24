@@ -398,15 +398,16 @@
     </div>--}}
 <div id="cc" class="easyui-layout" style="width:100%;min-height:600px;">
 
-    <div data-options="region:'south',split:true" style="height:50px;">
-        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
-        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'">Cancel</a>
+    <div data-options="region:'south',split:true" style="height:50px; padding: 10px">
+        <a href="javascript:void(0)" iconcls="icon-ok" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Save</a>
+        <a href="javascript:void(0)" iconcls="icon-cancel" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Cancel</a>
+
     </div>
     <div data-options="region:'east',split:true" title="Personal Settings" style="width: 600px; padding: 0px;">
-        <div class="easyui-accordion" style="width:580px;height:300px;">
+        <div class="easyui-accordion" style="width:100%;height:100%;">
             <div title="Settings" data-options="iconCls:'icon-reload'" style="overflow:auto;padding:0px;">
                 <div style="padding-top: 20px; padding-bottom: 20px;" class="datagrid-body">
-                    <table class="datagrid-btable settabel" style="width: 390px;">
+                    <table class="datagrid-btable settabel" style="width: 100%;">
                         <tbody>
                         <tr class="datagrid-row">
                             <td class="translate" align="right">Time Zone</td>
@@ -530,7 +531,27 @@
                     children.hide('fast');
                     $(this).attr('title', 'Expand').find(' > i').addClass('fa-plus').removeClass('fa-minus');
                 } else {
-                    children.show('fast');
+                    children.sho
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    w('fast');
                     $(this).attr('title', 'Collapse').find(' > i').addClass('fa-minus').removeClass('fa-plus');
                 }
                 e.stopPropagation();
