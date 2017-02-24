@@ -13,10 +13,10 @@
 
 
 @section('content')
-    <div id="cc" class="easyui-layout" style="width:100%;height:640px;">
+    <div id="cc" class="easyui-layout" style="width:100%;height:625px;">
 
-        <div data-options="region:'south',split:true" style="height:50px;"></div>
-        <div data-options="region:'east',split:true" title="Account" style="width:600px; padding: 20px;">
+        {{-- <div data-options="region:'south',split:true" style="height:50px;"></div> --}}
+        <div data-options="region:'east',split:true" title="Account" style="width:450px; padding: 20px;">
             <p>Enter your Bitcoin address</p>
             <form id="ff" method="post">
                 <div style="margin-bottom:20px">
@@ -26,8 +26,8 @@
             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'">Cancel</a>
         </div>
-        <div data-options="region:'center',title:'Accounts'">
-            <table id="dg" class="easyui-datagrid" style="width:100%;height:100%"
+        <div data-options="region:'center',title:'Accounts'" >
+            <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
                    url="g"
                    toolbar="#toolbar" pagination="true"
                    rownumbers="true" fitColumns="true" singleSelect="true">
@@ -66,10 +66,10 @@
                     </div>
                 </form>
             </div>
-            <div id="dlg-buttons">
+            {{-- <div id="dlg-buttons">
                 <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
-            </div>
+            </div> --}}
         </div>
     </div>
 

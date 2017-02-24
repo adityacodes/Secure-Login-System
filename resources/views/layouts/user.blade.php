@@ -12,12 +12,13 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/default/easyui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 	{{-- <link rel="stylesheet" type="text/css" href="{{asset('easyui/demo/demo.css')}}"> --}}
     <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 	@yield('stylesheets')
 
 </head>
-	<body class="body" style="margin: 0;">
+	<body class="body" style="margin: 0; width: 100%;">
 
 		{{-- <div class="container-fluid" style="padding: 0;">
 			<div class="panel panel-default">
@@ -185,7 +186,7 @@
 
             <a href="#" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-support'">Support</a>
             <a href="#" class="easyui-menubutton" style="float: right" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
-            <a href="{{url('logout')}}" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
+            <a href="{{url('logout')}}" class="easyui-linkbutton" style="float: right; vertical-align: middle;" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
         </div>
         <div id="mm1" style="width:200px;">
             <div href="{{url('/participants')}}" data-options="iconCls:'icon-pp'">Participants</div>
