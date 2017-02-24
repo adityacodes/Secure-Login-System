@@ -12,8 +12,11 @@
 
 	<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('css/jquery-ui.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/styler.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/default/easyui.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('easyui/demo/demo.css')}}">
+
     <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/css/jqueryui-editable.css" rel="stylesheet"/>
     <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 	@yield('stylesheets')
@@ -22,11 +25,8 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
 
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
-
-    <![endif]-->
+	<![endif]-->
 </head>
 	<body class="body">
 
@@ -188,6 +188,7 @@
 		<script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
 		<script type="text/javascript" src="{{asset('js/jquery-ui.js')}}"></script>
 		<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+		<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
 					@yield('scripts')
 
 
