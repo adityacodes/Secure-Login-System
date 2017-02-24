@@ -396,9 +396,9 @@
 
 
     </div>--}}
-<div id="cc" class="easyui-layout" style="width:100%;min-height:600px;">
+<div id="cc" class="easyui-layout" style="width:100%;min-height:622px;">
 
-    <div data-options="region:'south',split:true" style="height:50px; padding: 10px">
+    <div data-options="region:'south',split:true" style="height:50px; padding: 5px">
         <a href="javascript:void(0)" iconcls="icon-ok" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Save</a>
         <a href="javascript:void(0)" iconcls="icon-cancel" style="padding: 3px" class="easyui-linkbutton" onclick="submitForm()">Cancel</a>
 
@@ -475,7 +475,7 @@
                     </table>
                 </div>
             </div>
-            <div title="Referrer" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:0px;">
+            <div title="Referrer" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:20px;">
                     <h3 style="color:#0099FF;">koyamatakahiro@yahoo.com</h3>
                     <p>My saved referal</p>
                     <a href="#">Show my referral link</a>

@@ -13,7 +13,7 @@
 
 
 @section('content')
-    <div id="cc" class="easyui-layout" style="width:100%;height:625px;">
+    <div id="cc" class="easyui-layout" style="width:100%;height:645px;">
 
         {{-- <div data-options="region:'south',split:true" style="height:50px;"></div> --}}
         <div data-options="region:'east',split:true" title="Account" style="width:450px; padding: 20px;">
@@ -28,7 +28,7 @@
 
         </div>
         <div data-options="region:'center',title:'Accounts'" >
-            <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
+            <table id="dg" class="easyui-datagrid" style="width:100%;height: 590px;"
                    url="g"
                    toolbar="#toolbar" pagination="true"
                    rownumbers="true" fitColumns="true" singleSelect="true">
