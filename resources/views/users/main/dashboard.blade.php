@@ -5,7 +5,26 @@
 
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-
+	<style>
+		#p{
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,fcdc4b+100 */
+			background: #fefcea; /* Old browsers */
+			background: -moz-linear-gradient(top,  #fefcea 0%, #fcdc4b 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #fefcea 0%,#fcdc4b 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #fefcea 0%,#fcdc4b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fcdc4b',GradientType=0 ); /* IE6-9 */
+			border-radius: 15px;
+		}
+		#p1{
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+60,f5f7f9+100 */
+			background: #f6f8f9; /* Old browsers */
+			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 60%, #f5f7f9 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+			border-radius: 15px;
+		}
+	</style>
 
 @endsection
 
@@ -14,7 +33,7 @@
 
 
 	{{Form::token()}}
-	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
 		<tr>
 			<td>&nbsp;&nbsp;</td>
 
@@ -38,16 +57,84 @@
 				</div>
 			</td>
 		</tr>
-	</table>
-	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+	</table><br>
+	<div style="font-size: small; padding-left: 500px" >
+		<select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" ><option value="ar">Cummins HK (cummins.hk@gmail.com)</option></select>
+		<img src="{{asset('easyui/themes/icons/reload.png')}}">
+	</div><br>
+	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="70%">
-				ABCD IS A GOOD FRONTEND DEVELOPER
-				paginate below
+				<div id="p" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
+					<table style="width:100%">
+						<tr>
+
+							<td width="80%">You confirmed funds reception (Request for help Z360399303)</td>
+							<td><a href="#" class="easyui-linkbutton">message 0/0</a></td>
+
+						</tr>
+					</table>
+					<table style="width:100%">
+						<tr>
+							<td width="10%"><img src="{{asset('easyui/themes/icons/2.png')}}"></td>
+							<td width="20%">Date of creating:<br>2016-12-13	</td>
+							<td width="20%">Great Tobin ><br>Bitcoin </td>
+							<td width="20%">20 USD<br>Confirmation: <img src="{{asset('easyui/themes/icons/file.png')}}"> </td>
+							<td width="20%">Confirmation:<br>> Cummins HK<br>Bitcoin </td>
+							<td width="10%"><img src="{{asset('easyui/themes/icons/printout.png')}}"></td>
+						</tr>
+					</table>
+					<table style="width:100%">
+						<tr>
+							<td width="90%">Number:R798559583</td>
+
+							<td><a href="#" class="easyui-linkbutton">Details>></a></td>
+
+						</tr>
+					</table>
+				</div>
+				<div class="easyui-pagination" data-options="
+                    total: 114,
+                    showPageList: false,
+                    showRefresh: false,
+                    displayMsg: '' ">
+
+				</div>
 			</td>
 			<td width="30%">
-				paginate on top
-				ABCD IS ALSO A GOOD DEVELOPER
+				<div class="easyui-pagination" data-options="
+                    total: 114,
+                    showPageList: false,
+                    showRefresh: false,
+                    displayMsg: ''
+                "></div>
+				<div id="p1" class="easyui-panel" style="width:400px;height:150px;padding:10px;">
+					<table>
+						<tr>
+							<td width="90%">Request to get help
+								Z 360399303 </td>
+							<td><img src="{{asset('easyui/themes/icons/strelka_32.png')}}"></td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								Participant: Cummins HK
+								Amount: 20 Mavro-USD
+								Balance: 0 Mavro-USD
+								Date: 2016-12-13
+
+								Status: Order processed
+							</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td width="90%"><a href="#" class="easyui-linkbutton">Cancel Request</a></td>
+							<td><a href="#" class="easyui-linkbutton">Details>></a></td>
+						</tr>
+					</table>
+				</div>
 			</td>
 		</tr>
 
