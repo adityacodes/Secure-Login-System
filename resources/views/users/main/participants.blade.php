@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <div class="easyui-layout" style="height: 100%; width: 100%;">
+    <div class="easyui-layout" style="height: 650px;">
 
         <div data-options="region:'south',split:true" style="height:50px;"></div>
         <div data-options="region:'west',split:true" title="My participants" style="width: 200px;">

@@ -10,11 +10,17 @@
 @endsection
 
 @section('content')
+	<hr>
+	<hr>
+	<hr>
+
 
 	{{Form::token()}}
 	<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
-			<td>&nbsp;</td>
+			<td>&nbsp;&nbsp;</td>
+
+
 		</tr>
 		<tr>
 			<td width="50%">
