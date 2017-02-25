@@ -49,7 +49,7 @@
 				</div>
 			</td>
 			<td width="50%">
-				<div id="get_help" class="ordout_button">
+				<div id="get_help" onclick="$('#gethelpbox').dialog('open')"  class="ordout_button">
 					<div>
 						<span class="translate">Get Help</span><br />
 						<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
@@ -65,7 +65,7 @@
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="70%">
-				<div id="p" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
+				<div id="p" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
 					<table style="width:100%">
 						<tr>
 
@@ -88,7 +88,7 @@
 						<tr>
 							<td width="90%">Number:R798559583</td>
 
-							<td><a href="#" class="easyui-linkbutton">Details>></a></td>
+							<td><a href="#" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
 
 						</tr>
 					</table>
@@ -108,7 +108,7 @@
                     showRefresh: false,
                     displayMsg: ''
                 "></div>
-				<div id="p1" class="easyui-panel" style="width:400px;height:150px;padding:10px;">
+				<div id="p1"  class="easyui-panel" style="width:400px;height:150px;padding:10px;">
 					<table>
 						<tr>
 							<td width="90%">Request to get help
@@ -130,8 +130,8 @@
 					</table>
 					<table>
 						<tr>
-							<td width="90%"><a href="#" class="easyui-linkbutton">Cancel Request</a></td>
-							<td><a href="#" class="easyui-linkbutton">Details>></a></td>
+							<td width="90%"><a href="#" onclick="$('#cancelOrderbox').dialog('open')" class="easyui-linkbutton">Cancel Request</a></td>
+							<td><a href="#" onclick="$('#assignmentDetailbox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
 						</tr>
 					</table>
 				</div>
@@ -139,17 +139,9 @@
 		</tr>
 
 	</table>
-	<div style="display: none">
-		<div style="margin:20px 0;">
-			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
-		</div>
-		<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">
-			The dialog content.
-		</div>
-	</div>
 
-	<!----====================================================New Order Cancellation Start Here =============================== --->
+
+	
 	<div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true" style="width: 650px; height: 280px;">
 		<div style="padding: 20px;">
 			<div id="refname"></div>
@@ -162,7 +154,7 @@
 			</p>
 		</div>
 	</div>
-	<!----====================================================New Order Cancellation End Here =============================== --->
+	
 	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
 		<div class="easyui-layout" data-options="fit:true">
 			<div data-options="region:'east'" style="width: 200px; padding: 10px">
@@ -177,114 +169,29 @@
 		</div>
 	</div>
 
-	{{--
-<div class="panel-body">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 alert alert-info text-center">
-				<strong>
-					<a href="{{url('/warning')}}" class="alert-link">WARNING!</a>
-				</strong> 
-				<span style="color: red;">THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP!</span> 
-				Participate only with spare money. Don't contribute all the money you have.
-			</div>	
-
-		</div> 
-
-		<div class="row">
-			<div class="col-md-12">
-				<img class="img-center img-responsive" style="width: 100%; height:75px;" src="{{asset('/image/image1.png')}}">
-			</div>
-			<div class="col-md-12 span10">
-				<img class="img-center img-responsive" style="width: 100%; height:75px;" height="75" src="{{asset('/image/mavro.png')}}">
-			</div>
-		</div>
-
-		<hr>
-
-		<div class="row">
-
-			
-		</div>
-		<hr>
-
-		<div class="row">
-			<div class="col-md-8">
-
-
-					<div class="blog-main ">
-			            <div class="panel-default"	>
-			                <div class="panel-body arrg_out">
-			                    <div class="row">
-			                        <div class="col-sm-1">
-
-			                        </div>
-			                        <div class="col-sm-9">
-			                            <h5>You confirmed funds reception (Request for help Z1487236390)</h5>
-			                        </div>
-			                        <div class="col-sm-2">
-			                            <p><a class="btn btn-default btn-xs" href="#" role="button">Messages:0/0</a></p>
-			                        </div>
-			                    </div>
-			                    <div class="row">
-			                        <div class="col-sm-2"><i style="font-size: 50px; color:forestgreen" class="fa fa-check-circle" aria-hidden="true"></i></div>
-			                        <div class="col-sm-2"><h5>Date of creation:<br>2016-12-13</h5>
-			                        </div>
-			                        <div class="col-sm-2"><h5>Great Tobin ><br>Bitcoin</h5>
-			                        </div>
-			                        <div class="col-sm-2"><h5><span style="color: blue;">20 USD</span></h5>
-			                        </div>
-			                        <div class="col-sm-3"><h5>> {{Auth::user()->name }}<br>Bitcoin</h5>
-			                        </div>
-			                        <div class="col-sm-1"><i class="fa fa-print" style="font-size: 50px; color:blue;" aria-hidden="true"></i></div>
-			                    </div>
-			                    <div class="row">
-			                        <div class="col-sm-10">
-			                            <h5>Number:<br><strong>R798559583</strong></h5>
-			                        </div>
-			                        <div class="col-sm-2">
-			                        	<br>
-			                        	<p><a class="btn btn-default btn-xs" href="#" role="button">Details>></a></p>
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-
-
-			</div>
-			<div class="col-md-4" id="assignments">
-				
-				
-			</div>
-
-		</div>
-
+	<div id="assignmentDetailbox" class="easyui-dialog" title="Assignment Details" data-options="closed:true" style="width: 650px; height: 280px;">
+		All the assignment Details 
+		The status 
+		create date 
+		will be shown here
 	</div>
-</div>
 
+	<div id="gethelpbox" class="easyui-dialog" title="New Topic" data-options="closed:true" style="width: 650px; height: 280px; padding: 10px;">
 
-<!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><i style="color:black" class="fa fa-times " aria-hidden="true"></i>
-		  </button>
-          <h4 class="modal-title">Modal Header</h4>
+        <form id="ff" method="post">
+            <div style="margin-bottom:20px">
+                <input type="checkbox" name="name" data-options="required:true">
+                WARNING! By entering this you agree to the terms and conditions.
+            </div>
+            
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
         </div>
-        <div class="modal-body">
-          <p></p>
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" style="background-color:#FFDD57" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times fa-lg" style="color:red" aria-hidden="true"></i>
-			  Close</button>
-        </div>
-      </div>
     </div>
-  </div>
---}}
+    
+
 
 
 @endsection
@@ -292,6 +199,14 @@
 
 @section('scripts')
 
+<script>
+    function submitForm(){
+        $('#ff').form('submit');
+    }
+    function clearForm(){
+        $('#ff').form('clear');
+    }
+</script>
 {{--
 <script>
 	$(document).ready(function(){
