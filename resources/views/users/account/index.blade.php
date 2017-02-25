@@ -13,15 +13,16 @@
 
 
 @section('content')
-    <div id="cc" class="easyui-layout" style="width:100%;height:625px;">
+    <div id="cc" class="easyui-layout" style="width:100%;height:645px;">
 
         <div id="addacc" data-options="region:'east',split:true,collapsed:true" title="Account" style="width:450px; padding: 20px;">
             <p>Enter your Bitcoin address</p>
             <form id="ff" method="post">
                 <div style="margin-bottom:20px">
-                    <input class="easyui-textbox" name="name" style="width:300px" data-options="label:'Bitcoin Address',required:true">
+                    <input class="easyui-textbox" name="name" style="width:450px" data-options="label:'Bitcoin Address',required:true">
                 </div>
             </form>
+                
             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
             <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'" onclick="javascript:$('#cc').layout('collapse','east');   $('#fm').form('clear');">Cancel</a>
         </div>
@@ -43,7 +44,7 @@
                             <th field="firstname" width="50">First Name</th>
                             <th field="currencycode" width="50">Currency Code</th>
                             <th field="bank" width="50">Bank</th>
-                            <th field="accntno" width="50">Card/Account Number </th>
+                            <th field="accno" width="50">Card/Account Number </th>
                             <th field="details" width="50">Details</th>
                         </tr>
                         </thead>
