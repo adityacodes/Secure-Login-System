@@ -64,7 +64,7 @@
 	</div><br>
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
-			<td width="70%">
+			<td width="80%">
 				<div id="p" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
 					<table style="width:100%">
 						<tr>
@@ -76,19 +76,12 @@
 					</table>
 					<table style="width:100%">
 						<tr>
-							<td width="10%"><img src="{{asset('easyui/themes/icons/2.png')}}"></td>
+							<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/2.png')}}"><br>Number:R798559583</td>
 							<td width="20%">Date of creating:<br>2016-12-13	</td>
 							<td width="20%">Great Tobin ><br>Bitcoin </td>
 							<td width="20%">20 USD<br>Confirmation: <img src="{{asset('easyui/themes/icons/file.png')}}"> </td>
 							<td width="20%">Confirmation:<br>> Cummins HK<br>Bitcoin </td>
-							<td width="10%"><img src="{{asset('easyui/themes/icons/printout.png')}}"></td>
-						</tr>
-					</table>
-					<table style="width:100%">
-						<tr>
-							<td width="90%">Number:R798559583</td>
-
-							<td><a href="#" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
+							<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/printout.png')}}"><br><a href="#" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
 
 						</tr>
 					</table>
@@ -101,7 +94,7 @@
 
 				</div>
 			</td>
-			<td width="30%">
+			<td width="20%">
 				<div class="easyui-pagination" data-options="
                     total: 10,
                     showPageList: false,
