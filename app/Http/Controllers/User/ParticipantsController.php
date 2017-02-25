@@ -28,17 +28,17 @@ class ParticipantsController extends Controller
     public function getParticipants()
     {
         //JSON Response for this.
-        $accounts = Account::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
-        $total = $accounts->total() + (10 - ($accounts->total())%10);
+        // $accounts = Account::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
+        // $total = $accounts->total() + (10 - ($accounts->total())%10);
         
-        $result['total'] = $total;
-        $items = array();
+        // $result['total'] = $total;
+        // $items = array();
 
-        foreach ($accounts as $account) {
-            array_push($items, $account); 
-        }
-        $result['rows'] = $items;
+        // foreach ($accounts as $account) {
+        //     array_push($items, $account); 
+        // }
+        // $result['rows'] = $items;
 
-        echo json_encode($result);
+        // echo json_encode($result);
     }
 }
