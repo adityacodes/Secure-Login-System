@@ -16,6 +16,12 @@ class RegistrationController extends Controller
         $this->middleware('ajax', ['only' => ['captcha']]);
     }
 
+    public function showRegistrationForm()
+    {
+
+        return view('auth.register');
+    }
+
     public function postRegister(Request $request)
     {
 

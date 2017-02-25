@@ -22,7 +22,7 @@
 	Route::post('password/reset', 'Auth\PasswordController@reset');
 	 
 	// Registration routes...
-	Route::get('register', 'Auth\AuthController@showRegistrationForm');
+	Route::get('register', 'RegistrationController@showRegistrationForm');
 	Route::post('register', 'RegistrationController@postRegister');
 	Route::get('register/verify/{confirmationCode}', 'RegistrationController@confirm');
 
