@@ -218,10 +218,12 @@
 			</div>
 
         </div>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
+
+        <div>&nbsp;</div>
+		<div>&nbsp;</div>
+
+
+
 
 
 	@yield('content')

@@ -12,7 +12,7 @@
 
 @section('content')
 
-    <div id="cc" class="easyui-layout" style="height: 650px;">
+    <div id="cc" class="easyui-layout" style="height: 650px; margin-top: +10px">
 
         {{-- <div data-options="region:'south',split:true" style="height:50px;"></div> --}}
 

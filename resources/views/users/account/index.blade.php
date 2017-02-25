@@ -44,7 +44,7 @@
 
 
 @section('content')
-<div id="cc" class="easyui-layout" style="width:100%;height:645px;">
+<div id="cc" class="easyui-layout" style="width:100%;height:645px; margin-top: +10px">
 
     <div id="addacc" data-options="region:'east',split:true,collapsed:true" title="Account" style="width:450px; padding: 20px;">
         
