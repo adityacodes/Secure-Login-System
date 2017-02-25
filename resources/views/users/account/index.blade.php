@@ -93,9 +93,6 @@
             <input id="SaveAccount" type="button" value="Submit form" />
         </p>
     </form>
-
-        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-ok'">Save</a>
-        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'" onclick="javascript:$('#cc').layout('collapse','east');   $('#fm').form('clear');">Cancel</a>
     </div>
     <div data-options="region:'center',title:'Accounts'"  >
         <div class="easyui-layout" data-options="fit:true">
@@ -103,7 +100,7 @@
             <div id="toolbar">
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Add</a>
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit</a>
-                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Delete</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true"  onclick="$('#w').window('open')">Delete</a>
             </div>
             {{Form::token()}}
             <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
@@ -128,6 +125,11 @@
         </div>
     </div>
 </div>
+    <div>
+        <div id="w" class="easyui-dialog" title="Warning" data-options="modal:true,closed:true" style="width:500px;height:200px;padding:10px;">
+            Are you sure, you Want to delete this?
+        </div>
+    </div>
 
 
 
