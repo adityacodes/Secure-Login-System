@@ -22,7 +22,7 @@
                     </table>
                 </div>
                 <div data-options="region:'center'">
-					<table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
+					<table id="dg" class="easyui-datagrid" style="height: 560px;"
 				           url="datagrid_mavro.json"
 				           toolbar="#toolbar" pagination="true"
 				           idField="false"
