@@ -195,9 +195,13 @@
 						<a href="{{ url('/mavro') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-mavro'">Mavro</a>
 						<a href="{{ url('/accounts') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-account'">Account</a>
 					</div>
-						<a onclick="window.location.replace('{{url('logout')}}')" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
-						<a href="#" class="easyui-menubutton" style="float: right" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
-						<a href="{{ url('/support') }}" class="easyui-linkbutton" style="float: right" data-options="plain:true,iconCls:'icon-support'">Support</a>
+					<div style="float: right; display: inline-block">
+						<a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-inbox'">0</a>
+						<a href="{{ url('/support') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-support'">Support</a>
+						<a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
+						<a onclick="window.location.replace('{{url('logout')}}')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-logout'">Logout</a>
+					</div>
+
 				</div>
 				<div id="mm1" style="width:200px;">
 					<div href="{{url('/participants')}}" data-options="iconCls:'icon-pp'">Participants</div>
