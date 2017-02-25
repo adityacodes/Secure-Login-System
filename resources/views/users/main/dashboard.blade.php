@@ -167,42 +167,59 @@
 
 
 	
-	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
-		<div class="easyui-layout" data-options="fit:true">
-			<div data-options="region:'east'" style="width: 200px; padding: 10px">
-				<input type="file" name="msgFile" id="msgFile" />
-			</div>
-			<div data-options="region:'center'" style="overflow-y: scroll;">
-				<div id="loadmsgbox"></div>
-			</div>
-			<div data-options="region:'south'" title="Write your message here" style="height: 120px; padding: 10px">
-				<textarea name="messageInput" id="messageInput" style="height: 60px; width: 600px"></textarea>
-			</div>
-		</div>
+	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true, buttons: [{
+                    text:'Close',
+                    iconCls:'icon-cancel',
+                    handler:function(){
+                         $('#rOrderDetails').dialog('close');
+                    }
+                }]"
+		 style="width: 810px; height: 510px; overflow-y: scroll">
+		<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
+		<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
+		<div id="boxloadOrder" style="padding: 10px"></div>
 	</div>
 
-	<div id="assignmentDetailbox" class="easyui-dialog" title="Assignment Details" data-options="closed:true, modal:true" style="width: 650px; height: 280px;">
-		All the assignment Details 
-		The status 
-		create date 
-		will be shown here
+	<div id="assignmentDetailbox" class="easyui-dialog" title="Order Details View" data-options="closed:true,modal:true, buttons: [{
+                    text:'Close',
+                    iconCls:'icon-cancel',
+                    handler:function(){
+                         $('#rOrderDetails').dialog('close');
+                    }
+                }]"
+			 style="width: 810px; height: 510px; overflow-y: scroll">
+		<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
+		<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
+		<div id="boxloadOrder" style="padding: 10px"></div>
 	</div>
+
 
 	
-    <div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true,modal:true" style="width: 650px; height: 280px;">
-		<div style="padding: 20px;">
-			<div id="refname"></div>
-			<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
-			<p>
-				<b>Reason for cancellation</b>
-			</p>
-			<p>
-				<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
-				<div style="text-align:center;padding:5px 0">
-		            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
-		            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
-		        </div>
-			</p>
+    <div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true,modal:true, buttons: [{
+                    text:'Cancel Order',
+                    iconCls:'icon-ok',
+                    handler:function(){
+                        alert('ok');
+                    }
+                },{
+                    text:'Close',
+                    iconCls:'icon-cancel',
+                    handler:function(){
+                         $('#rOrderDetails').dialog('close');;
+                    }
+                }]"
+		 style="width: 800px; height: 300px;">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'center'" style="padding: 20px;">
+				<div id="refname"></div>
+				<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
+				<p>
+					<b>Reason for cancellation</b>
+				</p>
+				<p>
+					<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
+				</p>
+			</div>
 		</div>
 	</div>
     
