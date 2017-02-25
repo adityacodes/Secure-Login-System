@@ -60,28 +60,30 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     // Account details
-    //     $this->validate($request,array(
-    //         'account_name' => 'required',
-    //         'account_currency' => 'required',
-    //         'account_number' => 'required',
-    //         'beneficiary_name' => 'required',
-    //     ));
+    public function store(Request $request)
+    {
+        // Account details
+        $this->validate($request,array(
+            'ac_name' => 'required',
+            'ac_currency' => 'required',
+            'ac_number' => 'required',
+            'beneficiary_name' => 'required',
+        ));
 
-    //     $account = new Account;
-    //     $account->account_name = $request->account_name;
-    //     $account->account_currency = $request->account_currency;
-    //     $account->account_number = $request->account_number;
-    //     $account->beneficiary_name = $request->beneficiary_name;
-    //     $account->bank_name = 'Bitcoin';
-    //     $account->user_id = Auth::user()->id;
-    //     $account->save();
+        $account = new Account;
+        $account->ac_id = 'ACC'.time();//Timestamp
+        $account->ac_name = $request->ac_name;
+        $account->ac_currency = $request->ac_currency;
+        $account->ac_number = $request->ac_number;
+        $account->beneficiary_name = $request->beneficiary_name;
+        $account->ac_holder = Auth::user()->name;
+        $account->ac_type = 'BTC';
+        $account->bank_name = 'Bitcoin';
+        $account->user_id = Auth::user()->id;
+        $account->save();
 
-    //     Session::flash('success', 'Account was successfully added');
-    //     return redirect()->route('users.account.index');
-    // }
+        echo '{"success":true}';
+    }
 
     // /**
     //  * Display the specified resource.
