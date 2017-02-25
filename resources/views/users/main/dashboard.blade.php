@@ -41,7 +41,7 @@
 		</tr>
 		<tr>
 			<td width="50%">
-				<div id="put_help" class="ordin_button">
+				<div id="put_help" onclick="$('#puthelpbox').dialog('open')" class="ordin_button">
 					<div>
 						<span class="translate">I Want to Provide Help</span>
 						<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Acquire" Mavro (Make a Contribution)</i>
@@ -87,7 +87,7 @@
 					</table>
 				</div>
 				<div class="easyui-pagination" data-options="
-                    total: 114,
+                    total: 10,
                     showPageList: false,
                     showRefresh: false,
                     displayMsg: '' ">
@@ -96,7 +96,7 @@
 			</td>
 			<td width="20%">
 				<div class="easyui-pagination" data-options="
-                    total: 114,
+                    total: 10,
                     showPageList: false,
                     showRefresh: false,
                     displayMsg: ''
@@ -134,19 +134,38 @@
 	</table>
 
 
-	
-	<div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true" style="width: 650px; height: 280px;">
-		<div style="padding: 20px;">
-			<div id="refname"></div>
-			<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
-			<p>
-				<b>Reason for cancellation</b>
-			</p>
-			<p>
-				<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
-			</p>
-		</div>
-	</div>
+
+	<div id="gethelpbox" class="easyui-dialog" title="New Assignment" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
+
+        <form id="ff" method="post">
+            <div style="margin-bottom:20px">
+                <input type="checkbox" name="name" data-options="required:true">
+                WARNING! By entering this you agree to the terms and conditions.
+            </div>
+            
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
+        </div>
+    </div>
+
+    <div id="puthelpbox" class="easyui-dialog" title="Put Help" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
+
+        <form id="ff" method="post">
+            <div style="margin-bottom:20px">
+                <input type="checkbox" name="name" data-options="required:true">
+                WARNING! By entering this you agree to the terms and conditions.
+            </div>
+            
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
+        </div>
+    </div>
+
+
 	
 	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
 		<div class="easyui-layout" data-options="fit:true">
@@ -162,27 +181,30 @@
 		</div>
 	</div>
 
-	<div id="assignmentDetailbox" class="easyui-dialog" title="Assignment Details" data-options="closed:true" style="width: 650px; height: 280px;">
+	<div id="assignmentDetailbox" class="easyui-dialog" title="Assignment Details" data-options="closed:true, modal:true" style="width: 650px; height: 280px;">
 		All the assignment Details 
 		The status 
 		create date 
 		will be shown here
 	</div>
 
-	<div id="gethelpbox" class="easyui-dialog" title="New Topic" data-options="closed:true" style="width: 650px; height: 280px; padding: 10px;">
-
-        <form id="ff" method="post">
-            <div style="margin-bottom:20px">
-                <input type="checkbox" name="name" data-options="required:true">
-                WARNING! By entering this you agree to the terms and conditions.
-            </div>
-            
-        </form>
-        <div style="text-align:center;padding:5px 0">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
-        </div>
-    </div>
+	
+    <div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" data-options="closed:true,modal:true" style="width: 650px; height: 280px;">
+		<div style="padding: 20px;">
+			<div id="refname"></div>
+			<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
+			<p>
+				<b>Reason for cancellation</b>
+			</p>
+			<p>
+				<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
+				<div style="text-align:center;padding:5px 0">
+		            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
+		            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
+		        </div>
+			</p>
+		</div>
+	</div>
     
 
 
