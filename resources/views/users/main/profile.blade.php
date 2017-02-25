@@ -104,6 +104,10 @@
             ">
         </table>
     </div>
+    <div data-options="region:'south',split:true" style="height:50px;padding: 10px;">
+        <a href="javascript:void(0)" iconcls="icon-ok" class="easyui-linkbutton" onclick="submitForm()">Save</a>
+        <a href="javascript:void(0)" iconcls="icon-cancel" class="easyui-linkbutton" onclick="submitForm()">Cancel</a>
+    </div>
 </div>
 
 
