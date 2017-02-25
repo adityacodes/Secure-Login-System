@@ -73,7 +73,12 @@ class UserController extends Controller
         return view('users.main.promo');
     }
 
-    // Route to accounts can be found in User/AccountsController
+     // Route : accounts
+    public function getAccounts()
+    {
+        return view('users.account.index');
+    }
+
 
      // Route : provide-help
     public function getProvideHelp()

@@ -16,8 +16,8 @@
 
     </div>
     <div data-options="region:'east',split:true" title="Personal Settings" style="width: 600px; padding: 0px;">
-        <div class="easyui-accordion" style="width:100%;height:100%;">
-            <div title="Settings" data-options="iconCls:'icon-reload'" style="overflow:auto;padding:0px;">
+        <div class="easyui-accordion" style="height:300px;">
+            <div title="Settings" data-options="iconCls:'icon-reload'" style="overflow:auto;padding:0px; height: 50px;">
                 <div style="padding-top: 20px; padding-bottom: 20px;" class="datagrid-body">
                     <table class="datagrid-btable settabel" style="width: 100%;">
                         <tbody>
