@@ -22,8 +22,8 @@
                     
                 </ul>
             </div>
-        </div>
-        <div data-options="region:'center',iconCls:'icon-ok'" title="Center" style="padding:5px">
+        </div> 
+        <div data-options="region:'center',iconCls:'icon-ok'" title="Center">
             <div class="easyui-layout" data-options="fit:true">
                 <div data-options="region:'center'">
                     <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
