@@ -43,4 +43,5 @@
 	Route::controller('/', 'UserController');
 	// Route::resource('users/account', 'User\AccountController');
 	Route::resource('users/assignment', 'User\AssignmentController');
+	Route::controller('user', 'User\ParticipantsController');
 

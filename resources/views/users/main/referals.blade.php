@@ -27,24 +27,36 @@
 @endsection
 
 @section('content')
-    <div id="p" class="easyui-panel" title="Participants" style="width:100%;height:100%;padding:10px;">
-        <table class="easyui-datagrid"
-                data-options="url:'datagrid_data1.json',method:'get',border:false,singleSelect:true,fit:true,fitColumns:true" pagination="true">
-            <thead>
-            <tr>
-                <th></th>
-                <th data-options="field:'itemid'" width="150">Participants</th>
-                <th data-options="field:'productid'" width="120">First name</th>
-                <th data-options="field:'listprice',align:'right'" width="180">Last Name</th>
-                <th data-options="field:'attr1'" width="150">Guider</th>
-                <th data-options="field:'attr1'" width="150">City</th>
-                <th data-options="field:'attr1'" width="150">Mobile</th>
-                <th data-options="field:'status',align:'center'" width="60">Status</th>
-                <th data-options="field:'attr1'" width="150">Registration Date</th>
-            </tr>
-            </thead>
-        </table>
-    </div>
+
+<div id="cc" class="easyui-layout" style="width:100%;height:645px;">
+
+      <div data-options="region:'center',title:'Accounts'"  >
+        <div class="easyui-layout" data-options="fit:true">
+
+            <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
+                url="{{ url('user/participants') }}" method="get"
+                toolbar="#toolbar" pagination="true" 
+                rownumbers="true" fitColumns="true" singleSelect="true">
+                <thead>
+                    <tr>
+                        <th field="ac_id" width="50">Participants</th>
+                        <th field="ac_name" width="50">First Name</th>
+                        <th field="ac_currency" width="50">Last Name</th>
+                        <th field="bank_name" width="50">Guider</th>
+                        <th field="ac_number" width="100">City</th>
+                        <th field="ac_holder" width="50">Mobile</th>
+                        <th field="created_at" width="50">Status</th>
+                        <th field="details" width="50">Registration Date</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+       </div> 
+
+
+
+</div>
 
 @endsection
 
