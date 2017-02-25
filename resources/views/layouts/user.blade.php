@@ -196,7 +196,7 @@
 						<a href="{{ url('/accounts') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-account'">Account</a>
 					</div>
 					<div style="float: right; display: inline-block">
-						<a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-inbox'">0</a>
+						<a href="{{ url('/messages') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-inbox'">0</a>
 						<a href="{{ url('/support') }}" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-support'">Support</a>
 						<a href="#" class="easyui-menubutton" data-options="menu:'#mm3',iconCls:'icon-help'">Information & news</a>
 						<a onclick="window.location.replace('{{url('logout')}}')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-logout'">Logout</a>

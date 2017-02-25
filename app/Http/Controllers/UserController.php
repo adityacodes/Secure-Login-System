@@ -67,12 +67,6 @@ class UserController extends Controller
     	return view('users.main.happiness');
     }
 
-    // Route : promo-tasks
-    public function getPromo()
-    {
-        return view('users.main.promo');
-    }
-
      // Route : accounts
     public function getAccounts()
     {
@@ -110,17 +104,6 @@ class UserController extends Controller
         return view('users.main.faq');
     }
 
-     // Route : promotion-materials
-    public function getPromotionMaterials()
-    {
-        return view('users.main.promotionmaterials');
-    }
-
-     // Route : webnair
-    public function getWebnair()
-    {
-        return view('users.main.webnair');
-    }
 
      // Route : support
     public function getSupport()
@@ -128,17 +111,15 @@ class UserController extends Controller
         return view('users.main.support');
     }
 
-     // Route : web-task-archive
-    public function getWebTask()
+    // Route : Messages
+    public function getMessages()
     {
-        return view('users.main.webtask');
+        return view('users.main.messages');
     }
 
-     // Route : instructions
-    public function getInstructions()
-    {
-        return view('users.main.instructions');
-    }
+
+
+
 
 
 
