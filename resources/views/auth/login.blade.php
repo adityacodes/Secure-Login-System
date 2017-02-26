@@ -6,7 +6,7 @@
 
 <style type="text/css">
     .wrapper{
-        margin-top: 15%;
+        margin-top: 12%;
     }
     .panel-body{
         border: 5px solid #CC8822;
@@ -83,14 +83,14 @@
                                       <em>(Enter the code from the picture)</em>
                                     </small>
                                 </label>
-                                <div class="col-md-4" id="captchaimg">
+                                <div class="col-md-8" id="captchaimg">
 
-                                        {!! captcha_image_html('RegisterCaptcha') !!}
+                                        {!! captcha_image_html('LoginCaptcha') !!}
 
 
                                 </div>
 
-                                <div class="col-md-offset-4 col-md-4">
+                                <div class="col-md-offset-4 col-md-6" style="margin-top:-15%;">
                                     <input class="form-control" id="captcha_code" name="captcha_code" type="text">
                                     @if ($errors->has('captcha_code'))
                                         <span class="help-block">
@@ -135,16 +135,9 @@
 
 <script type="text/javascript">
 
-
-    /*$(window).load(function() {
-        $(".loader").delay( 2000 ).fadeOut("slow");
-        $(":input").delay( 2000 ).prop( "disabled", false );
-    });*/
-
     $('.loader').fadeOut('slow');
-    
+    $("a[title~=Laravel], .BDC_SoundIcon").remove();
     $('#app-layout').css("background-color", "#F2E5D2"); 
-
 </script>
 
 @endsection

@@ -35,12 +35,9 @@ return [
     */
     'LoginCaptcha' => [
         'UserInputID' => 'CaptchaCode',
-        'CodeLength' => 5,
-        'ImageStyle' => [
-            ImageStyle::Radar,
-            ImageStyle::Collage,
-            ImageStyle::Fingerprints,
-        ],
+        'CodeLength' => CaptchaRandomization::GetRandomCodeLength(3, 4),
+        'ImageWidth' => 180,
+        'CodeStyle' => CodeStyle::Alpha,
     ],
 
     /*
