@@ -39,9 +39,32 @@
 	
 	Route::get('user/provide-help', 'UserController@getProvideHelp');
 
-	Route::controller('user', 'User\AccountController');
-	Route::controller('/', 'UserController');
-	// Route::resource('users/account', 'User\AccountController');
-	Route::resource('users/assignment', 'User\AssignmentController');
-	Route::controller('user', 'User\ParticipantsController');
+	
+	Route::get('dashboard', 'UserController@getDashboard');
+	Route::get('participants', 'UserController@getParticipants');
+	Route::get('mavro', 'UserController@getMavro');
+	Route::get('referals', 'UserController@getReferals');
+	Route::get('profile', 'UserController@getProfile');
+	Route::get('letter-of-happiness', 'UserController@getHappiness');
+	Route::get('accounts', 'UserController@getAccounts');
+	Route::get('provide-help', 'UserController@getProvideHelp');
+	Route::get('get-help', 'UserController@getGetHelp');
+	Route::get('notices', 'UserController@getNotices');
+	Route::get('news', 'UserController@getNews');
+	Route::get('faq', 'UserController@getFaq');
+	Route::get('support', 'UserController@getSupport');
+	Route::get('messages', 'UserController@getMessages');
+
+	// Route::controller('user', 'User\ParticipantsController');
+	/* USER ACCOUNTS */
+
+	 Route::group(['namespace' => 'User'], function() {
+
+	 	Route::resource('users/assignment', 'AssignmentController');
+	 	Route::get('mmmuser/accounts', 'ManageAccountController@getAccounts');
+	 	Route::post('mmmuser/account', 'ManageAccountController@storeAccount');
+	 	Route::put('mmmuser/account/{account}', 'ManageAccountController@updateAccount');
+	 	Route::delete('mmmuser/account/{account}', 'ManageAccountController@destroyAccount');
+    });
+		
 

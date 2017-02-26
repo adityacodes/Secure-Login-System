@@ -150,6 +150,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */

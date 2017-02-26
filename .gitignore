@@ -8,3 +8,4 @@ Homestead.json
 .env
 .idea/*
 .idea
+composer.lock

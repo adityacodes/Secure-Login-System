@@ -49,48 +49,33 @@
     <div id="addacc" data-options="region:'east',split:true,collapsed:true" title="Account" style="width:450px; padding: 20px;">
         
 
-        <form id="SignupForm" action="">
+        <form id="accform" method="POST" action="{{url('mmmuser/account')}}">
         <fieldset>
             <label for="Name">Bitcoin Address</label>
-            <input id="Name" type="text" class="validate[required]" />
+            <input id="Name" name="ac_number" type="text" class="validate[required]" />
         </fieldset>
         <fieldset>
-            <label for="CompanyName">Company Name</label>
-            <input id="CompanyName" type="text" class="validate[required]" />
-            <label for="Website">Website</label>
-            <input id="Website" type="text" />
-            <label for="CompanyEmail">CompanyEmail</label>
-            <input id="CompanyEmail" type="text" />
+            <label for="ac_name">Account Name :</label>
+            <input id="ac_name" type="text" name="ac_name" class="validate[required]" />
+            <label for="bank_name">Bank Name :</label>
+            <input id="bank_name" type="text" name="bank_name" disabled="" value="Bitcoin" />
+
         </fieldset>
         <fieldset>
-            <label for="NameOnCard">Name on Card</label>
-            <input id="NameOnCard" type="text" />
-            <label for="CardNumber">Card Number</label>
-            <input id="CardNumber" type="text" />
-            <label for="CreditcardMonth">Expiration</label>
-            <select id="CreditcardMonth">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <select id="CreditcardYear">
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-            </select>        
-            <label for="Address1">Address 1</label>
-            <input id="Address1" type="text" />
-            <label for="Address2">Address 2</label>
-            <input id="Address2" type="text" />
-            <label for="City">City</label>
-            <input id="City" type="text" />
-            <label for="City">City</label>
-            <select id="Country">
-                <option value="IN">India</option>
-            </select>
+            <label for="ac_holder">Account Holder :</label>
+            <input id="ac_holder" type="text" name="ac_holder" class="validate[required]" />
+            <label for="ac_type">Account Type :</label>
+            <input id="ac_type" disabled="" type="text" name="ac_type" />
+            <label for="ac_currency">Account Currency</label>
+            <select id="ac_currency" name="ac_currency">
+                <option value="MAVRO-USD">MAVRO-USD</option>
+            </select>     
+            <label for="beneficiary_name">Beneficiary Name :</label>
+            <input id="beneficiary_name" type="text" name="beneficiary_name" />
+            {{Form::token()}}
         </fieldset>
         <p>
-            <input id="SaveAccount" type="button" value="Submit form" />
+            <input id="SaveAccount" onclick="saveUser()" type="button" value="Save Account" />
         </p>
     </form>
     </div>
@@ -100,23 +85,24 @@
             <div id="toolbar">
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Add</a>
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit</a>
-                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true"  onclick="$('#w').window('open')">Delete</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true"  onclick="removeUser()">Delete</a>
             </div>
             {{Form::token()}}
             <table id="dg" class="easyui-datagrid" style="width:100%;height: 580px;"
-                url="{{ url('user/accounts') }}" method="get"
+                url="{{ url('mmmuser/accounts') }}" method="get"
                 toolbar="#toolbar" pagination="true" 
                 rownumbers="true" fitColumns="true" singleSelect="true">
                 <thead>
                     <tr>
+                        <th field="id" width="10" hidden="">ID</th>
                         <th field="ac_id" width="50">ID</th>
-                        <th field="ac_name" width="50">First Name</th>
+                        <th field="ac_name" width="50">Account Name</th>
                         <th field="ac_currency" width="50">Currency Code</th>
                         <th field="bank_name" width="50">Bank</th>
                         <th field="ac_number" width="100">Card/Account Number </th>
                         <th field="ac_holder" width="50">Card/Account Holder </th>
                         <th field="created_at" width="50">Created At </th>
-                        <th field="details" width="50">Details</th>
+                        <th field="beneficiary_name" width="50">Details</th>
                     </tr>
                 </thead>
             </table>
@@ -125,11 +111,11 @@
         </div>
     </div>
 </div>
-    <div>
+    {{-- <div>
         <div id="w" class="easyui-dialog" title="Warning" data-options="modal:true,closed:true" style="width:500px;height:200px;padding:10px;">
             Are you sure, you Want to delete this?
         </div>
-    </div>
+    </div> --}}
 
 
 
@@ -138,106 +124,13 @@
 
 
 @section('scripts')
- <script src="{{asset('easyui/jquery.validationEngine.min.js') }}"></script>
- <script src="{{asset('easyui/jquery.validationEngine-en.min.js')}}"></script>
+
+<script src="{{asset('easyui/jquery.validationEngine.min.js') }}"></script>
+<script src="{{asset('easyui/jquery.validationEngine-en.min.js')}}"></script>
 <script type="text/javascript">
-
-
-     $( function() {
-            var $signupForm = $( '#SignupForm' );
-            
-            $signupForm.validationEngine();
-            
-            $signupForm.formToWizard({
-                submitButton: 'SaveAccount',
-                showProgress: false, //default value for showProgress is also true
-                nextBtnName: 'Next >>',
-                prevBtnName: '<< Previous',
-                showStepNo: false,
-                validateBeforeNext: function() {
-                     return $signupForm.validationEngine( 'validate' );
-                }
-            });
-            
-            
-            $( '#txt_stepNo' ).change( function() {
-                $signupForm.formToWizard( 'GotoStep', $( this ).val() );
-            });
-            
-            $( '#btn_next' ).click( function() {
-                $signupForm.formToWizard( 'NextStep' );
-            });
-            
-            $( '#btn_prev' ).click( function() {
-                $signupForm.formToWizard( 'PreviousStep' );
-            });
-        });
-  
-
-
-  // Here my cntext starts
-
-    var url;
-    $('#cc').layout();
-    function newUser() {
-
-        $('#fm').form('clear');
-        
-        $('#cc').layout('expand', 'east');
-    }
-    function editUser() {
-        var row = $('#dg').datagrid('getSelected');
-        $('#cc').layout('expand', 'east');
-        if (row) {
-            $('#dlg').dialog('open').dialog('setTitle', 'Edit User');
-            $('#fm').form('load', row);
-            url = '/united/handler/banking/update_account.ashx?id=' + row.Id;
-        }
-    }
-
-    function saveUser() {
-        $('#fm').form('submit', {
-            url: url,
-            onSubmit: function () {
-                return $(this).form('validate');
-            },
-            success: function (result) {
-                var result = eval('(' + result + ')');
-
-                if (result.Success) {
-                    $('#cc').layout('collapse', 'east');  // close the dialog
-                    $('#dg').datagrid('reload'); // reload the user data
-                } else {
-                    $.messager.show({
-                        title: 'Error',
-                        msg: result.Message
-                    });
-                }
-            }
-        });
-    }
-    function removeUser() {
-        var row = $('#dg').datagrid('getSelected');
-        if (row) {
-            $.messager.confirm('Confirm', 'Are you sure you want to cancel this transaction??', function (r) {
-                if (r) {
-                    $.post('/united/handler/banking/remove.ashx', { id: row.Id }, function (result) {
-                        if (result.Success) {
-                            $('#dg').datagrid('reload'); // reload the user data
-                        } else {
-                            $.messager.alert({  // show error message
-                                title: 'Error',
-                                msg: result.Message
-
-                            });
-                        }
-                    }, 'json');
-                }
-            });
-        }
-    }
-
+    var serverurl='{{url('mmmuser/account')}}';
+    var token = '{{ csrf_token() }}';
 </script>
-
+<script type="text/javascript" src="{{asset('js/accontrollers.js')}}"></script>
 
 @endsection

@@ -8,121 +8,126 @@ use App\Http\Requests;
 use App\Reference;
 use Auth, Session;
 
+/**
+ * @Middleware("auth")
+ */
 class UserController extends Controller
 {
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
-		$this->middleware('auth');
-	}
-    /**
-     * Display the user page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('users.main.index');
-    }
 
-    // Route : dashboard
+    /**
+     * @Get("dashboard", as="dashboard")
+     */
     public function getDashboard()
     {
         $references = Reference::where('ref_id', Auth::user()->re_id)->pluck('user_id');
-
     	return view('users.main.dashboard');
     }
 
-    // Route : participants
+    /**
+     * @Get("participants")
+     */
     public function getParticipants()
     {
     	return view('users.main.participants');
     }
 
-    // Route : mavro
+    /**
+     * @Get("mavro")
+     */
     public function getMavro()
     {
         return view('users.main.mavro');
     }
 
-    // Route : referals
+    /**
+     * @Get("referals")
+     */
     public function getReferals()
     {
     	return view('users.main.referals');
     }
 
-    // Route : profile
+    /**
+     * @Get("profile")
+     */
     public function getProfile()
     {
     	return view('users.main.profile');
     }
 
-    // Route : letter-of-happiness
+    /**
+     * @Get("letter-of-happiness")
+     */
     public function getHappiness()
     {
     	return view('users.main.happiness');
     }
 
-     // Route : accounts
+    /**
+     * @Get("accounts")
+     */
     public function getAccounts()
     {
         return view('users.account.index');
     }
 
 
-     // Route : provide-help
+    /**
+     * @Get("provide-help")
+     */
     public function getProvideHelp()
     {
         return view('users.main.providehelp');
     }
 
-    // Route : get-help
+    /**
+     * @Get("get-help")
+     */ 
     public function getGetHelp()
     {
         return view('users.main.gethelp');
     }
 
-     // Route : notices
+    /**
+     * @Get("notices")
+     */ 
     public function getNotices()
     {
         return view('users.main.notices');
     }
 
-     // Route : news
+    /**
+     * @Get("news")
+     */  
     public function getNews()
     {
         return view('users.main.news');
     }
 
-     // Route : faq
+    /**
+     * @Get("faq")
+     */ 
     public function getFaq()
     {
         return view('users.main.faq');
     }
 
 
-     // Route : support
+    /**
+     * @Get("support")
+     */
     public function getSupport()
     {
         return view('users.main.support');
     }
 
-    // Route : Messages
+    /**
+     * @Get("messages")
+     */
     public function getMessages()
     {
         return view('users.main.messages');
     }
-
-
-
-
-
-
-
 
 
 }
