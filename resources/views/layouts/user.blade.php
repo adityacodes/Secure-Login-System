@@ -76,13 +76,12 @@
 
 	<script type="text/javascript" src="{{ asset('easyui/jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
-	<script type="text/javascript">
-		$('.loader').fadeOut('slow');
-	</script>
 	<script type="text/javascript" src="{{asset('easyui/jquery.formtowizard.js')}}"></script>
 	<script type="text/javascript" src="{{asset('easyui/easyloader.js')}}"></script>
 	@yield('scripts')
 
-
+	<script type="text/javascript">
+		$('.loader').fadeOut('slow');
+	</script>
 </body>
 </html>

@@ -13,7 +13,9 @@ class LoginController extends Controller
 	    
 	      $this->validate($request, array(
 				'email' => 'required|exists:users',
-	          	'password' => 'required'
+	          	'password' => 'required',
+            	'captcha_code' => 'required|valid_captcha'
+
 			));
 	 
 	      $credentials = [

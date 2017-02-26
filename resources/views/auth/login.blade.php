@@ -77,6 +77,29 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('captcha_code') ? ' has-error' : '' }}">
+                                <label class="col-md-4 control-label">Picture Password <sup style="color:red;">*</sup><br>
+                                    <small id="passwordHelpInline" class="text-muted">
+                                      <em>(Enter the code from the picture)</em>
+                                    </small>
+                                </label>
+                                <div class="col-md-4" id="captchaimg">
+
+                                        {!! captcha_image_html('RegisterCaptcha') !!}
+
+
+                                </div>
+
+                                <div class="col-md-offset-4 col-md-4">
+                                    <input class="form-control" id="captcha_code" name="captcha_code" type="text">
+                                    @if ($errors->has('captcha_code'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('captcha_code') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="form-group" hidden="">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
