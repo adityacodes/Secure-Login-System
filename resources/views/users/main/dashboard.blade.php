@@ -57,10 +57,21 @@
 				</div>
 			</td>
 		</tr>
+		<tr>
+			<td>&nbsp;&nbsp;</td>
+		</tr>
+		<tr >
+			<td style="text-align: center;">
+				<select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" >
+					<option value="ar">Cummins HK (cummins.hk@gmail.com)</option>
+				</select>
+				<img src="{{asset('easyui/themes/icons/reload.png')}}">
+			</td>
+		</tr>
+
 	</table><br>
 	<div style="font-size: small; padding-left: 500px" >
-		<select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" ><option value="ar">Cummins HK (cummins.hk@gmail.com)</option></select>
-		<img src="{{asset('easyui/themes/icons/reload.png')}}">
+		
 	</div><br>
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
@@ -100,34 +111,9 @@
                     showPageList: false,
                     showRefresh: false,
                     displayMsg: ''
-                "></div>
-				<div id="p1"  class="easyui-panel" style="width:400px;height:150px;padding:10px;">
-					<table>
-						<tr>
-							<td width="90%">Request to get help
-								Z 360399303 </td>
-							<td><img src="{{asset('easyui/themes/icons/strelka_32.png')}}"></td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>
-								Participant: Cummins HK
-								Amount: 20 Mavro-USD
-								Balance: 0 Mavro-USD
-								Date: 2016-12-13
-
-								Status: Order processed
-							</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td width="90%"><a href="#" onclick="$('#cancelOrderbox').dialog('open')" class="easyui-linkbutton">Cancel Request</a></td>
-							<td><a href="#" onclick="$('#assignmentDetailbox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
-						</tr>
-					</table>
-				</div>
+                ">
+                </div>
+				{{-- Load assignments here. --}}
 			</td>
 		</tr>
 

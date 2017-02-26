@@ -38,8 +38,6 @@
 /* User Routes */
 	
 	Route::get('user/provide-help', 'UserController@getProvideHelp');
-
-	
 	Route::get('dashboard', 'UserController@getDashboard');
 	Route::get('participants', 'UserController@getParticipants');
 	Route::get('mavro', 'UserController@getMavro');
@@ -58,13 +56,12 @@
 	// Route::controller('user', 'User\ParticipantsController');
 	/* USER ACCOUNTS */
 
-	 Route::group(['namespace' => 'User'], function() {
-
-	 	Route::resource('users/assignment', 'AssignmentController');
-	 	Route::get('mmmuser/accounts', 'ManageAccountController@getAccounts');
-	 	Route::post('mmmuser/account', 'ManageAccountController@storeAccount');
-	 	Route::put('mmmuser/account/{account}', 'ManageAccountController@updateAccount');
-	 	Route::delete('mmmuser/account/{account}', 'ManageAccountController@destroyAccount');
+	 Route::group(['namespace' => 'User', 'prefix' => 'mmmuser'], function() {
+	 	Route::resource('assignment', 'AssignmentController');
+	 	Route::get('accounts', 'ManageAccountController@getAccounts');
+	 	Route::post('account', 'ManageAccountController@storeAccount');
+	 	Route::put('account/{account}', 'ManageAccountController@updateAccount');
+	 	Route::delete('account/{account}', 'ManageAccountController@destroyAccount');
     });
     Route::group(['prefix' => 'admin'], function() {
         Route::get('orders', 'AdminController@getOrders');
