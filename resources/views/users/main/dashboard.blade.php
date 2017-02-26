@@ -60,8 +60,10 @@
 		<tr>
 			<td>&nbsp;&nbsp;</td>
 		</tr>
-		<tr >
-			<td style="text-align: center;">
+	</table>
+	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
+		<tr>
+			<td align="center">
 				<select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" >
 					<option value="ar">Cummins HK (cummins.hk@gmail.com)</option>
 				</select>
@@ -75,7 +77,7 @@
 	</div><br>
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
-			<td width="70%">
+			<td width="65%">
 				
 				<div id="orders" class="easyui-panel" style="height:200px;border-style: none;"
 				        data-options="href:'http://localhost:8000/show_content.php?page=1'">
@@ -90,6 +92,7 @@
 				</div>
 
 			</td>
+			<td width="5%">&nbsp;</td>
 			<td width="30%">
 				
 				{{-- Load assignments here. --}}
