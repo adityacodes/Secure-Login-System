@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Admin Panel')
+@section('title','Participants')
 
 
 

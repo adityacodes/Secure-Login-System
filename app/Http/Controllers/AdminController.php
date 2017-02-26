@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display the admin page.
      *
@@ -17,5 +21,16 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-
+    public function getAssignments()
+    {
+        return view('admin.assignments');
+    }
+    public function getOrders()
+    {
+        return view('admin.orders');
+    }
+    public function getParticipants()
+    {
+        return view('admin.participants');
+    }
 }

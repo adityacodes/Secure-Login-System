@@ -65,23 +65,23 @@
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="80%">
-				<div id="p" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
+				<div id="p" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
 					<table style="width:100%">
 						<tr>
 
-							<td width="80%">You confirmed funds reception (Request for help Z360399303)</td>
-							<td><a href="#" class="easyui-linkbutton">message 0/0</a></td>
+							<td width="80%" onclick="$('#OrderDetailBox').dialog('open')">You confirmed funds reception (Request for help Z360399303)</td>
+							<td><a href="#" onclick="$('#OrderMessageBox').dialog('open')"  class="easyui-linkbutton">message 0/0</a></td>
 
 						</tr>
 					</table>
-					<table style="width:100%">
+					<table  onclick="$('#OrderDetailBox').dialog('open')" style="width:100%">
 						<tr>
 							<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/2.png')}}"><br>Number:R798559583</td>
 							<td width="20%">Date of creating:<br>2016-12-13	</td>
 							<td width="20%">Great Tobin ><br>Bitcoin </td>
 							<td width="20%">20 USD<br>Confirmation: <img src="{{asset('easyui/themes/icons/file.png')}}"> </td>
 							<td width="20%">Confirmation:<br>> Cummins HK<br>Bitcoin </td>
-							<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/printout.png')}}"><br><a href="#" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
+							<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/printout.png')}}"><br><a href="#" onclick="$('#OrderDetailBox').dialog('open')" class="easyui-linkbutton">Details>></a></td>
 
 						</tr>
 					</table>
@@ -167,7 +167,21 @@
 
 
 	
-	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true, buttons: [{
+	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
+		<div class="easyui-layout" data-options="fit:true">
+			<div data-options="region:'east'" style="width: 200px; padding: 10px">
+				<input type="file" name="msgFile" id="msgFile" />
+			</div>
+			<div data-options="region:'center'" style="overflow-y: scroll;">
+				<div id="loadmsgbox"></div>
+			</div>
+			<div data-options="region:'south'" title="Write your message here" style="height: 120px; padding: 10px">
+				<textarea name="messageInput" id="messageInput" style="height: 60px; width: 600px"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" data-options="closed:true,modal:true, buttons: [{
                     text:'Close',
                     iconCls:'icon-cancel',
                     handler:function(){
@@ -179,6 +193,7 @@
 		<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 		<div id="boxloadOrder" style="padding: 10px"></div>
 	</div>
+
 
 	<div id="assignmentDetailbox" class="easyui-dialog" title="Order Details View" data-options="closed:true,modal:true, buttons: [{
                     text:'Close',

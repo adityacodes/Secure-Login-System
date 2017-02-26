@@ -32,7 +32,7 @@
 	Route::post('contact-us', 'MainController@postContact');
 
 /* Admin Routes */
-	Route::get('gtpadmin', 'AdminController@index');
+	Route::get('adminpanel', 'AdminController@index');
 	Route::resource('admin/contactus', 'Admin\ContactUsController');
 
 /* User Routes */
@@ -66,5 +66,10 @@
 	 	Route::put('mmmuser/account/{account}', 'ManageAccountController@updateAccount');
 	 	Route::delete('mmmuser/account/{account}', 'ManageAccountController@destroyAccount');
     });
-		
+    Route::group(['prefix' => 'admin'], function() {
+        Route::get('orders', 'AdminController@getOrders');
+        Route::get('participants', 'AdminController@getParticipants');
+        Route::get('assignments', 'AdminController@getAssignments');
+    });
+
 
