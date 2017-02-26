@@ -12,7 +12,7 @@
                     @if(Session::has('success'))
                         <h5>{{Session::get('success')}}</h5>
                     @endif
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form autocomplete="off" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

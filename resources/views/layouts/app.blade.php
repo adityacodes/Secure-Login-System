@@ -26,8 +26,20 @@
             margin-right: 6px;
         }
     </style>
+    <script type="text/javascript">
+        document.onmousedown=disableclick;
+        status="Right Click Disabled";
+        function disableclick(event)
+        {
+          if(event.button==2)
+           {
+            // alert(status);
+             return false;    
+            }
+        }
+    </script>
 </head>
-<body id="app-layout">
+<body id="app-layout"  oncontextmenu="return false">
     
 
     @yield('content')

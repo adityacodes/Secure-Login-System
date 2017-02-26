@@ -6,7 +6,7 @@
 @section('stylesheets')
 
     <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/wizard.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/formwizard.css')}}" />
     
 @endsection
 
@@ -16,27 +16,27 @@
     <div id="addacc" data-options="region:'east',split:true,collapsed:true" title="Account" style="width:450px; padding: 20px;">
         <form id="accform" method="POST" action="{{url('mmmuser/account')}}">
             <fieldset class="wfieldset">
-                <label for="Name">Bitcoin Address</label>
-                <input id="Name" name="ac_number" type="text" class="validate[required]" />
+                <label class="wlabel" for="Name">Bitcoin Address</label>
+                <input id="Name" name="ac_number" type="text" class="winput validate[required]" />
             </fieldset>
             <fieldset class="wfieldset">
-                <label for="ac_name">Account Name :</label>
-                <input id="ac_name" type="text" name="ac_name" class="validate[required]" />
-                <label for="bank_name">Bank Name :</label>
-                <input id="bank_name" type="text" name="bank_name" disabled="" value="Bitcoin" />
+                <label class="wlabel" for="ac_name">Account Name :</label>
+                <input id="ac_name" type="text" name="ac_name" class="winput validate[required]" />
+                <label class="wlabel" for="bank_name">Bank Name :</label>
+                <input id="bank_name" class="winput" type="text" name="bank_name" disabled="" value="Bitcoin" />
 
             </fieldset>
             <fieldset class="wfieldset">
-                <label for="ac_holder">Account Holder :</label>
-                <input id="ac_holder" type="text" name="ac_holder" class="validate[required]" />
-                <label for="ac_type">Account Type :</label>
-                <input id="ac_type" disabled="" type="text" name="ac_type" />
-                <label for="ac_currency">Account Currency</label>
+                <label class="wlabel" for="ac_holder">Account Holder :</label>
+                <input id="ac_holder" type="text" name="ac_holder" class="winput validate[required]" />
+                <label class="wlabel" for="ac_type">Account Type :</label>
+                <input id="ac_type" class="winput" disabled="" type="text" name="ac_type" />
+                <label class="wlabel" for="ac_currency">Account Currency</label>
                 <select id="ac_currency" name="ac_currency">
                     <option value="MAVRO-USD">MAVRO-USD</option>
                 </select>     
-                <label for="beneficiary_name">Beneficiary Name :</label>
-                <input id="beneficiary_name" class="validate[required]" type="text" name="beneficiary_name" />
+                <label class="wlabel" for="beneficiary_name">Beneficiary Name :</label>
+                <input id="beneficiary_name" class="winput validate[required]" type="text" name="beneficiary_name" />
                 {{Form::token()}}
             </fieldset>
             <p>

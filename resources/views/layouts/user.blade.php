@@ -12,6 +12,18 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 	<link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
+	{{-- <script type="text/javascript">
+	    document.onmousedown=disableclick;
+	    status="Right Click Disabled";
+	    function disableclick(event)
+	    {
+	      if(event.button==2)
+	       {
+	        // alert(status);
+	         return false;    
+	        }
+	    }
+	</script> --}}
 	@yield('stylesheets')
 
 </head>

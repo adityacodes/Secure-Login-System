@@ -24,6 +24,7 @@
     }
 </style>
 
+
 @endsection
 
 @section('content')
@@ -42,7 +43,7 @@
                         <h2 class="text-center">
                             <img src="{{asset('easyui/themes/icons/mmm.png')}}">Login to system
                         </h2>
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                        <form autocomplete="off" class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
