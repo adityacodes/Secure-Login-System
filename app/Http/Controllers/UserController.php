@@ -8,11 +8,13 @@ use App\Http\Requests;
 use App\Reference;
 use Auth, Session;
 
-/**
- * @Middleware("auth")
- */
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * @Get("dashboard", as="dashboard")
