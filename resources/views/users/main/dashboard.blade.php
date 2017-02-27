@@ -92,10 +92,7 @@
 				</div>
 
 			</td>
-		{{-- </tr>
-	</table>
-	<table width="400" border="0" align="right" cellpadding="0" cellspacing="0">
-		<tr> --}}
+			
 			<td width="2%">&nbsp;</td>
 
 			<td width="32%;">
