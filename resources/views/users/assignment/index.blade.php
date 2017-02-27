@@ -1,5 +1,6 @@
 @foreach($assignments as $as)
-        <div id="p1"  class="easyui-panel" style="width:400px;height:150px;padding:10px;">
+        <br>
+        <div id="p1"  class="easyui-panel" style="width:360px;height:190px;padding:10px;">
             <table>
                 <tr>
                     <td width="90%">Request to get help
@@ -10,10 +11,10 @@
             <table>
                 <tr>
                     <td>
-                        Participant: {{Auth::user()->name}}
-                        Amount: {{ $as->as_amount}} Mavro-USD
-                        Balance: 0 Mavro-USD
-                        Date: {{ $as->created_at }}
+                        Participant: {{Auth::user()->name}} <br>
+                        Amount: {{ $as->as_amount}} Mavro-USD <br>
+                        Balance: 0 Mavro-USD <br>
+                        Date: {{ $as->created_at }} <br>
 
                         Status: {{ $as->as_status }}
                     </td>
@@ -30,5 +31,4 @@
                 </tr>
             </table>
         </div>
-        <br>
 @endforeach

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Reference;
 use Auth, Session;
+use App\Order, App\Assignment;
 
 class UserController extends Controller
 {
@@ -22,7 +23,13 @@ class UserController extends Controller
     public function getDashboard()
     {
         $references = Reference::where('ref_id', Auth::user()->re_id)->pluck('user_id');
-    	return view('users.main.dashboard');
+        $orderscount = Order::where('or_for', Auth::user()->id)->count();
+        $assignmentscount = Assignment::where('user_id', Auth::user()->id)->count();
+
+        $pgorders = $total = $orderscount + (10 - ($orderscount)%10);
+        $pgassignments = $total = $assignmentscount + (10 - ($assignmentscount)%10);
+    	return view('users.main.dashboard')->with('totalorders', $pgorders)
+                                           ->with('totalassignments', $pgassignments);
     }
 
     /**

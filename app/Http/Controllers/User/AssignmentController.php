@@ -22,7 +22,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $assignments = Assignment::orderBy('id', 'desc')->paginate(20);
+        $assignments = Assignment::orderBy('id', 'desc')->paginate(10);
         return view('users.assignment.index')->withAssignments($assignments);
     }
 

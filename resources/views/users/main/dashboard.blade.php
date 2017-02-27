@@ -80,32 +80,38 @@
 			<td width="65%">
 				
 				<div id="orders" class="easyui-panel" style="height:200px;border-style: none;"
-				        data-options="href:'http://localhost:8000/show_content.php?page=1'">
+				        data-options="href:'{{url('mmmuser/ordersofuser')}}?page=1'">
 				</div>
 				<div class="easyui-pagination" style="border:1px solid #ccc;"
 				        data-options="
-				            total: 20,
+				            total: {{ $totalorders }},
 				            pageSize: 10,
 				            onSelectPage: function(pageNumber, pageSize){
-				                $('#orders').panel('refresh', 'http://localhost:8000/show_content.php?page='+pageNumber);
+				                $('#orders').panel('refresh', '{{url('mmmuser/ordersofuser')}}?page='+pageNumber);
 				            }">
 				</div>
 
 			</td>
-			<td width="5%">&nbsp;</td>
-			<td width="30%">
-				
+		{{-- </tr>
+	</table>
+	<table width="400" border="0" align="right" cellpadding="0" cellspacing="0">
+		<tr> --}}
+			<td width="2%">&nbsp;</td>
+
+			<td width="32%;">
+	
+			
 				{{-- Load assignments here. --}}
 				<div class="easyui-pagination" style="border:1px solid #ccc;"
 				        data-options="
-				            total: 20,
+				            total: {{ $totalassignments }},
 				            pageSize: 10,
 				            onSelectPage: function(pageNumber, pageSize){
-				                $('#assignment').panel('refresh', 'http://localhost:8000/show_content.php?page='+pageNumber);
+				                $('#assignment').panel('refresh', '{{url('mmmuser/assignment')}}?page='+pageNumber);
 				            }">
 				</div>
-				<div id="assignment" class="easyui-panel" style="height:200px;border-style: none;"
-				        data-options="href:'http://localhost:8000/show_content.php?page=1'">
+				<div id="assignment" class="easyui-panel" style="border-style: none;"
+				        data-options="href:'{{url('mmmuser/assignment')}}?page=1'">
 				</div>
 				
 			</td>

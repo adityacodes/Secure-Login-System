@@ -61,6 +61,7 @@
 	 	Route::post('account', 'ManageAccountController@storeAccount');
 	 	Route::put('account/{account}', 'ManageAccountController@updateAccount');
 	 	Route::delete('account/{account}', 'ManageAccountController@destroyAccount');
+	 	Route::get('ordersofuser','OrderController@getOrdersByUserId');
     });
     Route::group(['prefix' => 'admin'], function() {
         Route::get('orders', 'AdminController@getOrders');
