@@ -7,37 +7,33 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 	<style>
 		#p{
-			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,fcdc4b+100 */
-			background: #fefcea; /* Old browsers */
-			background: -moz-linear-gradient(top,  #fefcea 0%, #fcdc4b 100%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top,  #fefcea 0%,#fcdc4b 100%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom,  #fefcea 0%,#fcdc4b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fcdc4b',GradientType=0 ); /* IE6-9 */
+			background: #fefcea;
+			background: -moz-linear-gradient(top,  #fefcea 0%, #fcdc4b 100%);
+			background: -webkit-linear-gradient(top,  #fefcea 0%,#fcdc4b 100%);
+			background: linear-gradient(to bottom,  #fefcea 0%,#fcdc4b 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fcdc4b',GradientType=0 );
 			border-radius: 15px;
 		}
 		#p1{
-			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+60,f5f7f9+100 */
-			background: #f6f8f9; /* Old browsers */
-			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 60%, #f5f7f9 100%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+			background: #f6f8f9;
+			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 60%, #f5f7f9 100%);
+			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); 
+			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
 			border-radius: 15px;
 		}
 	</style>
+    <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/formwizard.css')}}" />
+
 
 @endsection
 
 @section('content')
-
-
-
-	{{Form::token()}}
+	<div style="overflow-y: auto;">
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
 		<tr>
 			<td>&nbsp;&nbsp;</td>
-
-
 		</tr>
 		<tr>
 			<td width="50%">
@@ -70,10 +66,8 @@
 				<img src="{{asset('easyui/themes/icons/reload.png')}}">
 			</td>
 		</tr>
-
 	</table><br>
-	<div style="font-size: small; padding-left: 500px" >
-		
+	<div style="font-size: small; padding-left: 500px" >	
 	</div><br>
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
@@ -97,8 +91,6 @@
 
 			<td width="32%;">
 	
-			
-				{{-- Load assignments here. --}}
 				<div class="easyui-pagination" style="border:1px solid #ccc;"
 				        data-options="
 				            total: {{ $totalassignments }},
@@ -113,24 +105,35 @@
 				
 			</td>
 		</tr>
-
 	</table>
 
 
 
 	<div id="gethelpbox" class="easyui-dialog" title="New Assignment" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
+		<div class="easyui-layout" fit="true">
+		 <div region="center" border="false" border="false">
+	        {!! Form::open(array('route' => 'mmmuser.assignment.store', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off', 'id' => 'gethelpform')) !!}
+	            <fieldset class="wfieldset" >
+	                <input type="checkbox" name="name" data-options="required:true" class="validate[required]">
+	               	 WARNING! By entering this you agree to the terms and conditions.
+	            </fieldset>
+	            <fieldset class="wfieldset">
+	                <label class="wlabel" for="ac_name">Participant :</label>
+	                <input  type="text" id="ac_name" class="winput validate[required]" disabled="" value="{{Auth::user()->name}}">
+	                <label class="wlabel" for="amount">Amount :</label>
+	                <input type="amount" class="form-control" required="" name="amount" id="amount" placeholder="Enter amount">
 
-        <form id="ff" method="post">
-            <div style="margin-bottom:20px">
-                <input type="checkbox" name="name" data-options="required:true">
-                WARNING! By entering this you agree to the terms and conditions.
-            </div>
-            
-        </form>
-        <div style="text-align:center;padding:5px 0">
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
-        </div>
+	            </fieldset>
+	            <fieldset class="wfieldset">
+	                <label class="wlabel" for="ac_holder">Message :</label>
+	                <textarea type="message" required="" class="winput validate[required]" name="message" id="message"></textarea>
+	            </fieldset>
+	            <p>
+	                <input id="SaveAccount" type="submit" value="Submit" />
+	            </p>
+	        {!! Form::close() !!}
+	    </div>
+	   </div>
     </div>
 
     <div id="puthelpbox" class="easyui-dialog" title="Put Help" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
@@ -164,14 +167,7 @@
 		</div>
 	</div>
 
-	<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" data-options="closed:true,modal:true, buttons: [{
-                    text:'Close',
-                    iconCls:'icon-cancel',
-                    handler:function(){
-                         $('#rOrderDetails').dialog('close');
-                    }
-                }]"
-		 style="width: 810px; height: 510px; overflow-y: scroll">
+	<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" data-options="closed:true,modal:true, buttons: [{ text:'Close', iconCls:'icon-cancel', handler:function(){  $('#rOrderDetails').dialog('close'); }}]" style="width: 810px; height: 510px; overflow-y: scroll">
 		<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
 		<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 		<div id="boxloadOrder" style="padding: 10px"></div>
@@ -222,13 +218,14 @@
 	</div>
     
 
-
+	</div>
 
 @endsection
 
 
 @section('scripts')
-
+	<script src="{{asset('easyui/jquery.validationEngine.min.js') }}"></script>
+	<script src="{{asset('easyui/jquery.validationEngine-en.min.js')}}"></script>
 <script>
     function submitForm(){
         $('#ff').form('submit');
@@ -236,35 +233,23 @@
     function clearForm(){
         $('#ff').form('clear');
     }
-</script>
-{{--
-<script>
-	$(document).ready(function(){
-	    $("#put_help").click(function(){
-			$.ajax({
-				url: '{{ url('user/provide-help') }}',
-				type: 'GET',
-				success: function(result){
-						$('.fa-spin').remove();
-						$(".modal-body  p").empty().append(result);
-    					$("#myModal").modal();
-    				}
-			});
-	        
-	    });
 
-	    $("#get_help").click(function(){
-				$('.fa-spin').remove();
-				$("#myModal").modal('show', {backdrop: 'static'});
-				$("#myModal .modal-body p").load('{{ url('users/assignment/create') }}');
-	        
-	    });
+    $( function() {
+	    var $accform = $( '#gethelpform' );
+	    
+	    $accform.validationEngine();
+	    
+	    $accform.formToWizard({
+	        submitButton: 'SaveAccount',
+	        showProgress: false, //default value for showProgress is also true
+	        nextBtnName: 'Next >>',
+	        prevBtnName: '<< Previous',
+	        showStepNo: false,
+	        validateBeforeNext: function() {
+	             return $accform.validationEngine( 'validate' );
+	        }
+	    });    
 	});
-	$("#assignments").load('{{ url('users/assignment') }}');
-
-
 </script>
---}}
-
 
 @endsection

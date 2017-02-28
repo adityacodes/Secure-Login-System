@@ -37,7 +37,10 @@
 /* User Routes */
 	
 	Route::get('user/provide-help', 'UserController@getProvideHelp');
-	Route::get('dashboard', 'UserController@getDashboard');
+	Route::get('dashboard',[
+			'as'=>'dashboard', 
+			'uses' => 'UserController@getDashboard'
+	]);
 	Route::get('participants', 'UserController@getParticipants');
 	Route::get('mavro', 'UserController@getMavro');
 	Route::get('referals', 'UserController@getReferals');
@@ -45,7 +48,6 @@
 	Route::get('letter-of-happiness', 'UserController@getHappiness');
 	Route::get('accounts', 'UserController@getAccounts');
 	Route::get('provide-help', 'UserController@getProvideHelp');
-	Route::get('get-help', 'UserController@getGetHelp');
 	Route::get('notices', 'UserController@getNotices');
 	Route::get('news', 'UserController@getNews');
 	Route::get('faq', 'UserController@getFaq');
