@@ -24,13 +24,14 @@
 		}
 	</style>
     <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/formwizard.css')}}" />
+
 
 
 @endsection
 
 @section('content')
-	<div style="overflow-y: auto;">
+	<div data-options="region:'center'" style="padding-top: 20px; font-size: 13px; overflow-y: scroll;">
+
 	<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
 		<tr>
 			<td>&nbsp;&nbsp;</td>
@@ -129,7 +130,7 @@
 	                <textarea type="message" required="" class="winput validate[required]" name="message" id="message"></textarea>
 	            </fieldset>
 	            <p>
-	                <input id="SaveAccount" type="submit" value="Submit" />
+	                <input id="SaveAccount" class="easyui-linkbutton" type="submit" value="Submit" />
 	            </p>
 	        {!! Form::close() !!}
 	    </div>
@@ -208,9 +209,12 @@
 				<div id="refname"></div>
 				<p style="font-weight: bold; font-size: 15px;"><span id="oidlbl"></span></p>
 				<p>
-					<b>Reason for cancellation</b>
-				</p>
-				<p>
+                    <p>
+                        <b>ORDER ID: <b id="assignmentid" ></b></b>
+                    </p>
+                    <p>
+                        <b>Reason for cancellation</b>
+                    </p>
 					<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
 				</p>
 			</div>
@@ -224,8 +228,6 @@
 
 
 @section('scripts')
-	<script src="{{asset('easyui/jquery.validationEngine.min.js') }}"></script>
-	<script src="{{asset('easyui/jquery.validationEngine-en.min.js')}}"></script>
 <script>
     function submitForm(){
         $('#ff').form('submit');
@@ -234,22 +236,10 @@
         $('#ff').form('clear');
     }
 
-    $( function() {
-	    var $accform = $( '#gethelpform' );
-	    
-	    $accform.validationEngine();
-	    
-	    $accform.formToWizard({
-	        submitButton: 'SaveAccount',
-	        showProgress: false, //default value for showProgress is also true
-	        nextBtnName: 'Next >>',
-	        prevBtnName: '<< Previous',
-	        showStepNo: false,
-	        validateBeforeNext: function() {
-	             return $accform.validationEngine( 'validate' );
-	        }
-	    });    
-	});
+    function cancelOrder(assid){
+        $('#assignmentid').text(assid);
+        $('#cancelOrderbox').dialog('open');
+    }
 </script>
 
 @endsection

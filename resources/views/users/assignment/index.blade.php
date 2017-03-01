@@ -23,7 +23,7 @@
             <table>
                 <tr>
                     <td width="90%">
-                        <a href="#" onclick="$('#cancelOrderbox').dialog('open')" class="easyui-linkbutton">Cancel Request</a>
+                        <a href="#" onclick="cancelOrder({{ $as->as_id }})" class="easyui-linkbutton">Cancel Request</a>
                     </td>
                     <td>
                         <a href="#" onclick="$('#assignmentDetailbox').dialog('open')" class="easyui-linkbutton">Details>></a>
