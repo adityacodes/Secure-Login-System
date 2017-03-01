@@ -5,24 +5,6 @@
 
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-	<style>
-		#p{
-			background: #fefcea;
-			background: -moz-linear-gradient(top,  #fefcea 0%, #fcdc4b 100%);
-			background: -webkit-linear-gradient(top,  #fefcea 0%,#fcdc4b 100%);
-			background: linear-gradient(to bottom,  #fefcea 0%,#fcdc4b 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fcdc4b',GradientType=0 );
-			border-radius: 15px;
-		}
-		#p1{
-			background: #f6f8f9;
-			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 60%, #f5f7f9 100%);
-			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); 
-			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
-			border-radius: 15px;
-		}
-	</style>
     <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" />
 
 
@@ -154,7 +136,19 @@
 
 
 	
-	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" style="width: 890px; height: 520px;">
+	<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true,buttons: [{
+                    text:'Send Order Message',
+                    iconCls:'icon-ok',
+                    handler:function(){
+                        alert('ok');
+                    }
+                },{
+                    text:'Close',
+                    iconCls:'icon-cancel',
+                    handler:function(){
+                         $('#OrderMessageBox').dialog('close');;
+                    }
+                }]"" style="width: 890px; height: 520px;">
 		<div class="easyui-layout" data-options="fit:true">
 			<div data-options="region:'east'" style="width: 200px; padding: 10px">
 				<input type="file" name="msgFile" id="msgFile" />
@@ -168,7 +162,7 @@
 		</div>
 	</div>
 
-	<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" data-options="closed:true,modal:true, buttons: [{ text:'Close', iconCls:'icon-cancel', handler:function(){  $('#rOrderDetails').dialog('close'); }}]" style="width: 810px; height: 510px; overflow-y: scroll">
+	<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" data-options="closed:true,modal:true, buttons: [{ text:'Close', iconCls:'icon-cancel', handler:function(){  $('#OrderDetailBox').dialog('close'); }}]" style="width: 810px; height: 510px; overflow-y: scroll">
 		<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
 		<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 		<div id="boxloadOrder" style="padding: 10px"></div>
@@ -179,7 +173,7 @@
                     text:'Close',
                     iconCls:'icon-cancel',
                     handler:function(){
-                         $('#rOrderDetails').dialog('close');
+                         $('#assignmentDetailbox').dialog('close');
                     }
                 }]"
 			 style="width: 810px; height: 510px; overflow-y: scroll">
@@ -200,7 +194,7 @@
                     text:'Close',
                     iconCls:'icon-cancel',
                     handler:function(){
-                         $('#rOrderDetails').dialog('close');;
+                         $('#cancelOrderbox').dialog('close');;
                     }
                 }]"
 		 style="width: 800px; height: 300px;">
