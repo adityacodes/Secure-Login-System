@@ -1,9 +1,4 @@
-@extends('layouts.blank')
 
-
-
-
-@section('content')
 
 {!! Form::open(array('route' => 'mmmuser.assignment.store', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off', 'id' => 'gethelpform')) !!}
     <div class="fitem">
@@ -24,5 +19,3 @@
         <textarea type="message" required="" class="easyui-textbox" name="message" id="message"></textarea>
     </div>
 {!! Form::close() !!}
-
-@endsection
