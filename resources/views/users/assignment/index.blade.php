@@ -1,12 +1,12 @@
 @if($assignments->total()!=0)
     @foreach($assignments as $as) 
             <br>
-            <div id="p1"  class="easyui-panel p1" style="width:360px;height:190px;padding:10px;">
+            <div id="a_{{ $as->as_id }}"  class="easyui-panel p1" style="width:360px;height:190px;padding:10px;">
                 <table>
                     <tr>
                         <td width="90%">Request to get help
                             Z {{ $as->as_id }} </td>
-                        <td><img src="{{asset('easyui/themes/icons/strelka_32.png')}}"></td>
+                        <td><img src="{{ asset('easyui/themes/icons/strelka_32.png') }}"></td>
                     </tr>
                 </table>
                 <table>

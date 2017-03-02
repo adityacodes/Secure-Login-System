@@ -21,7 +21,7 @@
 					</div>
 				</td>
 				<td width="50%">
-					<div id="get_help" onclick="$('#gethelpbox').dialog('open'); $('#gethelpform').form('clear');" class="ordout_button">
+					<div id="get_help" onclick="getHelp()" class="ordout_button">
 						<div>
 							<span class="translate">Get Help</span><br />
 							<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
@@ -108,13 +108,13 @@
 	                </div>
 	                {{Form::token()}}
 	                <div style="margin-bottom:20px">
-	                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true" value="{{Auth::user()->name}}" disabled="">
+	                    <input class="easyui-textbox" id="name" style="width:80%;" name="name" data-options="label:'Name:',required:true, value:'{{Auth::user()->name}}'" disabled="">
 	                </div>
 	                <div style="margin-bottom:20px">
-	                    <input class="easyui-textbox" style="width:80%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
+	                    <input class="easyui-textbox" id="amount" style="width:80%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
 	                </div>
 	                <div style="margin-bottom:20px">
-	                    <input class="easyui-textbox" style="width:80%" name="message" data-options="label:'Message:',multiline:true,required:true">
+	                    <input class="easyui-textbox" id="message" style="width:80%" name="message" data-options="label:'Message:',multiline:true,required:true">
 	                </div>
 	            </form>
 	    </div>
@@ -140,7 +140,7 @@
 	                    WARNING! By entering this you agree to the terms and conditions.
 	                </div>
 	                <div style="margin-bottom:20px">
-	                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true" value="{{Auth::user()->name}}" disabled="">
+	                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true, value:'{{Auth::user()->name}}'" disabled="">
 	                </div>
 	                <div style="margin-bottom:20px">
 	                    <input class="easyui-textbox" style="width:55%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
@@ -250,6 +250,13 @@
                     return $(this).form('enableValidation').form('validate');
                 }
             });
+    }
+
+    function getHelp(){
+    	$('#amount').val('');
+    	$('#message').val('');
+    	$('#gethelpbox').dialog('open');
+
     }
     function clearForm(){
         $('#gethelpform').form('clear');

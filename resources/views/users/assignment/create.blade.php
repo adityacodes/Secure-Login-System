@@ -5,7 +5,8 @@
     </div>
     <div class="fitem">
         <label>Participant Name:</label>
-       <input class="textbox"  id="p_name" data-options="label:'Name:',required:true" disabled="" value="{{Auth::user()->name}}">
+       <input class="textbox"  id="p_name" data-options="label:'Name:',required:true" disabled="" 
+                value="{{Auth::user()->name}}">
     </div>
     {{Form::token()}}
     <div class="fitem">
