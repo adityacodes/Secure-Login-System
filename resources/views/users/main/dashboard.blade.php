@@ -49,7 +49,7 @@
 		<div style="font-size: small; padding-left: 500px"></div><br>
 		<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
 			<tr>
-				<td width="65%">
+				<td width="65%" valign="top">
 					<div id="orders" class="easyui-panel" style="height:200px;border-style: none;"
 					        data-options="href:'{{url('mmmuser/ordersofuser')}}?page=1'">
 					</div>
@@ -63,7 +63,7 @@
 					</div>
 				</td>
 				<td width="2%">&nbsp;</td>
-				<td width="32%;" align="center">
+				<td width="32%;" align="center" valign="top">
 
 						<div class="easyui-pagination" id="assignmentsbox" style="border:1px solid #ccc;"
 						        data-options="
@@ -79,6 +79,9 @@
 				</td>
 			</tr>
 		</table>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
 		<div id="gethelpbox" class="easyui-dialog" title="New Assignment" 
 			data-options="closed:true,modal:true, buttons: [{
 	                    text:'Save',
