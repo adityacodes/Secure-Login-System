@@ -1,4 +1,4 @@
-@foreach($assignments as $as)
+@foreach($assignments as $as) 
         <br>
         <div id="p1"  class="easyui-panel" style="width:360px;height:190px;padding:10px;">
             <table>

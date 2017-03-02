@@ -20,6 +20,7 @@ class CreateAssignmentsTable extends Migration
             $table->integer('user_id'); // Refreneces user ID
             $table->string('as_message');  // What for ?
             $table->string('setting_selected'); 
+            $table->string('as_cancel_reason');
             $table->timestamps();
         });
     }
