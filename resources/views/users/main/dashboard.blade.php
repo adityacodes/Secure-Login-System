@@ -25,7 +25,7 @@
 					</div>
 				</td>
 				<td width="50%">
-					<div id="get_help" onclick="gethelptask()"  class="ordout_button">
+					<div id="get_help" onclick="$('#gethelpbox').dialog('open')" class="ordout_button">
 						<div>
 							<span class="translate">Get Help</span><br />
 							<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
@@ -97,9 +97,21 @@
 	                         $('#gethelpbox').dialog('close');
 	                    }
 	                }]" style="width: 650px; height: 280px; padding: 10px;">
-			<div class="easyui-layout" id="populategethelp" fit="true">
-		    	
-		   </div>
+            <form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
+                <div style="margin: 10px">
+                    <input name="firstname" type="checkbox" required="true">
+                    WARNING! By entering this you agree to the terms and conditions.
+                </div>
+                <div style="margin-bottom:20px">
+                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true">
+                </div>
+                <div style="margin-bottom:20px">
+                    <input class="easyui-textbox" style="width:80%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
+                </div>
+                <div style="margin-bottom:20px">
+                    <input class="easyui-textbox" style="width:80%" name="message" data-options="label:'Message:',multiline:true">
+                </div>
+            </form>
 	    </div>
 	    <div id="puthelpbox" class="easyui-dialog" title="Put Help" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
 	        <form id="ff" method="post">
@@ -201,13 +213,6 @@
         $('#cancelOrderbox').dialog('open');
     }
 
-    function gethelptask(){
-    	$.get( "{{url('mmmuser/assignment/create')}}", function( data ) {
-		  $( "#populategethelp" ).html( data );
-		});
-    	$('#gethelpbox').dialog('open');
-    	
-    }
 </script>
 
 @endsection

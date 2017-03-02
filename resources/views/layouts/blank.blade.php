@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/default/easyui.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{asset('easyui/themes/icon.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{asset('easyui/demo.css')}}">
 		<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 
 		@yield('stylesheets')
