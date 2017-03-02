@@ -5,24 +5,6 @@
 
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-	<style>
-		#p{
-			background: #fefcea;
-			background: -moz-linear-gradient(top,  #fefcea 0%, #fcdc4b 100%);
-			background: -webkit-linear-gradient(top,  #fefcea 0%,#fcdc4b 100%);
-			background: linear-gradient(to bottom,  #fefcea 0%,#fcdc4b 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#fcdc4b',GradientType=0 );
-			border-radius: 15px;
-		}
-		#p1{
-			background: #f6f8f9;
-			background: -moz-linear-gradient(top,  #f6f8f9 0%, #e5ebee 50%, #d7dee3 60%, #f5f7f9 100%);
-			background: -webkit-linear-gradient(top,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%); 
-			background: linear-gradient(to bottom,  #f6f8f9 0%,#e5ebee 50%,#d7dee3 60%,#f5f7f9 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 );
-			border-radius: 15px;
-		}
-	</style>
     <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" />
 
 
@@ -31,6 +13,108 @@
 
 @section('content')
 	<div data-options="region:'center'" style="padding-top: 20px; font-size: 13px; overflow-y: scroll;">
+        <table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+            <tr>
+                <td width="50%">
+                    <div id="put_help" onclick="$('#puthelpbox').dialog('open')" class="ordin_button">
+                        <div>
+                            <span class="translate">I Want to Provide Help</span>
+                            <i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Acquire" Mavro (Make a Contribution)</i>
+                        </div>
+                    </div>
+                </td>
+                <td width="50%">
+                    <div id="get_help" onclick="$('#gethelpbox').dialog('open')"  class="ordout_button">
+                        <div>
+                            <span class="translate">Get Help</span><br />
+                            <i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;</td>
+            </tr>
+        </table>
+        <table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
+            <tr>
+                <td align="center">
+                    <select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" >
+                        <option value="ar">Cummins HK (cummins.hk@gmail.com)</option>
+                    </select>
+                    <img src="{{asset('easyui/themes/icons/reload.png')}}">
+                </td>
+            </tr>
+        </table><br><br>
+        <table width="1200" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="65%">
+
+                    <div id="orders" class="easyui-panel" style="height:200px;border-style: none;"
+                            data-options="href:'{{url('mmmuser/ordersofuser')}}?page=1'">
+                    </div>
+                    <div class="easyui-pagination" style="border:1px solid #ccc;"
+                            data-options="
+                                total: {{ $totalorders }},
+                                pageSize: 10,
+                                onSelectPage: function(pageNumber, pageSize){
+                                    $('#orders').panel('refresh', '{{url('mmmuser/ordersofuser')}}?page='+pageNumber);
+                                }">
+                    </div>
+
+                </td>
+
+                <td width="2%">&nbsp;</td>
+
+                <td width="32%;">
+
+                    <div class="easyui-pagination" style="border:1px solid #ccc;"
+                            data-options="
+                                total: {{ $totalassignments }},
+                                pageSize: 10,
+                                onSelectPage: function(pageNumber, pageSize){
+                                    $('#assignment').panel('refresh', '{{url('mmmuser/assignment')}}?page='+pageNumber);
+                                }">
+                    </div>
+                    <div id="assignment" class="easyui-panel" style="border-style: none;"
+                            data-options="href:'{{url('mmmuser/assignment')}}?page=1'">
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+
+
+        <div id="gethelpbox" class="easyui-dialog" title="New Assignment" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
+            <div class="easyui-layout" fit="true">
+                <div region="center" border="false" border="false">
+                    {!! Form::open(array('route' => 'mmmuser.assignment.store', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data', 'autocomplete' => 'off', 'id' => 'gethelpform')) !!}
+                        <fieldset class="wfieldset" >
+                            <input type="checkbox" name="name" data-options="required:true" class="validate[required]">
+                             WARNING! By entering this you agree to the terms and conditions.
+                        </fieldset>
+                        <fieldset class="wfieldset">
+                            <label class="wlabel" for="ac_name">Participant :</label>
+                            <input  type="text" id="ac_name" class="winput validate[required]" disabled="" value="{{Auth::user()->name}}">
+                            <label class="wlabel" for="amount">Amount :</label>
+                            <input type="amount" class="form-control" required="" name="amount" id="amount" placeholder="Enter amount">
+
+                        </fieldset>
+                        <fieldset class="wfieldset">
+                            <label class="wlabel" for="ac_holder">Message :</label>
+                            <textarea type="message" required="" class="winput validate[required]" name="message" id="message"></textarea>
+                        </fieldset>
+                        <p>
+                            <input id="SaveAccount" class="easyui-linkbutton" type="submit" value="Submit" />
+                        </p>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
 
 		<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
 			<tr><td>&nbsp;&nbsp;</td></tr>
