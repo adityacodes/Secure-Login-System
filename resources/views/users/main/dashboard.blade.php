@@ -5,10 +5,6 @@
 
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-    {{-- <link rel="stylesheet" href="{{asset('easyui/validationEngine.jquery.min.css')}}" /> --}}
-
-
-
 @endsection
 
 @section('content')
@@ -25,7 +21,7 @@
 					</div>
 				</td>
 				<td width="50%">
-					<div id="get_help" onclick="$('#gethelpbox').dialog('open')" class="ordout_button">
+					<div id="get_help" onclick="$('#gethelpbox').dialog('open'); $('#gethelpform').form('clear');" class="ordout_button">
 						<div>
 							<span class="translate">Get Help</span><br />
 							<i class="translate" style="margin-top: 4px; padding-top: 0px; display: block">"Cash in" your Mavro, (Make a Withdrawal)</i>
@@ -39,7 +35,7 @@
 			<tr>
 				<td align="center">
 					<select class="easyui-combobox" name="Participant" label="Participant" style="width:450px" >
-						<option value="ar">Cummins HK (cummins.hk@gmail.com)</option>
+						<option value="ar">{{Auth::user()->name}} ({{Auth::user()->email}})</option>
 					</select>
 					<img src="{{asset('easyui/themes/icons/reload.png')}}">
 				</td>
@@ -82,13 +78,21 @@
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         <div>&nbsp;</div>
+
+
 		<div id="gethelpbox" class="easyui-dialog" title="New Assignment" 
 			data-options="closed:true,modal:true, buttons: [{
 	                    text:'Save',
 	                    iconCls:'icon-ok',
 	                    handler:function(){
-	                        submitForm();
-	                         window.location.reload();
+	                        {{-- submitForm(); --}}
+	                        var data = $('#gethelpform').serialize() + '&_token=' + '{{ csrf_token() }}';
+	                    	var method= 'POST';
+	                    	var url = '{{url('mmmuser/assignment')}}';
+	                    	var boxname = $('#gethelpbox');
+	                        var result = sendRequest(url, method, data, boxname);
+			                $('#assignment').panel('refresh');
+	                         {{-- window.location.reload(); --}}
 	                    }
 	                },{
 	                    text:'Close',
@@ -96,35 +100,58 @@
 	                    handler:function(){
 	                         $('#gethelpbox').dialog('close');
 	                    }
+	                }]" style="width: 650px; height: 320px; padding: 10px;">
+	            <form id="gethelpform" style="display: inline-block; text-align: center; margin-left: 12%;font-size: 16px; " class="easyui-form" method="post" action="{{route('mmmuser.assignment.store')}}">
+	                <div style="margin: 10px">
+	                    <input name="firstname" type="checkbox" class="easyui-checkbox" data-options="required:true">
+	                    WARNING! By entering this you agree to the terms and conditions.
+	                </div>
+	                {{Form::token()}}
+	                <div style="margin-bottom:20px">
+	                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true" value="{{Auth::user()->name}}" disabled="">
+	                </div>
+	                <div style="margin-bottom:20px">
+	                    <input class="easyui-textbox" style="width:80%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
+	                </div>
+	                <div style="margin-bottom:20px">
+	                    <input class="easyui-textbox" style="width:80%" name="message" data-options="label:'Message:',multiline:true,required:true">
+	                </div>
+	            </form>
+	    </div>
+
+
+	    <div id="puthelpbox" class="easyui-dialog" title="Put Help" data-options="closed:true,modal:true, buttons: [{
+	                    text:'Save',
+	                    iconCls:'icon-ok',
+	                    handler:function(){
+	                         $.messager.alert('Update Successful.','Your request has been sent to admin for approval. You will be informed shortly.','info');
+	                         $('#puthelpbox').dialog('close');
+	                    }
+	                },{
+	                    text:'Close',
+	                    iconCls:'icon-cancel',
+	                    handler:function(){
+	                         $('#puthelpbox').dialog('close');
+	                    }
 	                }]" style="width: 650px; height: 280px; padding: 10px;">
-            <form id="ff" class="easyui-form" method="post" data-options="novalidate:true">
-                <div style="margin: 10px">
-                    <input name="firstname" type="checkbox" required="true">
-                    WARNING! By entering this you agree to the terms and conditions.
-                </div>
-                <div style="margin-bottom:20px">
-                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true">
-                </div>
-                <div style="margin-bottom:20px">
-                    <input class="easyui-textbox" style="width:80%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
-                </div>
-                <div style="margin-bottom:20px">
-                    <input class="easyui-textbox" style="width:80%" name="message" data-options="label:'Message:',multiline:true">
-                </div>
-            </form>
+		        <form id="puthelpform" style="display: inline-block; text-align: center; margin-left: 12%;font-size: 16px; " class="easyui-form" method="post" action="#">
+	                <div style="margin: 10px">
+	                    <input name="firstname" type="checkbox" class="easyui-checkbox" data-options="required:true">
+	                    WARNING! By entering this you agree to the terms and conditions.
+	                </div>
+	                <div style="margin-bottom:20px">
+	                    <input class="easyui-textbox" style="width:80%;" name="name" data-options="label:'Name:',required:true" value="{{Auth::user()->name}}" disabled="">
+	                </div>
+	                <div style="margin-bottom:20px">
+	                    <input class="easyui-textbox" style="width:55%" name="amount"  data-options="label:'Amount:',required:true,validType:'number'">
+	                    <select style="width:25%">
+	                    	<option>MAVRO-USD</option>
+	                    </select>
+	                </div>
+	            </form>
 	    </div>
-	    <div id="puthelpbox" class="easyui-dialog" title="Put Help" data-options="closed:true, modal:true" style="width: 650px; height: 280px; padding: 10px;">
-	        <form id="ff" method="post">
-	            <div style="margin-bottom:20px">
-	                <input type="checkbox" name="name" data-options="required:true">
-	                WARNING! By entering this you agree to the terms and conditions.
-	            </div>       
-	        </form>
-	        <div style="text-align:center;padding:5px 0">
-	            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
-	            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
-	        </div>
-	    </div>
+
+
 		<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" 
 			style="width: 890px; height: 520px;">
 			<div class="easyui-layout" data-options="fit:true">
@@ -139,12 +166,22 @@
 				</div>
 			</div>
 		</div>
+
+
+
+
+
+
 		<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" 
 			data-options="closed:true,modal:true, buttons: [{ text:'Close', iconCls:'icon-cancel', handler:function(){  $('#OrderDetailBox').dialog('close'); }}]" style="width: 810px; height: 510px; overflow-y: scroll">
 			<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
 			<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 			<div id="boxloadOrder" style="padding: 10px"></div>
 		</div>
+
+
+
+
 		<div id="assignmentDetailbox" class="easyui-dialog" title="Order Details View" 
 			data-options="closed:true,modal:true, buttons: [{
 	                    text:'Close',
@@ -158,6 +195,11 @@
 			<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 			<div id="boxloadOrder" style="padding: 10px"></div>
 		</div>
+
+
+
+
+
 	    <div id="cancelOrderbox" class="easyui-dialog" title="Order Cancel" 
 	    		data-options="closed:true,modal:true, buttons: [{
 	                    text:'Cancel Order',
@@ -190,7 +232,7 @@
 			                    <p>
 			                        <b>Reason for cancellation</b>
 			                    </p>
-								<textarea id="CancellReasonInput" class="required" style="width: 400px; height: 100px;"></textarea>
+								<textarea id="CancellReasonInput" class="required"  style="width: 400px; height: 100px;"></textarea>
 							</p>
 						</div>
 					</div>
@@ -216,6 +258,7 @@
     function cancelOrder(assid){
 
         $('#assignmentid').text(assid);
+         $('textarea#CancellReasonInput').val('');
         $('#cancelOrderbox').dialog('open');
     }
 
@@ -231,7 +274,7 @@
 	        success: function(result){
 	        		boxname.dialog('close');
 	        		ajaxresults = result;
-	        		$.messager.alert('Saved Successfully','Update Successfull.','info');
+	        		$.messager.alert('Saved Successfully','Update Successful.','info');
 	        		// console.log(result);
 	            },
 	        error: function(data,result){

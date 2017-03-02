@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Assignment;
+use App\Assignment, App\Status;
 use Auth, Session;
 
 class AssignmentController extends Controller
@@ -15,6 +15,14 @@ class AssignmentController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+    public function statusmessage($statusid)
+    {
+        $sm = Status::where('id', $statusid)->first();
+        return $sm->st_name;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +31,10 @@ class AssignmentController extends Controller
     public function index()
     {
         $assignments = Assignment::orderBy('id', 'desc')->paginate(10);
+        foreach($assignments as &$assignment)
+        {
+            $assignment->as_status = $this->statusmessage($assignment->as_status);
+        }
         return view('users.assignment.index')->withAssignments($assignments);
     }
 
@@ -56,12 +68,11 @@ class AssignmentController extends Controller
        $assignment->user_id = Auth::user()->id;
        $assignment->as_message = $request->message;
        $assignment->setting_selected = 1;
-
+       $assignment->as_cancel_reason = ' ';
        $assignment->save();
 
-       Session::flash('success', 'The assignment was successfully saved.');
 
-       return redirect()->route('dashboard');
+       echo '{"Success":true, "Message":"Assignment saved successfully."}';
 
     }
 
@@ -124,4 +135,6 @@ class AssignmentController extends Controller
         // Session::flash('Success', 'Assignment Deleted Successfully');
         echo '{"Success":true, "Message":"Assignment saved successfully."}';
     }
+
+    
 }
