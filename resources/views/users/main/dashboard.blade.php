@@ -88,8 +88,7 @@
 	                    iconCls:'icon-ok',
 	                    handler:function(){
 	                        submitForm();
-	                        $('.pagination-load').trigger('click');
-	                        $('#gethelpbox').dialog('close');
+	                         window.location.reload();
 	                    }
 	                },{
 	                    text:'Close',
