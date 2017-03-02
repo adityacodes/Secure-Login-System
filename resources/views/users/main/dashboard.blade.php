@@ -163,13 +163,19 @@
 	                    text:'Cancel Order',
 	                    iconCls:'icon-ok',
 	                    handler:function(){
-	                        alert('ok');
+	                    	{{-- Return result of the ajax request --}}
+	                    	var data = 'cancelreason=' + $('#CancellReasonInput').val() + '&_token=' + '{{ csrf_token() }}';
+	                    	var method= 'PUT';
+	                    	var url = '{{url('mmmuser/assignment/cancel')}}' +'/' + $('#assignmentid').text();
+	                    	var boxname = $('#cancelOrderbox');
+	                        var result = sendRequest(url, method, data, boxname);
+			                $('#assignment').panel('refresh');
 	                    }
 	                },{
 	                    text:'Close',
 	                    iconCls:'icon-cancel',
 	                    handler:function(){
-	                         $('#cancelOrderbox').dialog('close');;
+	                         $('#cancelOrderbox').dialog('close');
 	                    }
 	                }]"
 			 	style="width: 800px; height: 300px;">
@@ -213,6 +219,31 @@
         $('#cancelOrderbox').dialog('open');
     }
 
+
+    
+    function sendRequest(url, method, datafeed, boxname) {
+    	// console.log(url)
+    	var ajaxresults;
+	    $.ajax({
+	        url: url,
+	        type: method,
+	        data:  datafeed, 
+	        success: function(result){
+	        		boxname.dialog('close');
+	        		ajaxresults = result;
+	        		$.messager.alert('Saved Successfully','Update Successfull.','info');
+	        		// console.log(result);
+	            },
+	        error: function(data,result){
+	            $.messager.alert({  // show error message
+	                title: 'Error',
+	                msg: 'Please try again.'
+
+	            });
+	        }
+	    });
+	    return ajaxresults; 
+	}
 </script>
 
 @endsection

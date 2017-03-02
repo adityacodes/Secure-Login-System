@@ -113,4 +113,15 @@ class AssignmentController extends Controller
         Session::flash('Success', 'Assignment Deleted Successfully');
         return redirect()->route('dashboard');
     }
+
+
+    public function cancel(Request $request, $id)
+    {
+        $assignment = Assignment::where('as_id','=', $id)->first();
+        $assignment->as_status = 5;
+        $assignment->as_cancel_reason = $request->cancelreason;
+        $assignment->save();
+        // Session::flash('Success', 'Assignment Deleted Successfully');
+        echo '{"Success":true, "Message":"Assignment saved successfully."}';
+    }
 }

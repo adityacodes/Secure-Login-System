@@ -60,6 +60,7 @@
 
 	 Route::group(['namespace' => 'User', 'prefix' => 'mmmuser'], function() {
 	 	Route::resource('assignment', 'AssignmentController');
+	 	Route::put('assignment/cancel/{assignment}', 'AssignmentController@cancel');
 	 	Route::get('accounts', 'ManageAccountController@getAccounts');
 	 	Route::post('account', 'ManageAccountController@storeAccount');
 	 	Route::put('account/{account}', 'ManageAccountController@updateAccount');
