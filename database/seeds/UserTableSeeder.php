@@ -29,5 +29,16 @@ class UserTableSeeder extends Seeder
             'admin' => '1',
             'confirmed' => '1'
         ]);
+
+        DB::table('statuses')->insert([
+            'id' => '1',
+            'st_name' => 'Order Processing'
+
+        ]);
+        DB::table('statuses')->insert([
+            'id' => '5',
+            'st_name' => 'Order Cancelled'
+
+        ]);
     }
 }
