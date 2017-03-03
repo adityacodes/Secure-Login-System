@@ -42,18 +42,21 @@
 			'as'=>'dashboard', 
 			'uses' => 'UserController@getDashboard'
 	]);
-	Route::get('participants', 'UserController@getParticipants');
-	Route::get('mavro', 'UserController@getMavro');
-	Route::get('referals', 'UserController@getReferals');
-	Route::get('profile', 'UserController@getProfile');
-	Route::get('letter-of-happiness', 'UserController@getHappiness');
-	Route::get('accounts', 'UserController@getAccounts');
-	Route::get('provide-help', 'UserController@getProvideHelp');
-	Route::get('notices', 'UserController@getNotices');
-	Route::get('news', 'UserController@getNews');
-	Route::get('faq', 'UserController@getFaq');
-	Route::get('support', 'UserController@getSupport');
-	Route::get('messages', 'UserController@getMessages');
+
+	// Route::group(array('middleware' => 'forceSSL'), function() {
+		Route::get('participants', 'UserController@getParticipants');
+		Route::get('mavro', 'UserController@getMavro');
+		Route::get('referals', 'UserController@getReferals');
+		Route::get('profile', 'UserController@getProfile');
+		Route::get('letter-of-happiness', 'UserController@getHappiness');
+		Route::get('accounts', 'UserController@getAccounts');
+		Route::get('provide-help', 'UserController@getProvideHelp');
+		Route::get('notices', 'UserController@getNotices');
+		Route::get('news', 'UserController@getNews');
+		Route::get('faq', 'UserController@getFaq');
+		Route::get('support', 'UserController@getSupport');
+		Route::get('messages', 'UserController@getMessages');
+	// });
 
 	// Route::controller('user', 'User\ParticipantsController');
 	/* USER ACCOUNTS */

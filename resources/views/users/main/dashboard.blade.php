@@ -174,9 +174,10 @@
 
 		<div id="OrderDetailBox" class="easyui-dialog" title="Order Details" 
 			data-options="closed:true,modal:true, buttons: [{ text:'Close', iconCls:'icon-cancel', handler:function(){  $('#OrderDetailBox').dialog('close'); }}]" style="width: 810px; height: 510px; overflow-y: scroll">
-			<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
-			<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
-			<div id="boxloadOrder" style="padding: 10px"></div>
+			@include('users.order.details')
+			<div id="orboxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
+			<div id="orboxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
+			<div id="orboxloadOrder" style="padding: 10px"></div>
 		</div>
 
 
@@ -191,7 +192,9 @@
 	                    }
 	                }]"
 				 style="width: 810px; height: 510px; overflow-y: scroll">
-			<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;"></div>
+			<div id="boxloadOrderHeader" style="padding: 10px; margin-bottom: 5px; width: 300px;">
+				
+			</div>
 			<div id="boxloadOrdermid" style="padding: 10px; margin-bottom: 5px;"></div>
 			<div id="boxloadOrder" style="padding: 10px"></div>
 		</div>
@@ -262,11 +265,19 @@
         $('#gethelpform').form('clear');
     }
 
-    function cancelOrder(assid){
+    function cancelAss(assid){
 
         $('#assignmentid').text(assid);
          $('textarea#CancellReasonInput').val('');
         $('#cancelOrderbox').dialog('open');
+    }
+
+    function showDetail(assid){
+    	// console.log(assid)
+    	var asshtml = $('#' + assid).html();
+    	console.log(asshtml);
+    	$('#boxloadOrderHeader').html(asshtml);
+    	$('#assignmentDetailbox').dialog('open');
     }
 
 

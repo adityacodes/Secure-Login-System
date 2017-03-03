@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'ajax' => \App\Http\Middleware\IsAjax::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'forceSSL' => \App\Http\Middleware\ForceSSL::class,
     ];
 }

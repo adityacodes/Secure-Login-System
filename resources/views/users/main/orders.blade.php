@@ -1,5 +1,5 @@
 
-{{-- <div id="p" class="easyui-panel" style="width:740px;height:140px;padding:10px;">
+<div id="" class="easyui-panel p" style="width:740px;height:140px;padding:10px;">
 	<table style="width:100%">
 		<tr>
 
@@ -19,4 +19,4 @@
 
 		</tr>
 	</table>
-</div> --}}
+</div>
