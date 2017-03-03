@@ -4,7 +4,7 @@
 		<tr>
 
 			<td width="80%" onclick="$('#OrderDetailBox').dialog('open')">You confirmed funds reception (Request for help Z360399303)</td>
-			<td><a href="#" onclick="$('#OrderMessageBox').dialog('open')"  class="easyui-linkbutton">message 0/0</a></td>
+			<td><a href="#" onclick="$('#OrderMessageBox').dialog('open')" class="easyui-linkbutton">message 0/0</a></td>
 
 		</tr>
 	</table>

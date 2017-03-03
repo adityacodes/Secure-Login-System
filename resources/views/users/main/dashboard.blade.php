@@ -152,13 +152,32 @@
 	    </div>
 
 
-		<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true" 
+		<div id="OrderMessageBox" class="easyui-dialog" title="Order Message" data-options="closed:true,modal:true,buttons: [{
+	                    text:'Send',
+	                    iconCls:'icon-ok',
+	                    handler:function(){
+
+	                    }
+	                },{
+	                    text:'Close',
+	                    iconCls:'icon-cancel',
+	                    handler:function(){
+	                         $('#OrderMessageBox').dialog('close');
+	                    }
+	                }]"
 			style="width: 890px; height: 520px;">
 			<div class="easyui-layout" data-options="fit:true">
 				<div data-options="region:'east'" style="width: 200px; padding: 10px">
 					<input type="file" name="msgFile" id="msgFile" />
 				</div>
-				<div data-options="region:'center'" style="overflow-y: scroll;">
+				<div data-options="region:'center'" style="overflow-y: scroll; padding: 10px;">
+					<h3>Order : <b id="orderid" ></b></h3>
+					<h3>You Can Communicate with this order participant.</h3>
+					<h3 style="color: red"> ATTENTION!</h3>
+					<p style="color: red; font-size: 12px; font-style: italic"> Please do not use any chargeback payment systems like paypal, scrill,etc!</p>
+					<p style="font-size: 12px; font-style: italic">Those system allow sender to call back the transfer so that he can get the money back! Fraudsters often use this as a option!Pay attention!</p>
+					<h3 style="color: red"> --==Beware Hackers!==--</h3>
+					<h3 style="color: red"> If sender give a link in chat, don't click it! Think first why would he send it? May be he awants to hack your computer. If he wants to show you a screen there is a button on right side ("Browse File"), to attach the file to message.</h3>
 					<div id="loadmsgbox"></div>
 				</div>
 				<div data-options="region:'south'" title="Write your message here" style="height: 120px; padding: 10px">
