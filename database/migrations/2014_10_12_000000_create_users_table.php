@@ -34,6 +34,14 @@ class CreateUsersTable extends Migration
             $table->string('skype');
             $table->string('google');
             $table->string('facebook');
+            $table->string('yahoo');
+            $table->string('website');
+            $table->string('information');
+            $table->string('contacts');
+            $table->boolean('receive_mails');
+            $table->boolean('send_sms');
+            $table->boolean('show_nick');
+            $table->boolean('show_email_public');
 
         });
     }

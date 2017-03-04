@@ -47,52 +47,55 @@
                 <tr>
                     <td style="padding: 0px 10px 0px 10px;">
                         <table style="width: 90%; margin: auto;">
-                            <tr>
-                                <td style="width: 50px; text-align: right;">Topic
-                                </td>
-                                <td>
-                                    <select name="subject" id="subject" style="width: 520px;">
-                                        <option value="">Select a topic</option>
-                                        <option value="104">Other questions</option>
-                                        <option value="100">Help receiver does not confirm receipt of funds</option>
-                                        <option value="458">The participant informed that funds weren&#39;&#39;t received</option>
-                                        <option value="432">I have provided help, but the contribution was not confirmed</option>
-                                        <option value="8">Administration&#39;s mistake or error</option>
-                                        <option value="461">My account was hacked/stolen</option>
-                                        <option value="101">Problems with recipient&#39;s requisites</option>
-                                        <option value="103">Participant is blocked</option>
-                                        <option value="202">Sender attached false screenshot of payment.</option>
-                                        <option value="463">I have paid the order but it has been cancelled.</option>
-                                        <option value="462">I got help, but the order has been cancelled.</option>
-                                        <option value="433">Remove wrong request</option>
-                                        <option value="436">Country change.</option>
-                                        <option value="438">The problems with providing help</option>
-                                        <option value="439">Problems with the creation of the withdrawal orders</option>
-                                        <option value="452">Сhange email</option>
-                                        <option value="453">Сhange phone number</option>
-                                        <option value="454">Inform about frauds and dissenters</option>
-                                        <option value="457">Delete Personal Office</option>
-                                        <option value="464">Identity verification</option>
-                                        <option value="465">Registration (referral, guider’s) bonus hasn’t been credited.</option>
-                                        <option value="459">Change of guider</option>
-                                    </select>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td style="width: 50px; text-align: right;">Your Message</td>
-                                <td>
-                                    <textarea name="message" id="message" style="height: 150px; width: 520px;"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 50px; text-align: right;">Files
-                                </td>
-                                <td style="text-align: left">
-                                    <input type="file" value="Upload File" name="ticketfile" id="ticketfile" />
+                                <tr>
 
-                                </td>
-                            </tr>
+                                <form id="createTicket">   
+                                    <td style="width: 50px; text-align: right;">Topic
+                                    </td>
+                                    <td>
+                                        <select name="topic" id="subject" style="width: 520px;">
+                                            <option value="">Select a topic</option>
+                                            <option value="104">Other questions</option>
+                                            <option value="100">Help receiver does not confirm receipt of funds</option>
+                                            <option value="458">The participant informed that funds weren&#39;&#39;t received</option>
+                                            <option value="432">I have provided help, but the contribution was not confirmed</option>
+                                            <option value="8">Administration&#39;s mistake or error</option>
+                                            <option value="461">My account was hacked/stolen</option>
+                                            <option value="101">Problems with recipient&#39;s requisites</option>
+                                            <option value="103">Participant is blocked</option>
+                                            <option value="202">Sender attached false screenshot of payment.</option>
+                                            <option value="463">I have paid the order but it has been cancelled.</option>
+                                            <option value="462">I got help, but the order has been cancelled.</option>
+                                            <option value="433">Remove wrong request</option>
+                                            <option value="436">Country change.</option>
+                                            <option value="438">The problems with providing help</option>
+                                            <option value="439">Problems with the creation of the withdrawal orders</option>
+                                            <option value="452">Сhange email</option>
+                                            <option value="453">Сhange phone number</option>
+                                            <option value="454">Inform about frauds and dissenters</option>
+                                            <option value="457">Delete Personal Office</option>
+                                            <option value="464">Identity verification</option>
+                                            <option value="465">Registration (referral, guider’s) bonus hasn’t been credited.</option>
+                                            <option value="459">Change of guider</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                {{Form::token()}}
+                                <tr>
+                                    <td style="width: 50px; text-align: right;">Your Message</td>
+                                    <td>
+                                        <textarea name="message" id="message" style="height: 150px; width: 520px;"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px; text-align: right;">Files
+                                    </td>
+                                    <td style="text-align: left">
+                                        <input type="file" value="Upload File" name="file" id="ticketfile" />
+                                    </td>
+                                </tr>
+                            </form>
                         </table>
                     </td>
                 </tr>
@@ -104,6 +107,9 @@
 
 @section('scripts')
     <script>
+        
+
+
         function newticketOpen() {
             $('#fdd').dialog({
                 title: ' Create new ticket',
@@ -117,7 +123,13 @@
                     text: 'Add Ticket',
                     iconCls: 'icon-add',
                     handler: function () {
-                        submitTicket();
+                        var url='{{url('mmmuser/saveTicket')}}';
+                        var method='POST';
+                        // var formdata = new FormData($('#createTicket')[0]);
+                        var boxname = $('#fdd');
+                        var data = $('#createTicket').serialize();
+                        console.log(data)
+                        sendRequest(url,method,data,boxname);
                     }
                 }, {
                     text: 'Close',
@@ -128,6 +140,7 @@
                 }]
             });
         }
-    </script>
 
+    </script>
+    <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 @endsection

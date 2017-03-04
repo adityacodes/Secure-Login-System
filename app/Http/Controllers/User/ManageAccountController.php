@@ -64,7 +64,8 @@ class ManageAccountController extends Controller
         $account->user_id = Auth::user()->id;
         $account->save();
 
-        echo '{"Success":true, "Message":"Account saved successfully."}';
+        $result = array('Success'=>true, 'Message'=>'Account saved successfully.');
+        echo json_encode($result);
     }
 
     public function updateAccount(Request $request, $id)
@@ -88,7 +89,8 @@ class ManageAccountController extends Controller
         $account->user_id = Auth::user()->id;
         $account->save();
 
-        echo '{"Success":true, "Message":"Account saved successfully."}';
+        $result = array('Success'=>true, 'Message'=>'Account saved successfully.');
+        echo json_encode($result);
     }
 
     public function destroyAccount($id)
