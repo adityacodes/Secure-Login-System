@@ -144,7 +144,7 @@ class ProfileController extends Controller
     	$user->contacts = $request->contacts;
 
     	$user->save();
-        $result = array('Success'=>true, 'Message'=>'Account deleted successfully.');
+        $result = array('Success'=>true, 'Message'=>'Profile saved successfully.');
         echo json_encode($result);
     }
 
