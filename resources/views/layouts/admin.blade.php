@@ -59,9 +59,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('admin/participants')}}">
+                    <a href="{{url('admin/support')}}">
                         <i class="ti-user"></i>
-                        <p>Participants</p>
+                        <p>Support</p>
                     </a>
                 </li>
                 <li>
@@ -78,7 +78,7 @@
                 </li>
 
                 <li>
-                    <a href="{{url('admin/messages')}}">
+                    <a href="{{url('admin/news')}}">
                         <i class="ti-bell"></i>
                         <p>Notifications</p>
                     </a>
