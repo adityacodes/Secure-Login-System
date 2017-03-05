@@ -51,7 +51,9 @@
 						@endforeach
 						</tbody>
 					</table>
-
+					<div class="text-center">
+	                	{!! $orders->render() !!}
+	                </div>
 				</div>
 			</div>
 		</div>

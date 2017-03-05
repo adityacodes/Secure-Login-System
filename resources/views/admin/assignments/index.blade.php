@@ -48,7 +48,9 @@
 						@endforeach
                         </tbody>
                     </table>
-
+                    <div class="text-center">
+	                	{!! $assignments->render() !!}
+	                </div>
                 </div>
             </div>
         </div>

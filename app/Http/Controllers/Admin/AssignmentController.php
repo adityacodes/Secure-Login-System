@@ -17,8 +17,8 @@ class AssignmentController extends Controller
 
     public function getIndex()
     {
-    	$assignments = Assignment::all()->sortByDesc('id');
-        $ordercreated = 1;
+    	$assignments = Assignment::orderBy('id', 'desc')->paginate(5);
+        $ordercreated = 0;
     	return view('admin.assignments.index')->withAssignments($assignments)->with('ordercreated', $ordercreated);
     }
 

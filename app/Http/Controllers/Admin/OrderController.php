@@ -24,7 +24,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all()->sortByDesc('id');
+        $orders = Order::orderBy('id', 'desc')->paginate(5);
         return view('admin.orders.index')->withOrders($orders);
     }
 
@@ -94,15 +94,11 @@ class OrderController extends Controller
     {
         //Same validation as in store
         $order = Order::find($id);
-
-        echo $request->or_id;
-        $request->or_id;
-        echo $request->or_as_id;
-        $request->or_as_id;
-        echo $request->or_to;
-        $request->or_to;
-        echo $request->or_for;
-        $request->or_for;
+        $order->or_id = $request->or_id;
+        $order->or_as_id=$request->or_as_id;
+        $order->or_to=$request->or_to;
+        $order->or_for=$request->or_for;
+        $order->save();
 
         return redirect('admin.orders.show')->withOrder($order);
 
