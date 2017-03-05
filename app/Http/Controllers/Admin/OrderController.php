@@ -54,6 +54,7 @@ class OrderController extends Controller
         echo $request->or_to;
         echo $request->or_for;
 
+
         //SAVE IN DATABSE NOW.
     }
 

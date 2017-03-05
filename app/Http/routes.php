@@ -83,7 +83,7 @@
 
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
         Route::get('assignments', 'AssignmentController@getIndex');
-
+        Route::resource('news', 'NewsController');
         Route::resource('orders', 'OrderController');
     });
 
