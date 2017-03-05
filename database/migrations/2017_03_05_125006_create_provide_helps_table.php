@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGHRequestsTable extends Migration
+class CreateProvideHelpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,8 @@ class CreateGHRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('g_h_requests', function (Blueprint $table) {
+        Schema::create('provide_helps', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('req_id'); //f key request
-            $table->string('req_message');
-            $table->string('req_amount');
-            $table->string('req_status');
-            $table->integer('account_id'); //foreign key accounts
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ class CreateGHRequestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('g_h_requests');
+        Schema::drop('provide_helps');
     }
 }

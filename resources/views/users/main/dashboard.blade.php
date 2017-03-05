@@ -8,7 +8,13 @@
 @endsection
 
 @section('content')
-	<div data-options="region:'center'" style="padding-top: 20px; font-size: 13px; overflow-y: scroll;">
+	<div data-options="region:'center'" style="padding-top: 20px; font-size: 16px; overflow-y: scroll;">
+		<div class="menu_ww_wrap">
+			<div class="menu_ww">
+				<div class="menu_warning translate" style="font-size: 14px; "><b><a href="http://nigeria-mmm.net/warning/">WARNING!</a> THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP!</b> Participate only with spare money. Don`t contribute all the money you have.
+				</div>
+			</div>
+		</div>
 		<table width="1200" border="0" align="center" cellpadding="0" cellspacing="0" >
 			<tr><td>&nbsp;&nbsp;</td></tr>
 			<tr>

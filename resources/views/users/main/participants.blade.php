@@ -14,11 +14,9 @@
 
     <div id="cc" class="easyui-layout" style="height: 650px; margin-top: +10px">
 
-        {{-- <div data-options="region:'south',split:true" style="height:50px;"></div> --}}
-
         <div data-options="region:'west',split:true" title="My participants" style="width:180px;">
             <div class="easyui-panel" >
-                <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,lines:true">
+                <ul class="easyui-tree" data-options="url:'{{url('mmmuser/participantstree')}}',method:'get',animate:true,lines:true">
                     
                 </ul>
             </div>

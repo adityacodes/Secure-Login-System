@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Reference;
 use Auth, Session;
-use App\Order, App\Assignment;
+use App\Order, App\Assignment, App\News;
 
 class UserController extends Controller
 {
@@ -111,7 +111,15 @@ class UserController extends Controller
      */  
     public function getNews()
     {
-        return view('users.main.news');
+        $news = News::orderBy('id', 'desc')->paginate(10);
+        $totalnews = $news->total();
+        return view('users.main.news')->with('totalnews', $totalnews);
+    }
+
+    public function populateNews()
+    {
+        $news = News::orderBy('id', 'desc')->paginate(10);
+        return view('users.populatenews')->withNews($news);
     }
 
     /**

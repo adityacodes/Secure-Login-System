@@ -95,6 +95,14 @@
                                         <input type="file" value="Upload File" name="file" id="ticketfile" />
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td style="width: 150px; text-align: right;">&nbsp;
+                                    </td>
+                                    <td style="text-align: center">
+                                        <a href="javascript:void(0)" iconcls="icon-save" class="easyui-linkbutton" onclick="saveInfo()">Save</a>
+                                    </td>
+                                </tr>
+
                             </form>
                         </table>
                     </td>
@@ -117,22 +125,6 @@
                 maximizable: false,
                 modal: true,
                 buttons: [{
-                    text: 'Add Ticket',
-                    iconCls: 'icon-add',
-                    handler: function () {
-                        
-                        $('#createTicket').form({
-                            url:'{{url('mmmuser/saveTicket')}}',
-                            onSubmit:function(){
-                                return $(this).form('validate');
-                            },
-                            success:function(data){
-                                $('#fdd').dialog('close');
-                                $.messager.alert('Info', data, 'info');
-                            }
-                        });
-                    }
-                }, {
                     text: 'Close',
                     iconCls: 'icon-cancel',
                     handler: function () {

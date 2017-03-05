@@ -60,7 +60,7 @@
 
 	// Route::controller('user', 'User\ParticipantsController');
 	/* USER ACCOUNTS */
-
+		Route::get('mmmuser/news', 'UserController@populateNews');
 	 Route::group(['namespace' => 'User', 'prefix' => 'mmmuser'], function() {
 	 	Route::resource('assignment', 'AssignmentController');
 	 	Route::put('assignment/cancel/{assignment}', 'AssignmentController@cancel');
@@ -73,7 +73,7 @@
 	 	Route::post('saveprofile', 'ProfileController@saveProfile');
 	 	Route::post('saveProfieInfo', 'ProfileController@saveProfileInfo');
 	 	Route::get('saveTicket', 'TicketController@saveTicket');	
-
+	 	Route::get('participantstree', 'ParticipantsController@participantsTree');
 
     });
 

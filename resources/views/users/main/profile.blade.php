@@ -90,9 +90,9 @@
                 </div>
             </div>
             <div title="Referrer" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:20px;">
-                    <h3 style="color:#0099FF;">koyamatakahiro@yahoo.com</h3>
+                    {{-- <h3 style="color:#0099FF;">koyamatakahiro@yahoo.com</h3>
                     <p>My saved referal</p>
-                    <a href="#">Show my referral link</a>
+                    <a href="#">Show my referral link</a> --}}
             </div>
         </div>
     </div>
