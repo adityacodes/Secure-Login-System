@@ -2,7 +2,7 @@
     @foreach($assignments as $as) 
             <br>
             <div id="a_{{ $as->as_id }}">
-                <div  class="easyui-panel p1" style="width:360px;height:190px;padding:10px;">
+                <div  class="easyui-panel cona" style="width:360px;height:190px;padding:10px;">
                     <table>
                         <tr>
                             <td width="90%">Request to get help

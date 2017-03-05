@@ -42,7 +42,7 @@
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="{{url('adminpanel')}}" class="simple-text">
-                    ADMIN PANEL
+                    {{Auth::user()->name}}
                 </a>
             </div>
 

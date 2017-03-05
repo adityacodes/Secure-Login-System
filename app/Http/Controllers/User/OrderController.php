@@ -17,6 +17,7 @@ class OrderController extends Controller
     public function getOrdersByUserId()
     {
     	// $orders using Auth::user()->id;
-    	return view('users.main.orders');
+        $orders = Order::all();
+    	return view('users.main.orders', compact('orders'));
     }
 }
