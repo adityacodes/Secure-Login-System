@@ -18,7 +18,7 @@ class AssignmentController extends Controller
     public function getIndex()
     {
     	$assignments = Assignment::all()->sortByDesc('id');
-    	return view('admin.assignments.index')->withAssignments($assignments)->with('ordercreated', $ordercreated);
+    	return view('admin.assignments.index');//->withAssignments($assignments)->with('ordercreated', $ordercreated);
     }
 
     public function getAssignmentsByDate($date)

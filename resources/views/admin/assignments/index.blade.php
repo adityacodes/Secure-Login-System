@@ -6,6 +6,49 @@
 @section('content')
 	<br>
 	<br>
+	<div class="static-content">
+		<div class="page-content">
+			<ol class="breadcrumb">
+
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#">Advanced Tables</a></li>
+				<li class="active"><a href="tables-editable.html">Editable Tables</a></li>
+
+			</ol>
+			<div class="page-heading">
+				<h1>Editable Tables</h1>
+			</div>
+			<div class="container-fluid">
+
+				<div data-widget-group="group1">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="alert alert-info">
+								Click on any field to edit the data! Make sure to do your mojo in the backend to actually save the data.
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+							</div>
+							<div class="panel panel-default" id="panel-inline">
+								<div class="panel-heading">
+									<h2>Inline Data Tables editing</h2>
+									<div class="panel-ctrls"></div>
+								</div>
+								<div class="panel-body no-padding">
+
+									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="editable">
+										<thead>
+										<tr>
+											<th>Rendering engine</th>
+										</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--
 	SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date"><br>
 	<table border="1">
 		<thead>
@@ -19,29 +62,9 @@
 			<th>Actions</th>
 		</thead>
 		<tbody>
-			@foreach($assignments as $assignment)
-				<tr>
-					<td>{{$assignment->as_id}}</td>
-					<td>{{$assignment->as_status}}</td>
-					<td>{{$assignment->as_amount}}</td>
-					<td>{{$assignment->as_message}}</td>
-					<td>{{$assignment->as_cancel_reason}}</td>
-					<td>{{$assignment->user_id}}</td>
-					<td>{{$assignment->created_at}}</td>
 
-					<td>
-						@if($ordercreated)
-							<button>SHOW ORDER</button>
-						@else
-							<button>CREATE ORDER</button>
-						@endif
-						{{-- On clicking create Order send this to orders/create with the assignment ID --}}
-						<button>CANCEL ASSIGNMENT</button>
-					</td>
-				</tr>
-			@endforeach
 		</tbody>
-	</table>
+	</table>-->
 @endsection
 
 
