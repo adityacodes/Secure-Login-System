@@ -50,7 +50,7 @@
 
                                 <tr>
 
-                                <form id="createTicket">   
+                                <form id="createTicket" enctype="multipart/form-data" method="POST">   
                                     <td style="width: 50px; text-align: right;">Topic
                                     </td>
                                     <td>
@@ -107,9 +107,6 @@
 
 @section('scripts')
     <script>
-        
-
-
         function newticketOpen() {
             $('#fdd').dialog({
                 title: ' Create new ticket',
@@ -123,13 +120,17 @@
                     text: 'Add Ticket',
                     iconCls: 'icon-add',
                     handler: function () {
-                        var url='{{url('mmmuser/saveTicket')}}';
-                        var method='POST';
-                        // var formdata = new FormData($('#createTicket')[0]);
-                        var boxname = $('#fdd');
-                        var data = $('#createTicket').serialize();
-                        console.log(data)
-                        sendRequest(url,method,data,boxname);
+                        
+                        $('#createTicket').form({
+                            url:'{{url('mmmuser/saveTicket')}}',
+                            onSubmit:function(){
+                                return $(this).form('validate');
+                            },
+                            success:function(data){
+                                $('#fdd').dialog('close');
+                                $.messager.alert('Info', data, 'info');
+                            }
+                        });
                     }
                 }, {
                     text: 'Close',
@@ -142,5 +143,4 @@
         }
 
     </script>
-    <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 @endsection
