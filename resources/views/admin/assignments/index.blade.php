@@ -8,26 +8,44 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Striped Table</h4>
-                    <p class="category">Here is a subtitle for this table</p>
+                    <h4 class="title">ASSIGNMENTS</h4>
+					SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date"><br>
+					<table border="1">
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
-                        <thead>
-                            <th>ID</th>
-                        	<th>Name</th>
-                        	<th>Salary</th>
-                        	<th>Country</th>
-                        	<th>City</th>
+                        <thead style="font-size: 10px">
+							<th>ASSIGNMENT ID</th>
+							<th>STATUS</th>
+							<th>AMOUNT</th>
+							<th>MESSAGE</th>
+							<th>CANCEL REASON</th>
+							<th>USER ID</th>
+							<th>CREATED ON</th>
+							<th>ACTIONS</th>
                         </thead>
                         <tbody>
-                            <tr>
-                            	<td>1</td>
-                            	<td>Dakota Rice</td>
-                            	<td>$36,738</td>
-                            	<td>Niger</td>
-                            	<td>Oud-Turnhout</td>
-                            </tr>
+						@foreach($assignments as $assignment)
+							<tr>
+								<td>{{$assignment->as_id}}</td>
+								<td>{{$assignment->as_status}}</td>
+								<td>{{$assignment->as_amount}}</td>
+								<td>{{$assignment->as_message}}</td>
+								<td>{{$assignment->as_cancel_reason}}</td>
+								<td>{{$assignment->user_id}}</td>
+								<td>{{$assignment->created_at}}</td>
+
+								<td>
+									@if($ordercreated)
+										<a onclick="" href="" ><button class="btn btn-md btn-success" style="width: 80px; height: 30px; font-size: 12px">SHOW</button></a>
+									@else
+										<a onclick="" href="" ><button class="btn btn-md btn-success" style="width: 80px; height: 30px; font-size: 12px">CREATE</button></a>
+									@endif
+									{{-- On clicking create Order send this to orders/create with the assignment ID --}}
+										<a onclick="" href="" ><button class="btn btn-md btn-danger" style="width: 80px; height: 30px; font-size: 12px">CANCEL</button></a>
+								</td>
+							</tr>
+						@endforeach
                         </tbody>
                     </table>
 
@@ -35,23 +53,6 @@
             </div>
         </div>
     </div>
-		<!--
-	SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date"><br>
-	<table border="1">
-		<thead>
-			<th>ASSIGNMENT ID</th>
-			<th>STATUS</th>
-			<th>AMOUNT</th>
-			<th>MESSAGE</th>
-			<th>CANCEL REASON</th>
-			<th>USER ID</th>
-			<th>CREATED ON</th>
-			<th>Actions</th>
-		</thead>
-		<tbody>
-
-		</tbody>
-	</table>-->
 @endsection
 
 

@@ -16,7 +16,7 @@ class OrderController extends Controller
     {
         $this->middleware('admin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +24,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.orders.index');
+        $orders = Order::all()->sortByDesc('id');
+        return view('admin.orders.index')->withOrders($orders);
     }
 
     /**
@@ -41,7 +41,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -60,7 +60,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -72,21 +72,21 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-       $order = Order::find($id);
-       //Remember to include {{Form::token()}} in form.
-       return view('admin.orders.edit')->withOrder($order);
+        $order = Order::find($id);
+        //Remember to include {{Form::token()}} in form.
+        return view('admin.orders.edit')->withOrder($order);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,10 +94,14 @@ class OrderController extends Controller
         //Same validation as in store
         $order = Order::find($id);
 
-        echo $request->or_id; $request->or_id;
-        echo $request->or_as_id; $request->or_as_id;
-        echo $request->or_to; $request->or_to;
-        echo $request->or_for; $request->or_for;
+        echo $request->or_id;
+        $request->or_id;
+        echo $request->or_as_id;
+        $request->or_as_id;
+        echo $request->or_to;
+        $request->or_to;
+        echo $request->or_for;
+        $request->or_for;
 
         return redirect('admin.orders.show')->withOrder($order);
 
@@ -106,7 +110,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
