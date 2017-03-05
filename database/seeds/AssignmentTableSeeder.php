@@ -14,7 +14,7 @@ class AssignmentTableSeeder extends Seeder
         
         DB::table('assignments')->insert([
             'as_id' => 'AS121213131',
-            'as_status' => 0,
+            'as_status' => 1,
             'as_amount' => '300',
             'user_id' => 1,
             'as_message' => 'This is Order Processing message',
