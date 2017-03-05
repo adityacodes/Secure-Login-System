@@ -4,51 +4,38 @@
 
 
 @section('content')
-	<br>
-	<br>
-	<div class="static-content">
-		<div class="page-content">
-			<ol class="breadcrumb">
+	<div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Striped Table</h4>
+                    <p class="category">Here is a subtitle for this table</p>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                            <th>ID</th>
+                        	<th>Name</th>
+                        	<th>Salary</th>
+                        	<th>Country</th>
+                        	<th>City</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            	<td>1</td>
+                            	<td>Dakota Rice</td>
+                            	<td>$36,738</td>
+                            	<td>Niger</td>
+                            	<td>Oud-Turnhout</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-				<li><a href="index.html">Home</a></li>
-				<li><a href="#">Advanced Tables</a></li>
-				<li class="active"><a href="tables-editable.html">Editable Tables</a></li>
-
-			</ol>
-			<div class="page-heading">
-				<h1>Editable Tables</h1>
-			</div>
-			<div class="container-fluid">
-
-				<div data-widget-group="group1">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="alert alert-info">
-								Click on any field to edit the data! Make sure to do your mojo in the backend to actually save the data.
-								<button type="button" class="close" data-dismiss="alert">&times;</button>
-							</div>
-							<div class="panel panel-default" id="panel-inline">
-								<div class="panel-heading">
-									<h2>Inline Data Tables editing</h2>
-									<div class="panel-ctrls"></div>
-								</div>
-								<div class="panel-body no-padding">
-
-									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="editable">
-										<thead>
-										<tr>
-											<th>Rendering engine</th>
-										</tr>
-										</thead>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div><!--
+                </div>
+            </div>
+        </div>
+    </div>
+		<!--
 	SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date"><br>
 	<table border="1">
 		<thead>

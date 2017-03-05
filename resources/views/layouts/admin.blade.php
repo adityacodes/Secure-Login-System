@@ -46,8 +46,8 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                <a href="{{url('adminpanel')}}" class="simple-text">
+                    ADMIN PANEL
                 </a>
             </div>
 
@@ -146,19 +146,13 @@
             <div class="container-fluid">
                 <nav class="pull-left">
                     <ul>
-
                         <li>
-                            <a href="http://www.creative-tim.com">
-                                Creative Tim
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
+                            <a href="#">
                                Blog
                             </a>
                         </li>
                         <li>
-                            <a href="http://www.creative-tim.com/license">
+                            <a href="#">
                                 Licenses
                             </a>
                         </li>
