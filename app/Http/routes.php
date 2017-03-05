@@ -76,10 +76,15 @@
 
 
     });
-    Route::group(['prefix' => 'admin'], function() {
-        Route::get('orders', 'AdminController@getOrders');
-        Route::get('participants', 'AdminController@getParticipants');
-        Route::get('assignments', 'AdminController@getAssignments');
+
+	// 
+    // Route::get('participants', 'AdminController@getParticipants');
+    // Route::get('assignments', 'AdminController@getAssignments');
+
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function() {
+        Route::get('assignments', 'AssignmentController@getIndex');
+
+        Route::resource('orders', 'OrderController');
     });
 
 

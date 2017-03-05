@@ -9,5 +9,11 @@ use App\Http\Controllers\Controller;
 
 class ReferalController extends Controller
 {
-    //
+    
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
+    
 }

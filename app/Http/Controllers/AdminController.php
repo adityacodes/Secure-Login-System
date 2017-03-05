@@ -21,14 +21,7 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-    public function getAssignments()
-    {
-        return view('admin.assignments');
-    }
-    public function getOrders()
-    {
-        return view('admin.orders');
-    }
+    
     public function getParticipants()
     {
         return view('admin.participants');

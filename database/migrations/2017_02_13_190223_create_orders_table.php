@@ -15,11 +15,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('or_id')->unique();
-            $table->string('re_reference')->nullbale();
+            $table->integer('or_as_id');
             $table->string('or_amount');
             $table->boolean('or_isadminpayed');
             $table->string('or_screenshot_admin');
-            $table->string('or_screenshot_request');
+            $table->string('or_screenshot_ass');
             $table->integer('or_status'); //References status
             $table->integer('or_to');
             $table->integer('or_for');

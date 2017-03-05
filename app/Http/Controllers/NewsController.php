@@ -1,22 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use App\Order, Auth;
-use App\Assignment;
 
-class OrderController extends Controller
+class NewsController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('admin');
-    }
-    
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.orders.index');
+        //
     }
 
     /**
@@ -35,7 +25,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('admin.orders.create');
+        //
     }
 
     /**
@@ -46,15 +36,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
-        //validate the data that comes in check for users with the ID
-        echo $request->or_id;
-        echo $request->or_as_id; //From which order you redirected
-        echo $request->or_amount;
-        echo $request->or_to;
-        echo $request->or_for;
-
-        //SAVE IN DATABSE NOW.
+        //
     }
 
     /**
@@ -65,8 +47,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::find($id);
-        return view('admin.orders.show')->withOrder($order);
+        //
     }
 
     /**
@@ -77,9 +58,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-       $order = Order::find($id);
-       //Remember to include {{Form::token()}} in form.
-       return view('admin.orders.edit')->withOrder($order);
+        //
     }
 
     /**
@@ -91,16 +70,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Same validation as in store
-        $order = Order::find($id);
-
-        echo $request->or_id; $request->or_id;
-        echo $request->or_as_id; $request->or_as_id;
-        echo $request->or_to; $request->or_to;
-        echo $request->or_for; $request->or_for;
-
-        return redirect('admin.orders.show')->withOrder($order);
-
+        //
     }
 
     /**
@@ -111,8 +81,6 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        $order = Order::find($id);
-        $order->delete();
-        return redirect('admin.orders.index');
+        //
     }
 }
