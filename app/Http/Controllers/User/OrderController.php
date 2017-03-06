@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-
+use App\Order;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +17,8 @@ class OrderController extends Controller
     public function getOrdersByUserId()
     {
     	// $orders using Auth::user()->id;
-        $orders = Order::all();
-    	return view('users.main.orders', compact('orders'));
+        $orders = Order::where('or_for', Auth::user()->id)->paginate(10);
+        $orders = Order::where('or_to', Auth::user()->id)->paginate(10);
+        return view('users.main.orders')->withOrders($orders);
     }
 }
