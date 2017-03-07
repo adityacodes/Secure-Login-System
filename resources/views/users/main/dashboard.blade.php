@@ -85,8 +85,7 @@
         <div>&nbsp;</div>
         <div>&nbsp;</div>
 
-
-		<div id="gethelpbox" class="easyui-dialog" title="New Assignment" 
+		<div id="gethelpbox" class="easyui-dialog" title="New Assignment"
 			data-options="closed:true,modal:true, buttons: [{
 	                    text:'Save',
 	                    iconCls:'icon-ok',

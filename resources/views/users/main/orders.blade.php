@@ -1,5 +1,5 @@
 @foreach($orders as $order)
-<div id="" class="easyui-panel prvh" style="width:740px;height:140px;padding:10px;">
+<div id="" class="easyui-panel geth" style="width:740px;height:140px;padding:10px;">
 	<table style="width:100%">
 		<tr>
 

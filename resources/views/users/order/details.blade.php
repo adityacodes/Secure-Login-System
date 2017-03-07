@@ -11,7 +11,8 @@
 			<span style="color: red">Never confirm payment before funds reception, as confirmation can not be reversed and the system will believe, that you have received funds. 
 			</span>
 		</p>
-		<p style="line-height: 21px;"> Recepient: Cummins HK , phone:78373728 <br>Recipient manager:  lisa docena , Phone: 462198732 <br>Sender:  Great Tobin , phone: 08037725181   <br>Sender manager: Sheila Oyawiri , phone: 08120295668  <br> 
+		<p style="line-height: 21px;"> Recepient: Cummins HK , phone:78373728 <br>Recipient manager:  lisa docena , Phone: 462198732
+			<br>Sender:  Great Tobin , phone: 08037725181   <br>Sender manager: Sheila Oyawiri , phone: 08120295668  <br>
 		</p>
 		<p>
 			<span class="arrg_red">ATTENTION!! </span> 
@@ -24,6 +25,20 @@
 	<br><br>
 	<div id="rmsgbox">
 
+	</div>
+	<div id="confirmbox" class="easyui-panel cona" style="width: 400px;height:100px;padding:10px;font-size: 16px">
+		<table >
+			<tr>
+				<td><img style="height: 20px;width: 20px" src="{{ asset('easyui/themes/icons/next.png') }}"></td>
+				<td><img src="{{ asset('easyui/themes/icons/2.png') }}"></td>
+				<td>Confirm funds reception</td>
+			</tr>
+			<tr>
+				<td><img style="height: 20px;width: 20px" src="{{ asset('easyui/themes/icons/next.png') }}"></td>
+				<td><img style="height: 30px;width: 30px" src="{{ asset('easyui/themes/icons/play.png') }}"></td>
+				<td>Extend payment expectation by 24hrs</td>
+			</tr>
+		</table>
 	</div>
 	<p style="font-size: 12px; font-style: italic"> P.S. In case if the request came not for the full amount indicated in the application. Do not worry! Requests for remaining sum will be received within 10 days of the filing of your application. :-))
 	</p>

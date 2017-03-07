@@ -2,12 +2,12 @@
     @foreach($assignments as $as) 
             <br>
             <div id="a_{{ $as->as_id }}">
-                <div  class="easyui-panel cona" style="width:360px;height:190px;padding:10px;">
+                <div  class="easyui-panel reqa" style="width:360px;height:190px;padding:10px;">
                     <table>
                         <tr>
                             <td width="90%">Request to get help
                                 Z {{ $as->as_id }} </td>
-                            <td><img src="{{ asset('easyui/themes/icons/strelka_32.png') }}"></td>
+                            <td><img src="{{ asset('easyui/themes/icons/strelka_31.png') }}"></td>
                         </tr>
                     </table>
                     <table>
