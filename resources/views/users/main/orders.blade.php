@@ -10,8 +10,8 @@
 	</table>
 	<table  onclick="$('#OrderDetailBox').dialog('open')" style="width:100%">
 		<tr>
-			<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/2.png')}}"><br>Number:{{ $orders->or_as_id}}</td>
-			<td width="20%">Date of creating:<br>{{ $orders->created_at }}</td>
+			<td width="10%"><img style="height: 40px" src="{{asset('easyui/themes/icons/2.png')}}"><br>Number:{{ $order->or_as_id}}</td>
+			<td width="20%">Date of creating:<br>{{ $order->created_at }}</td>
 			<td width="20%">Great Tobin ><br>Bitcoin </td>
 			<td width="20%">{{ $order->or_amount }}<br>Confirmation: <img src="{{asset('easyui/themes/icons/file.png')}}"> </td>
 			<td width="20%">Confirmation:<br>> {{Auth::user()->name}}<br>Bitcoin </td>
