@@ -9,7 +9,9 @@
             <div class="card">
                 <div class="header">
                     <h4 class="title">ASSIGNMENTS</h4>
-					SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date"><br>
+                    	<h5 class="text-center">
+							SELECT ASSIGNMENTS BY DATE :<input id="assbydate" type="date">
+						</h5>
 					<table border="1">
                 </div>
                 <div class="content table-responsive table-full-width">

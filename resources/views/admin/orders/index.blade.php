@@ -9,8 +9,9 @@
 			<div class="card">
 				<div class="header">
 					<h4 class="title">ORDERS</h4>
-					SELECT ORDERS BY DATE :<input id="assbydate" type="date"><br>
-					<table border="1">
+						<h5 class="text-center">
+							SELECT ORDERS BY DATE :<input id="assbydate" type="date">
+						</h5>
 				</div>
 				<div class="content table-responsive table-full-width">
 					<table class="table table-striped">

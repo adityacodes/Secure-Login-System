@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/img/apple-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/img/favicon.png')}}">
+    <link rel="icon" href="{{asset('favicon.ico')}}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
 	<title>@yield('title') | MMM-UNION</title>
-
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
-    <!-- Bootstrap core CSS     -->
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
     <link href="{{asset('admin/css/animate.min.css')}}" rel="stylesheet"/>
-
-    <!--  Paper Dashboard core CSS    -->
     <link href="{{asset('admin/css/paper-dashboard.css')}}" rel="stylesheet"/>
-
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{asset('admin/css/demo.css')}}" rel="stylesheet" />
-
-
-    <!--  Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
     <link href="{{asset('admin/css/themify-icons.css')}}" rel="stylesheet">
+    <style type="text/css">
+        [type="date"] {
+          background:#fff url('{{asset('img/calender.png')}}')  97% 50% no-repeat ;
+        }
+        [type="date"]::-webkit-inner-spin-button {
+          display: none;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+          opacity: 0;
+        }
+        input {
+          border: 1px solid #c4c4c4;
+          border-radius: 5px;
+          background-color: #fff;
+          padding: 3px 5px;
+          box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+          width: 190px;
+        }
+    </style>
 
     @yield('stylesheets')
 
@@ -38,61 +41,51 @@
 
 <div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
-
     	<div class="sidebar-wrapper">
             <div class="logo">
                 <a href="{{url('adminpanel')}}" class="simple-text">
                     {{Auth::user()->name}}
                 </a>
             </div>
-
             <ul class="nav">
-                <li class="active">
+                <li class="{{Request::is('adminpanel')? "active" : ""}}">
                     <a href="{{url('adminpanel')}}">
                         <i class="ti-panel"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{Request::is('admin/support')? "active" : ""}}">
                     <a href="{{url('admin/support')}}">
                         <i class="ti-user"></i>
                         <p>Support</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{Request::is('admin/assignments')? "active" : ""}}">
                     <a href="{{url('admin/assignments')}}">
                         <i class="ti-view-list-alt"></i>
                         <p>Assignments</p>
                     </a>
                 </li>
-                <li>
+                <li class="{{Request::is('admin/orders')? "active" : ""}}">
                     <a href="{{url('admin/orders')}}">
                         <i class="ti-pencil-alt2"></i>
                         <p>Orders</p>
                     </a>
                 </li>
 
-                <li>
+                <li class="{{Request::is('admin/news')? "active" : ""}}">
                     <a href="{{url('admin/news')}}">
                         <i class="ti-bell"></i>
                         <p>News</p>
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{url('admin/providehelp')}}">
-                        <i class="ti-bell"></i>
-                        <p>Provide Help</p>
-                    </a>
-                </li>
-
-                <li>
+                <li class="{{Request::is('admin/users')? "active" : ""}}">
                     <a href="{{url('admin/users')}}">
                         <i class="ti-user"></i>
                         <p>All Users</p>
                     </a>
                 </li>
-
             </ul>
     	</div>
     </div>
@@ -118,19 +111,14 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
-
-
         <div class="content">
             <div class="container-fluid">
             	@yield('content')
             </div>
         </div>
-
-
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -148,39 +136,22 @@
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.globaltechpromoters.com">GTP</a>
                 </div>
             </div>
         </footer>
-
     </div>
 </div>
 
 
 </body>
 
-    <!--   Core JS Files   -->
     <script src="{{asset('admin/js/jquery-1.10.2.js')}}" type="text/javascript"></script>
 	<script src="{{asset('admin/js/bootstrap.min.js')}}" type="text/javascript"></script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="{{asset('admin/js/bootstrap-checkbox-radio.js')}}"></script>
-
-	<!--  Charts Plugin -->
-	<script src="{{asset('admin/js/chartist.min.js')}}"></script>
-
-    <!--  Notifications Plugin    -->
     <script src="{{asset('admin/js/bootstrap-notify.js')}}"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 	<script src="{{asset('admin/js/paper-dashboard.js')}}"></script>
-
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="{{asset('admin/js/demo.js')}}"></script>
-
 	<script type="text/javascript">
     	$(document).ready(function(){
         	// $.notify({
@@ -193,7 +164,6 @@
          //    });
     	});
 	</script>
-
 	@yield('scripts')
 
 </html>

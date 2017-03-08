@@ -86,6 +86,8 @@
         Route::resource('news', 'NewsController');
         Route::resource('orders', 'OrderController');
         Route::resource('support', 'SupportController');
+        Route::resource('users', 'UserController');
+
     });
 
 

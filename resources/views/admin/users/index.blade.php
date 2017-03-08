@@ -18,14 +18,19 @@
             <div class="card">
                 <div class="header">
                     <h4 class="title">Users</h4>
-					SELECT USERS BY DATE :<input id="assbydate" type="date"><br>
+                    <h5 class="text-center">
+						SELECT USERS BY DATE :<input id="assbydate" type="date">
+					</h5>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
                         <thead style="font-size: 10px">
 							<th>USER ID</th>
 							<th>USER NAME</th>
-							<th>USER EMAIL</th>
+							<th>EMAIL</th>
+							<th>MOBILE</th>
+							<th>HELPS PROVIDED</th>
+							<th>ACCEPTED HELPS</th>
 							<th>CREATED ON</th>
 							<th>ACTIONS</th>
                         </thead>
@@ -35,6 +40,9 @@
 								<td>{{$user->id}}</td>
 								<td>{{$user->name}}</td>
 								<td>{{$user->email}}</td>
+								<td>{{$user->mobile}}</td>
+								<td>{{$user->helpsprovided}}</td>
+								<td>{{$user->helpsaccepted}}</td>
 								<td>{{$user->created_at}}</td>
 
 								<td>

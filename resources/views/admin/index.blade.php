@@ -26,8 +26,8 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Capacity KADALI</p>
-                                            105GB
+                                            <p>USERS</p>
+                                            {{$data['totalusers']}}
                                         </div>
                                     </div>
                                 </div>
@@ -51,8 +51,8 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Revenue</p>
-                                            $1,345
+                                            <p>ASSIGNMENTS</p>
+                                            {{$data['totalassignments']}}
                                         </div>
                                     </div>
                                 </div>
@@ -76,8 +76,8 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Errors</p>
-                                            23
+                                            <p>ORDERS</p>
+                                            {{$data['totalorders']}}
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Followers</p>
+                                            <p>FOLLOWERS</p>
                                             +45
                                         </div>
                                     </div>
