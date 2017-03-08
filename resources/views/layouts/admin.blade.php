@@ -85,6 +85,14 @@
                         <p>Provide Help</p>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{url('admin/users')}}">
+                        <i class="ti-user"></i>
+                        <p>All Users</p>
+                    </a>
+                </li>
+
             </ul>
     	</div>
     </div>

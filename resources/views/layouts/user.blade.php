@@ -90,10 +90,17 @@
 	<script type="text/javascript" src="{{asset('easyui/jquery.easyui.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('easyui/jquery.formtowizard.js')}}"></script>
 	<script type="text/javascript" src="{{asset('easyui/easyloader.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/notify.min.js')}}"></script>
 	@yield('scripts')
 
 	<script type="text/javascript">
 		$('.loader').fadeOut('slow');
+		@if(Session::has('success'))
+        	$.notify("{{Session::get('success')}}", 
+				{className: 'success',}
+			);
+        @endif
+
 	</script>
 </body>
 </html>
