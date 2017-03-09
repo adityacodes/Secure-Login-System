@@ -50,7 +50,7 @@
 		Route::get('profile', 'UserController@getProfile');
 		Route::get('letter-of-happiness', 'UserController@getHappiness');
 		Route::get('accounts', 'UserController@getAccounts');
-		Route::get('provide-help', 'UserController@getProvideHelp');
+		
 		Route::get('notices', 'UserController@getNotices');
 		Route::get('news', 'UserController@getNews');
 		Route::get('faq', 'UserController@getFaq');
@@ -74,7 +74,8 @@
 	 	Route::post('saveProfieInfo', 'ProfileController@saveProfileInfo');
 	 	Route::get('saveTicket', 'TicketController@saveTicket');	
 	 	Route::get('participantstree', 'ParticipantsController@participantsTree');
-
+	 	
+	 	Route::get('provide-help', 'UserController@getProvideHelp');
     });
 
 	// 
